@@ -2,6 +2,7 @@ package com.baf.musafir.phoenix.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,11 +31,14 @@ public class FlhhourAdapter extends ArrayAdapter<FlgHourModel>  {
 
     private Filter planetFilter;
     private List<FlgHourModel> flgHourModels;
+    Typeface tf;
 
     public FlhhourAdapter(Context context) {
         super(context, R.layout.row_flg_hour, FlgHourVector.getAllFlhhourlist());
         this.context = context;
         this.flgHourModels = FlgHourVector.getAllFlhhourlist();
+        tf = Typeface.createFromAsset(context.getAssets(),
+                "fonts/megatron.ttf");
 
     }
 
@@ -85,6 +89,14 @@ public class FlhhourAdapter extends ArrayAdapter<FlgHourModel>  {
             holder.inst_actual = (TextView) v.findViewById(R.id.inst_actual);
             holder.inst_simulator = (TextView) v.findViewById(R.id.inst_simulator);
             holder.row_linear=(LinearLayout) v.findViewById(R.id.row_linear);
+
+            holder.day_text.setTypeface(tf);
+            holder.actype_text.setTypeface(tf);
+            holder.ac_serno.setTypeface(tf);
+            holder.pilot_one.setTypeface(tf);
+            holder.pilot_two.setTypeface(tf);
+            holder.inst_actual.setTypeface(tf);
+            holder.inst_simulator.setTypeface(tf);
 
             v.setTag(holder);
         } else {
