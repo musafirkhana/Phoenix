@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/button_background"
+        >
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="BACK"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_selector">
+
+            </ImageView>
+
+
+
+        </RelativeLayout>
+
+        <TextView android:id="@+id/tv_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/my_custom_font"
+            android:text="@string/head_string"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:fontFamily="@font/my_custom_font"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:text="Year/Month/Date "
+                            android:textSize="@dimen/main_text_size" />
+
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+                            <EditText
+                                android:id="@+id/year_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text=""
+                                android:clickable="true"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:textColor="@color/black"
+                            android:gravity="center|start"
+                            android:fontFamily="@font/my_custom_font"
+                            android:text="Aircraft Type"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+                            <EditText
+                                android:id="@+id/actype_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text="L 410"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/my_custom_font"
+                            android:text="Aircraft Serial No"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+
+                            <Spinner
+                                android:id="@+id/acnumber_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            </Spinner>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:textColor="@color/black"
+                            android:gravity="center|start"
+                            android:fontFamily="@font/my_custom_font"
+                            android:text="First Pilot"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+
+                            <EditText
+                                android:id="@+id/firstpilot_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text="1:00"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:text="Second Pilot"
+                            android:fontFamily="@font/my_custom_font"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+                            <EditText
+                                android:id="@+id/secondpilot_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text="1:00"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/my_custom_font"
+                            android:text="Flying Type"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+
+                            <Spinner
+                                android:id="@+id/daynight_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            </Spinner>
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_7"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:gravity="center|start"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/my_custom_font"
+                            android:text="Flying Hour"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+                            <EditText
+                                android:id="@+id/flghour_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text="2:20"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_8"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:gravity="center|start"
+                            android:fontFamily="@font/my_custom_font"
+                            android:textColor="@color/black"
+                            android:text="Instruement hrs Actual"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+
+                            <EditText
+                                android:id="@+id/inst_ac_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text="2:20"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_view_height"
+                        android:layout_marginLeft="@dimen/main_margin_left"
+                        android:layout_marginTop="@dimen/main_margin_top"
+                        android:layout_marginRight="@dimen/main_margin_right"
+                        android:gravity="center">
+
+                        <TextView android:id="@+id/tv_9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:fontFamily="@font/my_custom_font"
+                            android:gravity="center|start"
+                            android:text="Instruement hrs Simulation"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/main_text_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@drawable/rounded_corner">
+
+
+                            <EditText
+                                android:id="@+id/instsimulation_edittext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_alignParentLeft="true"
+                                android:paddingLeft="5dp"
+                                android:text="2:20"
+                                android:layout_marginLeft="@dimen/edittext_padding_left"
+                                android:inputType="none"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/edittext_text_size" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="220dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/button_background"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/my_custom_font"
+                android:gravity="center"
+                android:text="SUBMIT"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

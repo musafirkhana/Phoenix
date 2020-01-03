@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/button_background"
+        >
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/button_background"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/back_selector"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="BACK"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/head_string"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold|normal" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/plusbtn"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="PLUS"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/header_linear"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/top_linear"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/gray_filler"
+        android:orientation="horizontal">
+
+        <TextView android:id="@+id/txt_designation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Date"
+            android:textSize="8sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".03"
+            android:background="@color/black"
+            android:layout_height="fill_parent"></View>
+
+        <TextView android:id="@+id/txt_office_ext"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="Ac type"
+            android:textSize="8sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".03"
+            android:background="@color/black"
+            android:layout_height="fill_parent"></View>
+
+        <TextView android:id="@+id/txt_office_auto"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Ser no"
+            android:textSize="8sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".03"
+            android:background="@color/black"
+            android:layout_height="fill_parent"></View>
+
+        <TextView android:id="@+id/txt_res_ext"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="1st pilot"
+            android:textSize="8sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".03"
+            android:background="@color/black"
+            android:layout_height="fill_parent"></View>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="2nd pilot"
+            android:textSize="8sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".03"
+            android:background="@color/black"
+            android:layout_height="fill_parent"></View>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Inst Act"
+            android:textSize="8sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".03"
+            android:background="@color/black"
+            android:layout_height="fill_parent"></View>
+
+        <TextView android:id="@+id/txt_res_auto"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Inst Sim"
+            android:textSize="8sp" />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/hrslistview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_linear"
+        android:layout_above="@+id/excercise_scroll"
+        android:layout_centerHorizontal="true" >
+    </ListView>
+    <TextView
+        android:id="@+id/excercise_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/button_background"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textSize="20sp"
+        android:text="@string/bottom_text"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
