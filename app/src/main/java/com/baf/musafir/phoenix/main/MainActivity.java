@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseUtility;
+import com.baf.musafir.phoenix.quiz.QuizMainActivity;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.ToastUtil;
 import com.daimajia.slider.library.SliderLayout;
@@ -160,7 +161,8 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void CKLIST(View v) {
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CklistMainActivity.class);
+        startActivity(intent);
     }
 
     public void COCKPIT(View v) {
@@ -183,7 +185,8 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void OTHERS(View v) {
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, QuizMainActivity.class);
+        startActivity(intent);
     }
 
     /********************************More Menu****************/

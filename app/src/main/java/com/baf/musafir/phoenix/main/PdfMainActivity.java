@@ -40,6 +40,7 @@ public class PdfMainActivity extends Activity {
 
         Intent intent = new Intent(this, PdfActivity.class);
         intent.putExtra("pdfName", "SOP1.pdf");
+        intent.putExtra("head",ptv_1.getText().toString());
         startActivity(intent);
     }
 
@@ -47,24 +48,28 @@ public class PdfMainActivity extends Activity {
 
         Intent intent = new Intent(this, PdfActivity.class);
         intent.putExtra("pdfName", "SOP1.pdf");
+        intent.putExtra("head",ptv_2.getText().toString());
         startActivity(intent);
     }
 
     public void PDF3(View v) {
         Intent intent = new Intent(this, PdfActivity.class);
         intent.putExtra("pdfName", "SOP1.pdf");
+        intent.putExtra("head",ptv_3.getText().toString());
         startActivity(intent);
     }
 
     public void PDF4(View v) {
         Intent intent = new Intent(this, PdfActivity.class);
         intent.putExtra("pdfName", "SOP1.pdf");
+        intent.putExtra("head",ptv_4.getText().toString());
         startActivity(intent);
     }
 
     public void PDF5(View v) {
         Intent intent = new Intent(this, PdfActivity.class);
         intent.putExtra("pdfName", "SOP1.pdf");
+        intent.putExtra("head",ptv_5.getText().toString());
         startActivity(intent);
     }
 

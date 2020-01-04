@@ -150,7 +150,7 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
 
         year_edittext.setText(currentDateandTime);
         datePick();
-        getYMD();
+
 
         list.add("* SELECT AC");
         list.add("3011");
@@ -205,16 +205,18 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
     private void updateLabel() {
         String myFormat = "d MMM yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
         year_edittext.setText(sdf.format(myCalendar.getTime()));
+        getYMD();
     }
 
     private void getYMD() {
+        Timber.i(year_edittext.getText().toString());
         str_year = StringUtility.getYear(year_edittext.getText().toString());
         Timber.i(str_year);
         str_month = StringUtility.getMonth(year_edittext.getText().toString());
         Timber.i(str_month);
         str_date = StringUtility.getDay(year_edittext.getText().toString());
+
         Timber.i(str_date);
 
 

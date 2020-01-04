@@ -9,6 +9,10 @@ import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.holder.FlgHourVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
 import com.baf.musafir.phoenix.model.FlgHourModel;
+import com.baf.musafir.phoenix.quiz.Question;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import timber.log.Timber;
 
@@ -87,6 +91,40 @@ public class DataBaseUtility {
             } while (cursor.moveToNext());
         }
         db.close();
+    }
+
+    public List<Question> getQuizData(Context context) {
+        List<Question> questionList = new ArrayList<Question>();
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Log.w(TAG, "getAirHqLodgerData: " + db.getVersion());
+
+        Cursor cursor = db.rawQuery(
+                "SELECT * from quiz_table;",
+                null);
+        // Log.i(TAG, "Database Query Are :" + cursor);
+        CoordinateVector coordinateVector = new CoordinateVector();
+        coordinateVector.removeAllCoordinatelist();
+        if (cursor.moveToFirst()) {
+            do {
+
+                Question q = new Question();
+                q.setId(cursor.getInt(0));
+                q.setQuestion(cursor.getString(1));
+                q.setAnswer(cursor.getString(2));
+                q.setOptA(cursor.getString(3));
+                q.setOptB(cursor.getString(4));
+                q.setOptC(cursor.getString(5));
+                q.setExplanation(cursor.getString(6));
+                q.setOptD(cursor.getString(7));
+
+                //add question in list
+                questionList.add(q);
+
+            } while (cursor.moveToNext());
+        }
+        return questionList;
+       // db.close();
     }
 
 }

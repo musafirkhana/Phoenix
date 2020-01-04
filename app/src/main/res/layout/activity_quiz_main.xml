@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:onClick="BACK">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_selector">
+
+            </ImageView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Bangladesh Airforce"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/quiz_content_main" />
+
+</LinearLayout>

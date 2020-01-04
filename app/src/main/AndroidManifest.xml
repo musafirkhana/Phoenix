@@ -111,7 +111,27 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity
+            android:name=".main.CklistMainActivity"
+            android:configChanges="locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
 
+        </activity>
+        <activity
+        android:name=".quiz.QuizMainActivity"
+        android:configChanges="locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+        android:launchMode="singleTop"
+        android:screenOrientation="portrait">
+
+    </activity>
+        <activity
+            android:name=".quiz.ResultActivity"
+            android:configChanges="locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+
+        </activity>
 
     </application>
 

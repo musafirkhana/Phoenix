@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:onClick="BACK">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_selector">
+
+            </ImageView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="103 ATTU BAF"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/top_linear"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView android:id="@+id/disposal_tv"
+        android:layout_width="wrap_content"
+        android:text="trstfy"
+        android:textSize="30sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/scoreText"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your score: "
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/scoreTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/scoreText"
+        android:text="5"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="35sp"
+        android:textColor="#F00"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_below="@+id/scoreTxtView"
+        android:layout_centerHorizontal="true"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_height="50dp">
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/backgroundbutton"
+            android:text="HOME"
+           />
+        <Button
+            android:id="@+id/btn_playagain"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/backgroundbutton"
+            android:text="PLAY AGAIN"
+           />
+    </LinearLayout>
+
+</RelativeLayout>
