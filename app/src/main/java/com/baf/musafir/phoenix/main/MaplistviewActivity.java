@@ -380,7 +380,7 @@ private void initUI(){
                     List<CoordinateModel> nPlanetList = new ArrayList<CoordinateModel>();
                     for (CoordinateModel p : coordinateModels) {
 
-                        if (p.getPlaces().toUpperCase().contains(constraint.toString().toUpperCase())) {
+                        if (p.getPlaces().toUpperCase().startsWith(constraint.toString().toUpperCase())) {
                             nPlanetList.add(p);
                         }
 

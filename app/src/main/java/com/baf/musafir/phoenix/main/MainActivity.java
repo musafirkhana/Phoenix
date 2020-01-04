@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseUtility;
 import com.baf.musafir.phoenix.quiz.QuizMainActivity;
+import com.baf.musafir.phoenix.quiz.QuizlistActivity;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.ToastUtil;
 import com.daimajia.slider.library.SliderLayout;
@@ -136,11 +137,11 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
         HashMapForLocalRes = new HashMap<String, Integer>();
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner1);
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner2);
+        HashMapForLocalRes.put("103 ATTU", R.drawable.banner3);
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner4);
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner1);
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner2);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner4);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner1);
+        HashMapForLocalRes.put("103 ATTU", R.drawable.banner3);
 
     }
 
@@ -185,7 +186,7 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void OTHERS(View v) {
-        Intent intent = new Intent(this, QuizMainActivity.class);
+        Intent intent = new Intent(this, QuizlistActivity.class);
         startActivity(intent);
     }
 

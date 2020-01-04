@@ -211,4 +211,8 @@ public class QuizMainActivity extends Activity {
         stopCountdown();
         super.finish();
     }
+
+    public void BACK(View v) {
+        finish();
+    }
 }

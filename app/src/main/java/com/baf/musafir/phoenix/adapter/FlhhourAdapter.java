@@ -104,7 +104,7 @@ public class FlhhourAdapter extends ArrayAdapter<FlgHourModel>  {
         }
         if (position < FlgHourVector.getAllFlhhourlist().size()) {
             FlgHourModel query = flgHourModels.get(position);
-            holder.day_text.setText(query.getDate());
+            holder.day_text.setText(query.getDate()+" "+query.getMonth()+" "+query.getYear());
             holder.actype_text.setText(query.getAc_type());
             holder.ac_serno.setText(query.getAc_serno());
             holder.pilot_one.setText(query.getFirst_pilot());
