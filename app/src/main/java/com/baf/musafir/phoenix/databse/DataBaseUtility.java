@@ -92,6 +92,51 @@ public class DataBaseUtility {
         }
         db.close();
     }
+    /******************************
+     * Getting  Flg hhour from DB
+     *
+     ******************************/
+    public void getFilterFlghourData(Context context,String year,String month) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Log.w(TAG, "getAirHqLodgerData: " + db.getVersion());
+
+        Cursor cursor = db.rawQuery(
+                "SELECT * from flg_hour where  year='" +
+                        year +
+                        "' AND month='" +
+                        month +
+                        "';",
+                null);
+        Timber.tag("\"Database Query").e(""+cursor);
+        FlgHourVector flgHourVector = new FlgHourVector();
+        flgHourVector.removeFlhhourlist();
+        if (cursor.moveToFirst()) {
+            do {
+
+                FlgHourModel flgHourModel = new FlgHourModel();
+                flgHourModel.setYear(cursor.getString(0));
+                flgHourModel.setMonth(cursor.getString(1));
+                flgHourModel.setDate(cursor.getString(2));
+                flgHourModel.setAc_type(cursor.getString(3));
+                flgHourModel.setAc_serno(cursor.getString(4));
+                flgHourModel.setFirst_pilot(cursor.getString(5));
+                flgHourModel.setSecond_pilot(cursor.getString(6));
+                flgHourModel.setDay_hour(cursor.getString(7));
+                flgHourModel.setNight_hour(cursor.getString(8));
+                flgHourModel.setInstr_actual(cursor.getString(9));
+                flgHourModel.setInst_simulator(cursor.getString(10));
+                flgHourModel.setD_n_flag(cursor.getString(12));
+
+                flgHourVector.setFlhhourlist(flgHourModel);
+                flgHourModel = null;
+                Log.w(TAG, "Contact Data : " + cursor.getString(0));
+                Timber.tag("Year").e(cursor.getString(0));
+
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
 
     public List<Question> getQuizData(Context context) {
         List<Question> questionList = new ArrayList<Question>();

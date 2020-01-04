@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     >
 
     <RelativeLayout
@@ -165,7 +166,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_below="@+id/header_linear"
-        android:layout_above="@+id/btn_filter"
+        android:layout_above="@+id/btn_linear"
         android:layout_height="wrap_content">
 
         <ListView
@@ -255,23 +256,46 @@
     </RelativeLayout>
 
 
-
-
-
-    <Button android:id="@+id/btn_filter"
-        android:layout_width="250dp"
+    <LinearLayout android:id="@+id/btn_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:background="@color/black"
-        android:textSize="20sp"
-        android:fontFamily="@font/megatron"
-        android:textColor="@color/white"
-        android:text="Filter"
-        android:layout_marginBottom="20dp"
-        android:layout_height="50dp">
+        android:orientation="horizontal">
 
-    </Button>
+        <Button
+            android:id="@+id/btn_all_data"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:background="@color/black"
+            android:text="All Data"
+            android:textSize="20sp"
+            android:fontFamily="@font/megatron"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="50dp"></View>
+
+        <Button
+            android:id="@+id/btn_filter"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:fontFamily="@font/megatron"
+            android:background="@color/black"
+            android:text="Filter"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

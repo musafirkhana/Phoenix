@@ -26,7 +26,8 @@ public class AppConstant extends Application {
 
     public static String[] fruits = {"Apple", "Banana", "Cherry", "Date", "Grape", "Kiwi", "Mango", "Pear"};
 
-
+    public static String MONTH = "Jan";
+    public static String YEAR = "2020";
 
 
     }
