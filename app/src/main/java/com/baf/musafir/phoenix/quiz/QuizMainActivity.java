@@ -54,7 +54,7 @@ public class QuizMainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_quiz_main);
         mContext=this;
-
+        AppConstant.SCORE=0;
         dataBaseUtility=new DataBaseUtility();
        // scoreno=(TextView)findViewById(R.id.score);
         tf = Typeface.createFromAsset(mContext.getAssets(),

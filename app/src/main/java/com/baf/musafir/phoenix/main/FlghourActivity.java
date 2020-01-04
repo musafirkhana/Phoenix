@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.adapter.FlhhourAdapter;
 import com.baf.musafir.phoenix.databse.DataBaseUtility;
+import com.baf.musafir.phoenix.holder.FlgHourVector;
+
+import org.w3c.dom.Text;
 
 
 public class FlghourActivity extends Activity {
@@ -27,7 +31,13 @@ private Context mContext;
     private TextView txt_5;
     private TextView txt_6;
     private TextView txt_7;
-    private TextView excercise_scroll;
+
+    private TextView fp_total;
+    private TextView total_tv;
+    private TextView sp_total;
+    private TextView inst_total;
+    private TextView inst_sim_total;
+    private Button btn_filter;
     private FlhhourAdapter flhhourAdapter;
     DataBaseUtility dataBaseUtility;
 
@@ -51,6 +61,12 @@ private Context mContext;
 
     private void initUI(){
         hrslistview = (ListView) findViewById(R.id.hrslistview);
+        fp_total=(TextView)findViewById(R.id.fp_total);
+        total_tv=(TextView)findViewById(R.id.total_tv);
+        sp_total=(TextView)findViewById(R.id.sp_total);
+        inst_total=(TextView)findViewById(R.id.inst_total);
+        inst_sim_total=(TextView)findViewById(R.id.inst_sim_total);
+        btn_filter=(Button)findViewById(R.id.btn_filter);
         flhhourAdapter = new FlhhourAdapter(this);
         hrslistview.setAdapter(flhhourAdapter);
 
@@ -63,6 +79,10 @@ private Context mContext;
 
             }
         });
+        fp_total.setText(getFirstPilotTotal());
+        sp_total.setText(getSecondPilotTotal());
+        inst_total.setText(getInstActTotal());
+        inst_sim_total.setText(getInstSimTotal());
     }
     public void BACK(View v){
         this.finish();
@@ -76,6 +96,37 @@ private Context mContext;
 
     }
 
+    private String getFirstPilotTotal(){
+        double result = 0;
+        for(int i = 0; i < FlgHourVector.getAllFlhhourlist().size(); i++){
+            result += Double.parseDouble(FlgHourVector.getAllFlhhourlist().get(i).getFirst_pilot().replaceAll("[-+^:,]",""));
+        }
+        return ""+result;
+
+    }
+    private String getSecondPilotTotal(){
+        double result = 0;
+        for(int i = 0; i < FlgHourVector.getAllFlhhourlist().size(); i++){
+            result += Double.parseDouble(FlgHourVector.getAllFlhhourlist().get(i).getSecond_pilot().replaceAll("[-+^:,]",""));
+        }
+        return ""+String.format("%.2f", result);
+
+    }
+    private String getInstActTotal(){
+        double result = 0;
+        for(int i = 0; i < FlgHourVector.getAllFlhhourlist().size(); i++){
+            result += Double.parseDouble(FlgHourVector.getAllFlhhourlist().get(i).getInstr_actual().replaceAll("[-+^:,]",""));
+        }
+        return ""+result;
+
+    } private String getInstSimTotal(){
+        double result = 0;
+        for(int i = 0; i < FlgHourVector.getAllFlhhourlist().size(); i++){
+            result += Double.parseDouble(FlgHourVector.getAllFlhhourlist().get(i).getInst_simulator().replaceAll("[-+^:,]",""));
+        }
+        return ""+result;
+
+    }
     private void changeFont() {
         fhtv_1 = (TextView) findViewById(R.id.fhtv_1);
         txt_1=(TextView)findViewById(R.id.txt_1);
@@ -85,7 +136,6 @@ private Context mContext;
         txt_5=(TextView)findViewById(R.id.txt_5);
         txt_6=(TextView)findViewById(R.id.txt_6);
         txt_7=(TextView)findViewById(R.id.txt_7);
-        excercise_scroll=(TextView)findViewById(R.id.excercise_scroll);
         fhtv_1.setTypeface(tf);
         txt_1.setTypeface(tf);
         txt_2.setTypeface(tf);
@@ -94,9 +144,12 @@ private Context mContext;
         txt_5.setTypeface(tf);
         txt_6.setTypeface(tf);
         txt_7.setTypeface(tf);
-        excercise_scroll.setTypeface(tf);
-
-
+        fp_total.setTypeface(tf);
+        total_tv.setTypeface(tf);
+        inst_total.setTypeface(tf);
+        inst_sim_total.setTypeface(tf);
+        btn_filter.setTypeface(tf);
+        sp_total.setTypeface(tf);
 
 
 
