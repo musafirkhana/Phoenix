@@ -10,18 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.LinearLayout;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.baf.musafir.phoenix.R;
-import com.baf.musafir.phoenix.holder.AllDetailVector;
 import com.baf.musafir.phoenix.holder.FlgHourVector;
-import com.baf.musafir.phoenix.model.DetailModel;
 import com.baf.musafir.phoenix.model.FlgHourModel;
 
 import java.io.File;
 import java.util.List;
-import java.util.Timer;
 
 import timber.log.Timber;
 

@@ -136,19 +136,18 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
 
         HashMapForLocalRes = new HashMap<String, Integer>();
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner1);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner2);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner3);
+        HashMapForLocalRes.put("103 ", R.drawable.banner2);
+        HashMapForLocalRes.put("103 UNIT", R.drawable.banner3);
         HashMapForLocalRes.put("103 ATTU", R.drawable.banner4);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner1);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner2);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner3);
+
 
     }
 
 
     /**********************Main Menu**********************/
     public void SYLLABUS(View v) {
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SyllabusActivity.class);
+        startActivity(intent);
 
     }
 
@@ -167,7 +166,8 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void COCKPIT(View v) {
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CockpitActivity.class);
+        startActivity(intent);
     }
 
     public void MAP(View v) {

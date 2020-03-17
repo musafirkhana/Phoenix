@@ -5,10 +5,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.baf.musafir.phoenix.holder.AllCourseVector;
+import com.baf.musafir.phoenix.holder.AllMsnProfileVector;
+import com.baf.musafir.phoenix.holder.AllPhaseVector;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.holder.FlgHourVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
+import com.baf.musafir.phoenix.model.CourseModel;
 import com.baf.musafir.phoenix.model.FlgHourModel;
+import com.baf.musafir.phoenix.model.MsnProfileModel;
+import com.baf.musafir.phoenix.model.PhaseModel;
 import com.baf.musafir.phoenix.quiz.Question;
 
 import java.util.ArrayList;
@@ -47,6 +53,99 @@ public class DataBaseUtility {
                 Log.w(TAG, "Contact Data : " + cursor.getString(0));
                 Timber.tag("asdsadsad").e(cursor.getString(2));
 
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+
+    /***********************************
+     * Getting List of course from DB
+     * Only use for spinner
+     ***********************************/
+    public void getCourseName(Context context) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Cursor cursor = db.rawQuery(
+                "select * from mission_profile group by course_name;",
+                null);
+        AllCourseVector allCourseVector = new AllCourseVector();
+        allCourseVector.removeCourse();
+        if (cursor.moveToFirst()) {
+            do {
+                CourseModel courseModel = new CourseModel();
+                courseModel.setCourse_id(cursor.getString(0));
+                courseModel.setCourse_name(cursor.getString(1));
+                courseModel.setPhase(cursor.getString(2));
+                courseModel.setExercise_no(cursor.getString(3));
+
+                allCourseVector.setAllCourse(courseModel);
+                allCourseVector = null;
+                Log.w(TAG, "getCourseName: " + cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+    /***********************************
+     * Getting List of course from DB
+     * Only use for spinner
+     ***********************************/
+    public void getPhaseName(Context context,String courseID) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Cursor cursor = db.rawQuery(
+                "select * from mission_profile where course_id='" +
+                        courseID +
+                        "' group by phase;",
+                null);
+        AllPhaseVector allPhaseVector = new AllPhaseVector();
+        allPhaseVector.removePhaselist();
+        if (cursor.moveToFirst()) {
+            do {
+                PhaseModel phaseModel = new PhaseModel();
+                phaseModel.setCourse_id(cursor.getString(0));
+                phaseModel.setCourse_name(cursor.getString(1));
+                phaseModel.setPhase(cursor.getString(2));
+                phaseModel.setExercise_no(cursor.getString(3));
+
+                allPhaseVector.setAllPhaselist(phaseModel);
+                allPhaseVector = null;
+                Log.w(TAG, "getPhaseName: " + cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+
+    /***********************************
+     * Getting List of Mission Profile from DB
+     * Only use for spinner
+     ***********************************/
+    public void getMissionProfile(Context context,String courseID,String phaseID) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Cursor cursor = db.rawQuery(
+                "select * from mission_profile where course_id='" +
+                        courseID +
+                        "' and phase='" +
+                        phaseID +
+                        "';",
+                null);
+        AllMsnProfileVector allMsnProfileVector = new AllMsnProfileVector();
+        allMsnProfileVector.removeMsnProfilelist();
+        if (cursor.moveToFirst()) {
+            do {
+                MsnProfileModel msnProfileModel = new MsnProfileModel();
+                msnProfileModel.setCourse_id(cursor.getString(0));
+                msnProfileModel.setCourse_name(cursor.getString(1));
+                msnProfileModel.setPhase(cursor.getString(2));
+                msnProfileModel.setExercise_no(cursor.getString(3));
+                msnProfileModel.setMsn_profile(cursor.getString(4));
+                msnProfileModel.setDuration_dual(cursor.getString(5));
+                msnProfileModel.setDuration_solo(cursor.getString(6));
+                msnProfileModel.setDuration_progressive(cursor.getString(7));
+
+                allMsnProfileVector.setAllMsnProfilelist(msnProfileModel);
+                allMsnProfileVector = null;
+                Log.w(TAG, "getMissionProfile: " + cursor.getString(0));
             } while (cursor.moveToNext());
         }
         db.close();

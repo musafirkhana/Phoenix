@@ -9,22 +9,24 @@
         android:layout_height="50dp"
         android:background="@android:color/holo_orange_light">
 
-        <TextView android:id="@+id/filter_head"
+        <TextView
+            android:id="@+id/filter_head"
             android:layout_width="wrap_content"
-            android:fontFamily="@font/megatron"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/megatron"
             android:text="Filter"
-            android:layout_centerInParent="true" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/main_view_height"
@@ -33,14 +35,15 @@
             android:layout_marginRight="@dimen/main_margin_right"
             android:gravity="center">
 
-            <TextView android:id="@+id/tv_year"
+            <TextView
+                android:id="@+id/tv_year"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:gravity="center|start"
-                android:textColor="@color/black"
                 android:fontFamily="@font/my_custom_font"
+                android:gravity="center|start"
                 android:text="Year"
+                android:textColor="@color/black"
                 android:textSize="@dimen/main_text_size" />
 
             <RelativeLayout
@@ -48,7 +51,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:background="@drawable/rounded_corner">
-
 
 
                 <Spinner
@@ -61,6 +63,7 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/main_view_height"
@@ -69,14 +72,15 @@
             android:layout_marginRight="@dimen/main_margin_right"
             android:gravity="center">
 
-            <TextView android:id="@+id/tv_month"
+            <TextView
+                android:id="@+id/tv_month"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:gravity="center|start"
-                android:textColor="@color/black"
                 android:fontFamily="@font/my_custom_font"
+                android:gravity="center|start"
                 android:text="Month"
+                android:textColor="@color/black"
                 android:textSize="@dimen/main_text_size" />
 
             <RelativeLayout
@@ -96,46 +100,44 @@
 
 
         </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_orange_light"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_cancel"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="2"
-                    android:text="Cancel"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/megatron"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_orange_light"
+            android:orientation="horizontal">
 
-                <View
-                    android:layout_width="2dp"
-                    android:layout_height="50dp"></View>
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/megatron"
+                android:gravity="center"
+                android:text="Cancel"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btn_apply"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/megatron"
-                    android:text="APPLY"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <View
+                android:layout_width="2dp"
+                android:layout_height="50dp"></View>
+
+            <Button
+                android:id="@+id/btn_apply"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/megatron"
+                android:gravity="center"
+                android:text="APPLY"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
-
-
+    </LinearLayout>
 
 
 </LinearLayout>
