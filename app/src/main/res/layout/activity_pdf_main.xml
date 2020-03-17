@@ -12,7 +12,7 @@
         android:background="@color/black"
         >
 
-        <RelativeLayout
+        <RelativeLayout android:id="@+id/left_relative"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:clickable="true"
@@ -37,7 +37,7 @@
             android:layout_centerInParent="true"
             android:text="Bangladesh Airforce"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textStyle="bold|normal" />
 
     </RelativeLayout>
@@ -270,6 +270,540 @@
                             android:layout_toRightOf="@+id/imageview_5"
                             android:gravity="center_vertical"
                             android:text="Night Flying"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF6"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_6"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_6"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_6"
+                            android:gravity="center_vertical"
+                            android:text="Navigation Flights"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF7"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_7"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_7"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_7"
+                            android:gravity="center_vertical"
+                            android:text="Low-level Flying"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF8"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_8"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_8"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_8"
+                            android:gravity="center_vertical"
+                            android:text="Single Engine Procedure"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF9"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_9"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_9"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_9"
+                            android:gravity="center_vertical"
+                            android:text="Emergency Drill"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF10"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_10"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_10"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_10"
+                            android:gravity="center_vertical"
+                            android:text="Formation"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF11"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_11"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_11"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_11"
+                            android:gravity="center_vertical"
+                            android:text="Aerial Delivery"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF12"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_12"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_12"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_12"
+                            android:gravity="center_vertical"
+                            android:text="CASEVAC Mission"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF13"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_13"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_13"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_13"
+                            android:gravity="center_vertical"
+                            android:text="Search and Rescue Missions"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF14"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_14"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_14"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_14"
+                            android:gravity="center_vertical"
+                            android:text="Recce Mission"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF15"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_15"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_15"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_15"
+                            android:gravity="center_vertical"
+                            android:text="Duties of Aircrew"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:onClick="PDF16"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_16"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_16"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_16"
+                            android:gravity="center_vertical"
+                            android:text="Operations in wind shear and Microburst activity"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF17"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_17"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_17"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_17"
+                            android:gravity="center_vertical"
+                            android:text="Taxi Test"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#c2c2c2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:onClick="PDF18"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
+
+                        <ImageView
+                            android:id="@+id/imageview_18"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView android:id="@+id/ptv_18"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageview_18"
+                            android:gravity="center_vertical"
+                            android:text="Flying in Adverse Weather"
                             android:textColor="@color/fontBlack"
                             android:textSize="14sp"
                             android:textStyle="bold" />

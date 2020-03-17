@@ -68,7 +68,11 @@
             android:textColor="@color/black"
             android:textSize="12sp"
            />
-
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/forword" />
 
     </LinearLayout>
 
