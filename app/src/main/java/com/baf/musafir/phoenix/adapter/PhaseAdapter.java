@@ -55,7 +55,7 @@ public class PhaseAdapter extends ArrayAdapter<PhaseModel> implements SpinnerAda
         } else {
             holder = (ViewHolder) v.getTag();
         }
-        if (position < AllCourseVector.getAllCourse().size()) {
+        if (position < AllPhaseVector.getAllPhaselist().size()) {
             PhaseModel query = phaseModels.get(position);
             holder.txt_section_list.setText(query.getPhase());
 

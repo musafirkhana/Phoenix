@@ -135,10 +135,9 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     public void AddImageUrlFormLocalRes() {
 
         HashMapForLocalRes = new HashMap<String, Integer>();
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner1);
-        HashMapForLocalRes.put("103 ", R.drawable.banner2);
-        HashMapForLocalRes.put("103 UNIT", R.drawable.banner3);
-        HashMapForLocalRes.put("103 ATTU", R.drawable.banner4);
+        HashMapForLocalRes.put("Banner 1", R.drawable.banner1);
+        HashMapForLocalRes.put("Banner 2", R.drawable.banner2);
+        HashMapForLocalRes.put("Banner 3", R.drawable.banner3);
 
 
     }
@@ -157,7 +156,7 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void FOB(View v) {
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
     public void CKLIST(View v) {
@@ -166,8 +165,9 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void COCKPIT(View v) {
-        Intent intent = new Intent(this, CockpitActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, CockpitActivity.class);
+//        startActivity(intent);
+        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
     public void MAP(View v) {

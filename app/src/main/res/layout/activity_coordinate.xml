@@ -66,7 +66,7 @@
 
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_weight="3"
                     android:layout_marginRight="2.5dp"
                     android:background="@drawable/rounded_corner">
@@ -80,16 +80,17 @@
                         android:layout_alignParentLeft="true"
                         android:paddingLeft="5dp"
                         android:hint="Latitude"
+                        android:background="@null"
                         android:textColorHint="@color/black"
                         android:clickable="true"
                         android:layout_marginLeft="@dimen/edittext_padding_left"
-                        android:inputType="none"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textSize="@dimen/edittext_text_size" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="2.5dp"
                     android:layout_weight="3"
                     android:background="@drawable/rounded_corner">
@@ -102,11 +103,12 @@
                         android:layout_centerInParent="true"
                         android:layout_alignParentLeft="true"
                         android:paddingLeft="5dp"
+                        android:background="@null"
                         android:hint="longitude"
                         android:textColorHint="@color/black"
                         android:clickable="true"
                         android:layout_marginLeft="@dimen/edittext_padding_left"
-                        android:inputType="none"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/black"
                         android:textSize="@dimen/edittext_text_size" />
                 </RelativeLayout>
@@ -118,7 +120,7 @@
                 android:layout_weight="3">
                 <RelativeLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:layout_weight="3"
                     android:background="@drawable/rounded_corner">
 
@@ -130,6 +132,7 @@
                         android:layout_centerInParent="true"
                         android:layout_alignParentLeft="true"
                         android:paddingLeft="5dp"
+                        android:background="@null"
                         android:hint="Places"
                         android:textColorHint="@color/black"
                         android:layout_marginLeft="@dimen/edittext_padding_left"

@@ -46,8 +46,9 @@ public class WebviewActivity extends Activity {
         tf = Typeface.createFromAsset(mContex.getAssets(),
                 "fonts/megatron.ttf");
         DETAIL = getIntent().getStringExtra("DETAIL");
+        HEADER = getIntent().getStringExtra("HEADER");
         header = (TextView) findViewById(R.id.header);
-        header.setText("103 ATTU");
+        header.setText(HEADER);
         Log.i("SSSSS    ", DETAIL);
         webView = (WebView) findViewById(R.id.webview);
         WebSettings settings = webView.getSettings();

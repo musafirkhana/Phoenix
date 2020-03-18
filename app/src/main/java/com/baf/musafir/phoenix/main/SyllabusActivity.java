@@ -103,6 +103,7 @@ public class SyllabusActivity extends Activity  {
                                        int position, long id) {
                 CourseModel query = AllCourseVector.getAllCourse().elementAt(position);
                 Log.w(TAG, "Course ID: " + query.getCourse_id());
+
                 callAgain("" + query.getCourse_id());
 
             }
@@ -149,6 +150,7 @@ public class SyllabusActivity extends Activity  {
                 Log.w(TAG, "Mission Profile: " + query.getMsn_profile());
                 Intent intent = new Intent(mContext, WebviewActivity.class);
                 intent.putExtra("DETAIL",query.getMsn_profile());
+                intent.putExtra("HEADER",query.getExercise_no());
                 startActivity(intent);
 
             }

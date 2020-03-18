@@ -113,6 +113,7 @@ public class CoordinateActivity extends Activity {
                             , et_place.getText().toString());
                     dataBaseUtility.getCoordinateData(mContext);
                     coordinateAdapter.notifyDataSetChanged();
+
                 }
             }
         });
@@ -143,7 +144,12 @@ public class CoordinateActivity extends Activity {
         db.close();
 
         toastUtil.appSuccessMsg(mContext, "Data Insert Duccessfully");
-
+        et_latitude.setText("");
+        et_longitude.setText("");
+        et_place.setText("");
+        et_latitude.setHint("Latitude");
+        et_longitude.setHint("Longitude");
+        et_place.setHint("Places");
     }
 
 

@@ -22,11 +22,7 @@
             android:textSize="12sp"
              />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight=".03"
-            android:background="@color/black"></View>
+
         <TextView android:id="@+id/txt_dual"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -37,11 +33,7 @@
             android:textSize="12sp"
            />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight=".03"
-            android:background="@color/black"></View>
+
 
         <TextView android:id="@+id/txt_solo"
             android:layout_width="0dp"
@@ -53,11 +45,7 @@
             android:textSize="12sp"
        />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight=".03"
-            android:background="@color/black"></View>
+
 
         <TextView android:id="@+id/txt_prog"
             android:layout_width="0dp"
