@@ -12,6 +12,7 @@
     <color name="home_bg">#3F51B5</color>
     <color name="home_bg_2">#FFFFFF</color>
     <color name="signupColor">#066e8a</color>
+    <color name="background_home">#e3e5de</color>
 
     <!-- Material Light_Blue Primary -->
     <color name="color_light_blue_500">#0277bd</color>

@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.baf.musafir.phoenix"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.google.vr:sdk-videowidget:1.101.0'
 
 
 

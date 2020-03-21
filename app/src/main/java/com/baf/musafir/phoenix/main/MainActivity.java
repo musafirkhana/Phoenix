@@ -165,9 +165,9 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     public void COCKPIT(View v) {
-//        Intent intent = new Intent(this, CockpitActivity.class);
-//        startActivity(intent);
-        toastUtil.appSuccessMsg(mContext,"Under Construction");
+        Intent intent = new Intent(this, CockpitActivity.class);
+        startActivity(intent);
+//        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
     public void MAP(View v) {
@@ -191,32 +191,26 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     }
 
     /********************************More Menu****************/
-    public void PDF(View v) {
-        Intent intent = new Intent(this, PdfMainActivity.class);
+    public void INFO(View v) {
+        Intent intent = new Intent(this, InfoActivity.class);
         startActivity(intent);
+    }
+
+    public void PDFVIEW(View v) {
+        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
     public void VIDEO(View v) {
-        Intent intent = new Intent(this, PdfMainActivity.class);
-        startActivity(intent);
-    }
-
-    public void WEB(View v) {
-        Intent intent = new Intent(this, PdfMainActivity.class);
-        startActivity(intent);
+        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
 
-    public void LOCATION(View v) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://www.youtube.com/channel/UC7L-FsmHK9MNDZhNdEDq1LQ"));
+    public void DICTIONARY(View v) {
+        Intent intent = new Intent(this, GenerelAbbribiationActivity.class);
         startActivity(intent);
     }
 
-    public void MENU(View v) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
-    }
+
 
 
     public void showGPSDiabledDialog() {

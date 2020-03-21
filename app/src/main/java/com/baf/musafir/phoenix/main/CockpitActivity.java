@@ -2,114 +2,287 @@ package com.baf.musafir.phoenix.main;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.v4.content.res.ResourcesCompat;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
+import com.google.vr.sdk.widgets.video.VrVideoEventListener;
+import com.google.vr.sdk.widgets.video.VrVideoView;
 
-import timber.log.Timber;
-
+import java.io.IOException;
 
 public class CockpitActivity extends Activity {
-private Context mContext;
 
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String STATE_IS_PAUSED = "isPaused";
+    private static final String STATE_PROGRESS_TIME = "progressTime";
+    private static final String STATE_VIDEO_DURATION = "videoDuration";
+    public static final int LOAD_VIDEO_STATUS_UNKNOWN = 0;
+    public static final int LOAD_VIDEO_STATUS_SUCCESS = 1;
+    public static final int LOAD_VIDEO_STATUS_ERROR = 2;
+    private int loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
+    private Uri fileUri;
+    private VrVideoView.Options videoOptions = new VrVideoView.Options();
+    protected VrVideoView videoWidgetView;
+    private SeekBar seekBar;
+    private TextView statusText;
+    private ImageButton volumeToggle;
+    private boolean isMuted;
+    private boolean isPaused = false;
 
-    Bitmap mBitmap;
-    Paint paint;
-    float x = 0;
-    float y = 0;
-    float centerX = 0 ;
-    float centerY = 0;
-    float xTouch  = 0;
-    float yTouch  = 0;
-
-    double distanceX  = 0 ;
-    double distanceY  = 0;
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cockpit);
-        mContext=this;
 
-        mBitmap = Bitmap.createBitmap(400, 800, Bitmap.Config.ARGB_8888);
-        paint = new Paint();
-        paint.setColor(Color.RED);
-        paint.setStyle(Paint.Style.FILL);
+        seekBar = (SeekBar) findViewById(R.id.seek_bar);
+        seekBar.setOnSeekBarChangeListener(new SeekBarListener());
+        statusText = (TextView) findViewById(R.id.status_text);
 
+        videoWidgetView = (VrVideoView) findViewById(R.id.video_view);
+        videoWidgetView.setEventListener(new ActivityEventListener());
 
+        volumeToggle = (ImageButton) findViewById(R.id.volume_toggle);
+        volumeToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setIsMuted(!isMuted);
+            }
+        });
 
-        final RelativeLayout img_cockpi = (RelativeLayout) findViewById(R.id.img_cockpi);
-        x=img_cockpi.getX();
-        y=img_cockpi.getY();
-        img_cockpi.addView(new CustomView(this));
+        loadVideoStatus = LOAD_VIDEO_STATUS_UNKNOWN;
 
-
-
+        // Initial launch of the app or an Activity recreation due to rotation.
+        handleIntent(getIntent());
     }
-    public class CustomView extends View {
 
-        Bitmap mBitmap;
-        Paint paint;
+    /**
+     * Called when the Activity is already running and it's given a new intent.
+     */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Log.i(TAG, this.hashCode() + ".onNewIntent()");
+        // Save the intent. This allows the getIntent() call in onCreate() to use this new Intent during
+        // future invocations.
+        setIntent(intent);
+        // Load the new video.
+        handleIntent(intent);
+    }
 
-        public CustomView(Context context) {
-            super(context);
-            mBitmap = Bitmap.createBitmap(400, 800, Bitmap.Config.ARGB_8888);
-            paint = new Paint();
-            paint.setColor(Color.RED);
-            paint.setStyle(Paint.Style.FILL);
+    public int getLoadVideoStatus() {
+        return loadVideoStatus;
+    }
+
+    private void setIsMuted(boolean isMuted) {
+        this.isMuted = isMuted;
+        volumeToggle.setImageResource(isMuted ? R.drawable.volume_off : R.drawable.volume_on);
+        videoWidgetView.setVolume(isMuted ? 0.0f : 1.0f);
+    }
+
+    public boolean isMuted() {
+        return isMuted;
+    }
+
+    public void initVRVideo(){
+
+        try {
+
+            VrVideoView.Options options = new VrVideoView.Options();
+            options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
+            videoWidgetView.loadVideoFromAsset("congo.mp4", options);
+
+        } catch (IOException e) {
+            // An error here is normally due to being unable to locate the file.
+            loadVideoStatus = LOAD_VIDEO_STATUS_ERROR;
+            // Since this is a background thread, we need to switch to the main thread to show a toast.
+            videoWidgetView.post(new Runnable() {
+                @Override
+                public void run() {
+                    Toast
+                            .makeText(CockpitActivity.this, "Error opening file. ", Toast.LENGTH_LONG)
+                            .show();
+                }
+            });
+            Log.e(TAG, "Could not open video: " + e);
+        }
+    }
+
+    /**
+     * Load custom videos based on the Intent or load the default video. See the Javadoc for this
+     * class for information on generating a custom intent via adb.
+     */
+    private void handleIntent(Intent intent) {
+        // Determine if the Intent contains a file to load.
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            Log.i(TAG, "ACTION_VIEW Intent received");
+
+            fileUri = intent.getData();
+            if (fileUri == null) {
+                Log.w(TAG, "No data uri specified. Use \"-d /path/filename\".");
+            } else {
+                Log.i(TAG, "Using file " + fileUri.toString());
+            }
+
+            videoOptions.inputFormat = intent.getIntExtra("inputFormat", VrVideoView.Options.FORMAT_DEFAULT);
+            videoOptions.inputType = intent.getIntExtra("inputType", VrVideoView.Options.TYPE_MONO);
+        } else {
+            Log.i(TAG, "Intent is not ACTION_VIEW. Using the default video.");
+            fileUri = null;
+        }
+
+
+        initVRVideo();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putLong(STATE_PROGRESS_TIME, videoWidgetView.getCurrentPosition());
+        savedInstanceState.putLong(STATE_VIDEO_DURATION, videoWidgetView.getDuration());
+        savedInstanceState.putBoolean(STATE_IS_PAUSED, isPaused);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        long progressTime = savedInstanceState.getLong(STATE_PROGRESS_TIME);
+        videoWidgetView.seekTo(progressTime);
+        seekBar.setMax((int) savedInstanceState.getLong(STATE_VIDEO_DURATION));
+        seekBar.setProgress((int) progressTime);
+
+        isPaused = savedInstanceState.getBoolean(STATE_IS_PAUSED);
+        if (isPaused) {
+            videoWidgetView.pauseVideo();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Prevent the view from rendering continuously when in the background.
+        videoWidgetView.pauseRendering();
+        // If the video is playing when onPause() is called, the default behavior will be to pause
+        // the video and keep it paused when onResume() is called.
+        isPaused = true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Resume the 3D rendering.
+        videoWidgetView.resumeRendering();
+        // Update the text to account for the paused video in onPause().
+        updateStatusText();
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Destroy the widget and free memory.
+        videoWidgetView.shutdown();
+        super.onDestroy();
+    }
+
+    private void togglePause() {
+        if (isPaused) {
+            videoWidgetView.playVideo();
+        } else {
+            videoWidgetView.pauseVideo();
+        }
+        isPaused = !isPaused;
+        updateStatusText();
+    }
+
+    private void updateStatusText() {
+        StringBuilder status = new StringBuilder();
+        status.append(isPaused ? "Paused: " : "Playing: ");
+        status.append(String.format("%.2f", videoWidgetView.getCurrentPosition() / 1000f));
+        status.append(" / ");
+        status.append(videoWidgetView.getDuration() / 1000f);
+        status.append(" seconds.");
+        statusText.setText(status.toString());
+    }
+
+    /**
+     * When the user manipulates the seek bar, update the video position.
+     */
+    private class SeekBarListener implements SeekBar.OnSeekBarChangeListener {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if (fromUser) {
+                videoWidgetView.seekTo(progress);
+                updateStatusText();
+            } // else this was from the ActivityEventHandler.onNewFrame()'s seekBar.setProgress update.
         }
 
         @Override
-        protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-//            if(centerX>= 838.0 && centerY<=662.0){
-//                canvas.drawCircle(centerX, centerY, 100, paint);
-//            }
+        public void onStartTrackingTouch(SeekBar seekBar) { }
 
-            if(isInside()){
-                canvas.drawCircle(centerX, centerY, 100, paint);
-            }
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) { }
+    }
 
+    /**
+     * Listen to the important events from widget.
+     */
+    private class ActivityEventListener extends VrVideoEventListener {
+        /**
+         * Called by video widget on the UI thread when it's done loading the video.
+         */
+        @Override
+        public void onLoadSuccess() {
+            Log.i(TAG, "Successfully loaded video " + videoWidgetView.getDuration());
+            loadVideoStatus = LOAD_VIDEO_STATUS_SUCCESS;
+            seekBar.setMax((int) videoWidgetView.getDuration());
+            updateStatusText();
         }
 
-        public boolean onTouchEvent(MotionEvent event) {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                centerX = event.getX();
-                centerY = event.getY();
-                centerX = x + 100;
-                centerY = y + 100;
-                distanceX = xTouch - centerX;
-                distanceY = yTouch - centerY;
-                Timber.i(""+distanceX);
-                Timber.i(""+distanceX);
-
-
-                invalidate();
-            }
-            return false;
+        /**
+         * Called by video widget on the UI thread on any asynchronous error.
+         */
+        @Override
+        public void onLoadError(String errorMessage) {
+            // An error here is normally due to being unable to decode the video format.
+            loadVideoStatus = LOAD_VIDEO_STATUS_ERROR;
+            Toast.makeText(
+                    CockpitActivity.this, "Error loading video: " + errorMessage, Toast.LENGTH_LONG)
+                    .show();
+            Log.e(TAG, "Error loading video: " + errorMessage);
         }
 
-        boolean isInside() {
-            return (distanceX * distanceX) + (distanceY * distanceY) <= 100 * 100;
+        @Override
+        public void onClick() {
+            togglePause();
+        }
+
+        /**
+         * Update the UI every frame.
+         */
+        @Override
+        public void onNewFrame() {
+            updateStatusText();
+            seekBar.setProgress((int) videoWidgetView.getCurrentPosition());
+        }
+
+        /**
+         * Make the video play in a loop. This method could also be used to move to the next video in
+         * a playlist.
+         */
+        @Override
+        public void onCompletion() {
+            videoWidgetView.seekTo(0);
         }
     }
+
+
 }

@@ -38,11 +38,17 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/top_linear"
+        android:layout_above="@+id/btm_separator"
         android:visibility="visible">
 
         <include layout="@layout/activity_home_support" />
 
     </LinearLayout>
+    <View android:id="@+id/btm_separator"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/divider"></View>
 
 
 
