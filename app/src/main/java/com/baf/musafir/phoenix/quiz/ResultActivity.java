@@ -89,8 +89,9 @@ public class ResultActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn_playagain:
                 //Stop MediaPlayer
-                Intent intent = new Intent(ResultActivity.this, QuizMainActivity.class);
+                Intent intent = new Intent(ResultActivity.this, QuizlistActivity.class);
                 startActivity(intent);
+                this.finish();
                 break;
         }
     }

@@ -1,27 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/toast_layout_root"
-    android:layout_width="fill_parent"
-    android:layout_height="50dp"
-    android:background="@color/green_title"
+    android:id="@+id/custom_toast_layout"
     android:orientation="horizontal"
-    android:layout_marginRight="20dp"
-    android:layout_marginLeft="20dp"
-    android:gravity="center|left"
-    android:padding="10dp" >
-<!--<ImageView android:id="@+id/image_toast"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:background="@drawable/airforce_logo_1"/>-->
-    <TextView
-        android:id="@+id/toast_text"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:textColor="@color/google_white"
-        android:gravity="center"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:textSize="16sp"
-        android:text="This is custom Toast message" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@drawable/rounded_corner_layout">
 
+    <ImageView  android:id="@+id/image_bell"
+        android:src="@drawable/ic_bell"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="10dp"
+        android:layout_marginRight="5dp" />
+
+    <TextView android:id="@+id/txtvw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="dasdsdsadsad"
+        android:layout_toRightOf="@+id/image_bell"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15dp" />
 </RelativeLayout>

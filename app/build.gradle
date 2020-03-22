@@ -38,6 +38,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.google.vr:sdk-videowidget:1.101.0'
+    implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
 
 
 

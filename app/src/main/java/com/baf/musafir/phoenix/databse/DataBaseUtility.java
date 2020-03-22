@@ -247,8 +247,6 @@ public class DataBaseUtility {
                 "SELECT * from quiz_table;",
                 null);
         // Log.i(TAG, "Database Query Are :" + cursor);
-        CoordinateVector coordinateVector = new CoordinateVector();
-        coordinateVector.removeAllCoordinatelist();
         if (cursor.moveToFirst()) {
             do {
 

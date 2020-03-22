@@ -27,6 +27,7 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
+import java.util.Dictionary;
 import java.util.HashMap;
 
 public class MainActivity extends Activity implements BaseSliderView.OnSliderClickListener,
@@ -135,9 +136,9 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
     public void AddImageUrlFormLocalRes() {
 
         HashMapForLocalRes = new HashMap<String, Integer>();
-        HashMapForLocalRes.put("Banner 1", R.drawable.banner1);
-        HashMapForLocalRes.put("Banner 2", R.drawable.banner2);
-        HashMapForLocalRes.put("Banner 3", R.drawable.banner3);
+        HashMapForLocalRes.put("Banner 1", R.drawable.banner_image);
+        HashMapForLocalRes.put("Banner 2", R.drawable.banner_image2);
+        HashMapForLocalRes.put("Banner 3", R.drawable.banner_image3);
 
 
     }
@@ -200,14 +201,16 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
         toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
-    public void VIDEO(View v) {
-        toastUtil.appSuccessMsg(mContext,"Under Construction");
+    public void WEATHER(View v) {
+        Intent intent = new Intent(this, WeatherActivity.class);
+        startActivity(intent);
     }
 
 
     public void DICTIONARY(View v) {
         Intent intent = new Intent(this, GenerelAbbribiationActivity.class);
         startActivity(intent);
+
     }
 
 

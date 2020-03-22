@@ -32,9 +32,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	public DataBaseHelper(Context context) {
 		super(context, DB_NAME, null, 1);// 1? its Database Version
-		// DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
-		//DB_SD_CARD_PATH = sdCard.getAbsolutePath() + AppConstant.DB_BASE_URL;
-		//DB_SD_CARD_PATH = "//data//" + context.getPackageName() + "//databases//" + AppConstant.DB_NAME + "";
 		if (android.os.Build.VERSION.SDK_INT >= 17)
 			DB_SD_CARD_PATH = context.getApplicationInfo().dataDir + "/databases/"+ AppConstant.DB_NAME + "";
 		else
@@ -89,6 +86,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	public void copyDataBase() throws IOException {
 		InputStream mInput = mContext.getAssets().open(DB_NAME);
 		String outFileName = DB_SD_CARD_PATH + DB_NAME;
+		Log.i("outFileName", outFileName + "   "+ outFileName);
 		OutputStream mOutput = new FileOutputStream(outFileName);
 		byte[] mBuffer = new byte[1024];
 		int mLength;

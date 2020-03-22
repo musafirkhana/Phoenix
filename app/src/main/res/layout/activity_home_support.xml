@@ -383,14 +383,14 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:background="@drawable/bottom_selector"
-                android:onClick="VIDEO"
+                android:onClick="WEATHER"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/video_clicked" />
+                    android:background="@drawable/ic_weather" />
 
 
             </LinearLayout>

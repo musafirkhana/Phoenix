@@ -37,9 +37,9 @@ public class ToastUtil {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.toast_message,
-				(ViewGroup) this.activity.findViewById(R.id.toast_layout_root));
+				(ViewGroup) this.activity.findViewById(R.id.custom_toast_layout));
 
-		TextView toast_text = (TextView) layout.findViewById(R.id.toast_text);
+		TextView toast_text = (TextView) layout.findViewById(R.id.txtvw);
 		toast_text.setText(message);
 		toast.setView(layout);
 		toast.setDuration(Toast.LENGTH_LONG);
@@ -58,12 +58,11 @@ public class ToastUtil {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.toast_message,
-				(ViewGroup) this.activity.findViewById(R.id.toast_layout_root));
-		//layout.setBackgroundResource(R.color.counter_back);
-		TextView toast_text = (TextView) layout.findViewById(R.id.toast_text);
+				(ViewGroup) this.activity.findViewById(R.id.custom_toast_layout));
+		TextView toast_text = (TextView) layout.findViewById(R.id.txtvw);
 		toast_text.setText(message);
 		toast.setView(layout);
-		toast.setDuration(20000);
+		toast.setDuration(Toast.LENGTH_LONG);
 		toast.show();
 
 	}
