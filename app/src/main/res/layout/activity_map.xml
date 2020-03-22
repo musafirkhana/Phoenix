@@ -3,11 +3,39 @@
     android:layout_width="match_parent"
     android:background="#FAFAFA"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/black">
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back_selector"
+            android:clickable="true"
+            android:onClick="BACK" />
+
+        <TextView
+            android:id="@+id/top_syllabus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="103 ATTU"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
     <fragment
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:layout_below="@+id/top_linear"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"

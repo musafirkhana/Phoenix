@@ -216,24 +216,7 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
 
 
 
-    public void showGPSDiabledDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("GPS Disabled");
-        builder.setMessage("Gps is disabled, in order to use the application properly you need to enable GPS of your device");
-        builder.setPositiveButton("Enable GPS", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), GPS_ENABLE_REQUEST);
-            }
-        }).setNegativeButton("No, Just Exit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-            }
-        });
-        mGPSDialog = builder.create();
-        mGPSDialog.show();
-    }
     private void changeFont(){
         tf = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/megatron.ttf");

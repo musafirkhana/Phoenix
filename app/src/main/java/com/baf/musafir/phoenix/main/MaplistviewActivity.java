@@ -1,7 +1,9 @@
 package com.baf.musafir.phoenix.main;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
@@ -54,6 +56,8 @@ public class MaplistviewActivity extends Activity {
     private DataBaseUtility dataBaseUtility;
     private MapCoordinateAdapter mapCoordinateAdapter;
     Typeface tf ;
+    private static final int GPS_ENABLE_REQUEST = 0x1001;
+    private AlertDialog mGPSDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +109,10 @@ private void initUI(){
             if (ListElementsArrayList.size() == 0) {
                 toastUtil.appSuccessMsg(mContext, "No Data Available");
             } else {
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
-                startActivity(intent);
+                showGPSDiabledDialog();
+//                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+//                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
+//                startActivity(intent);
             }
 
         }
@@ -407,6 +412,32 @@ private void initUI(){
             }
 
         }
+
+    }
+
+    public void showGPSDiabledDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("GPS Disabled");
+        builder.setMessage("Gps is disabled, in order to use the application properly you need to enable GPS of your device");
+        builder.setPositiveButton("Enable GPS", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), GPS_ENABLE_REQUEST);
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
+                startActivity(intent);
+            }
+        }).setNegativeButton("No, Just Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        mGPSDialog = builder.create();
+        mGPSDialog.show();
+    }
+    public void BACK(View v){
+        this.finish();
 
     }
 }
