@@ -20,11 +20,14 @@ import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseUtility;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
+import com.baf.musafir.phoenix.util.AppConstant;
+import com.baf.musafir.phoenix.util.GpsUtils;
 import com.baf.musafir.phoenix.util.StringUtility;
 import com.baf.musafir.phoenix.util.ToastUtil;
 
@@ -40,7 +43,7 @@ public class MaplistviewActivity extends Activity {
     private ListView listView;
     private Button addButton;
     private Button map_generation;
-    private TextView map_tv;
+    private TextView top_syllabus;
     AutoCompleteTextView actv;
     private Context mContext;
     private locationAdapter adapter;
@@ -58,6 +61,8 @@ public class MaplistviewActivity extends Activity {
     Typeface tf ;
     private static final int GPS_ENABLE_REQUEST = 0x1001;
     private AlertDialog mGPSDialog;
+    private boolean isGPS = false;
+    private boolean isContinue = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,13 @@ public class MaplistviewActivity extends Activity {
         dataBaseUtility.getCoordinateData(this);
         initUI();
         autocompletePlaces();
+        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
+            @Override
+            public void gpsStatus(boolean isGPSEnable) {
+                // turn on GPS
+                isGPS = isGPSEnable;
+            }
+        });
         changeFont();
 
 
@@ -79,7 +91,7 @@ public class MaplistviewActivity extends Activity {
 private void initUI(){
     listView = (ListView) findViewById(R.id.listView);
     addButton = (Button) findViewById(R.id.button1);
-    map_tv=(TextView)findViewById(R.id.map_tv);
+    top_syllabus=(TextView)findViewById(R.id.top_syllabus);
     map_generation = (Button) findViewById(R.id.map_generation);
     ListElementsArrayList = new ArrayList<String>(Arrays.asList(ListElements));
 
@@ -109,10 +121,12 @@ private void initUI(){
             if (ListElementsArrayList.size() == 0) {
                 toastUtil.appSuccessMsg(mContext, "No Data Available");
             } else {
-                showGPSDiabledDialog();
-//                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-//                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
-//                startActivity(intent);
+//                showGPSDiabledDialog();
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
+                startActivity(intent);
+
+
             }
 
         }
@@ -270,7 +284,7 @@ private void initUI(){
         actv.setTypeface(tf);
         map_generation.setTypeface(tf);
         addButton.setTypeface(tf);
-        map_tv.setTypeface(tf);
+        top_syllabus.setTypeface(tf);
 
 
     }
@@ -439,5 +453,15 @@ private void initUI(){
     public void BACK(View v){
         this.finish();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == AppConstant.GPS_REQUEST) {
+                isGPS = true; // flag maintain before get location
+            }
+        }
     }
 }

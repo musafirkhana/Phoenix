@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.SQLException;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,14 +18,20 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseHelper;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.StringUtility;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -56,11 +63,21 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         private GoogleMap mMap;
     ArrayList<String> myList;
+    List<String> mapTypeList = new ArrayList<String>();
+    private Spinner type_spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_map);
+        mapTypeList.add("HYBRID");
+        mapTypeList.add("NONE");
+        mapTypeList.add("NORMAL");
+        mapTypeList.add("SATELLITE");
+        mapTypeList.add("TERRAIN");
+        type_spinner=(Spinner)findViewById(R.id.type_spinner);
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -78,6 +95,34 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        ArrayAdapter monthSpinner = new ArrayAdapter(this, R.layout.map_style, mapTypeList);
+        monthSpinner.setDropDownViewResource(R.layout.map_style);
+        type_spinner.setAdapter(monthSpinner);
+
+        type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("HYBRID")){
+                    mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("NORMAL")){
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("NONE")){
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
+                }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("SATELLITE")){
+                    mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("TERRAIN")){
+                    mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
@@ -121,4 +166,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
     }
+
+
 }
