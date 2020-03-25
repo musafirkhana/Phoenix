@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -13,9 +14,16 @@
         android:orientation="horizontal"
         android:padding="0dp">
 
-        <com.daimajia.slider.library.SliderLayout
+        <ss.com.bannerslider.Slider
+
             android:id="@+id/slider"
             android:layout_width="fill_parent"
+            app:slider_animateIndicators="true"
+            app:slider_loopSlides="true"
+            app:slider_interval="5000"
+            app:slider_selectedSlideIndicator="@drawable/selected_slide_indicator"
+            app:slider_indicatorSize="14dp"
+            app:slider_unselectedSlideIndicator="@drawable/unselected_slide_indicator"
             android:layout_height="fill_parent" />
 
         <View

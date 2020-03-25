@@ -37,13 +37,11 @@ import java.util.List;
 
 import timber.log.Timber;
 
-public class QuizlistActivity extends Activity implements View.OnClickListener {
+public class QuizlistActivity extends Activity  {
 
 
     private Context mContext;
-    private LinearLayout normal_li;
-    private LinearLayout moderate_li;
-    private LinearLayout critical_li;
+
     private TextView topbar;
     private TextView txt_easy;
     private TextView txt_moderate;
@@ -80,35 +78,38 @@ public class QuizlistActivity extends Activity implements View.OnClickListener {
     }
 
     private void initUI() {
-        normal_li = (LinearLayout) findViewById(R.id.normal_li);
-        moderate_li = (LinearLayout) findViewById(R.id.moderate_li);
-        critical_li = (LinearLayout) findViewById(R.id.critical_li);
+
         topbar = (TextView) findViewById(R.id.topbar);
-        normal_li.setOnClickListener(this);
-        moderate_li.setOnClickListener(this);
-        critical_li.setOnClickListener(this);
+
 
 
     }
-
-
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.normal_li:
-
-                Intent intent = new Intent(this, QuizMainActivity.class);
-                startActivity(intent);
-                this.finish();
-                break;
-            case R.id.moderate_li:
-                toastUtil.appSuccessMsg(mContext, "Under construction");
-
-                break;
-            case R.id.critical_li:
-                toastUtil.appSuccessMsg(mContext, "Under construction");
-                break;
-        }
+    public void EASY(View v) {
+        Intent intent = new Intent(this, QuizMainActivity.class);
+        intent.putExtra("quizType","1");
+        startActivity(intent);
+        finish();
     }
+    public void MODERATE(View v) {
+        Intent intent = new Intent(this, QuizMainActivity.class);
+        intent.putExtra("quizType","2");
+        startActivity(intent);
+        finish();
+    }
+    public void INTERMEDIATE(View v) {
+        Intent intent = new Intent(this, QuizMainActivity.class);
+        intent.putExtra("quizType","3");
+        startActivity(intent);
+        finish();
+    }
+    public void HARD(View v) {
+        Intent intent = new Intent(this, QuizMainActivity.class);
+        intent.putExtra("quizType","4");
+        startActivity(intent);
+        finish();
+    }
+
+
 
     private void changeFont() {
         txt_easy = (TextView) findViewById(R.id.txt_easy);

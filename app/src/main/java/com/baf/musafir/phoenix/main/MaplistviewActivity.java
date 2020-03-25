@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,29 +42,26 @@ import timber.log.Timber;
 
 public class MaplistviewActivity extends Activity {
 
-    private ListView listView;
-    private Button addButton;
-    private Button map_generation;
-    private TextView top_syllabus;
-    AutoCompleteTextView actv;
+
+
     private Context mContext;
-    private locationAdapter adapter;
     private ToastUtil toastUtil;
-    private String[] ListElements = new String[]{
-//            "23.8103,90.4125",
-//            "24.7471,90.4203","24.8949,91.8687","24.3065,91.7296"
-    };
+    private String[] ListElements = new String[]{ };
 
     private String latitude = "";
     private String longitude = "";
     List<String> ListElementsArrayList;
     private DataBaseUtility dataBaseUtility;
     private MapCoordinateAdapter mapCoordinateAdapter;
+    private locationAdapter adapter;
+    AutoCompleteTextView actv;
     Typeface tf ;
-    private static final int GPS_ENABLE_REQUEST = 0x1001;
-    private AlertDialog mGPSDialog;
-    private boolean isGPS = false;
-    private boolean isContinue = false;
+
+    private ListView listView;
+    private Button addButton;
+    private Button map_generation;
+    private TextView top_syllabus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,13 +76,6 @@ public class MaplistviewActivity extends Activity {
         dataBaseUtility.getCoordinateData(this);
         initUI();
         autocompletePlaces();
-        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
-            @Override
-            public void gpsStatus(boolean isGPSEnable) {
-                // turn on GPS
-                isGPS = isGPSEnable;
-            }
-        });
         changeFont();
 
 
@@ -102,12 +94,11 @@ private void initUI(){
         public void onClick(View v) {
             if (latitude.equalsIgnoreCase("") ||
                     longitude.equalsIgnoreCase("")) {
-                toastUtil.appSuccessMsg(mContext, "Please insert proper data");
+                toastUtil.appSuccessMsg(mContext, AppConstant.EMPTY_FIELD);
             } else {
                 ListElementsArrayList.add(latitude + "," + longitude);
                 listView.setAdapter(adapter);
                 actv.setText("");
-                // adapter.notify();
                 adapter.notifyDataSetChanged();
             }
 
@@ -119,14 +110,9 @@ private void initUI(){
         public void onClick(View view) {
 
             if (ListElementsArrayList.size() == 0) {
-                toastUtil.appSuccessMsg(mContext, "No Data Available");
+                toastUtil.appSuccessMsg(mContext, AppConstant.NO_LOC);
             } else {
-//                showGPSDiabledDialog();
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
-                startActivity(intent);
-
-
+                locationEnabled();
             }
 
         }
@@ -317,16 +303,6 @@ private void initUI(){
             return coordinateModels.get(position).hashCode();
         }
 
-//         class ViewHolder {
-//
-//            private TextView tv_coordinate;
-//
-//
-//
-//
-//
-//        }
-
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             //final ViewHolder holder;
@@ -335,26 +311,17 @@ private void initUI(){
             if (v == null) {
                 final LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 v = vi.inflate(R.layout.row_mapcoordinate, parent,false);
-                // convertView = _inflater.inflate(R.layout.list_row, null);
-               // holder = new com.baf.musafir.phoenix.adapter.MapCoordinateAdapter.ViewHolder();
-
                 TextView tv_coordinate = (TextView) v.findViewById(R.id.tv_coordinate);
-
                 if (position < CoordinateVector.getAllCoordinatelist().size()) {
                     CoordinateModel query = coordinateModels.get(position);
-
                     tv_coordinate.setText(query.getPlaces());
                     Timber.i(""+query.getPlaces());
-
-
-
                 }
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         CoordinateModel query = coordinateModels.get(position);
                         Timber.i(""+query.getPlaces());
-
                         actv.setText(query.getPlaces());
                         Timber.i(""+position);
                         Timber.i(""+query.getPlaces());
@@ -374,7 +341,6 @@ private void initUI(){
         public void resetData() {
             coordinateModels = origPlanetList;
         }
-
 
         @Override
         public Filter getFilter() {
@@ -429,39 +395,43 @@ private void initUI(){
 
     }
 
-    public void showGPSDiabledDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("GPS Disabled");
-        builder.setMessage("Gps is disabled, in order to use the application properly you need to enable GPS of your device");
-        builder.setPositiveButton("Enable GPS", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), GPS_ENABLE_REQUEST);
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.putExtra("mylist", (Serializable) ListElementsArrayList);
-                startActivity(intent);
-            }
-        }).setNegativeButton("No, Just Exit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        mGPSDialog = builder.create();
-        mGPSDialog.show();
+    private void locationEnabled () {
+        LocationManager lm = (LocationManager)
+                getSystemService(Context. LOCATION_SERVICE ) ;
+        boolean gps_enabled = false;
+        boolean network_enabled = false;
+        try {
+            gps_enabled = lm.isProviderEnabled(LocationManager. GPS_PROVIDER ) ;
+        } catch (Exception e) {
+            e.printStackTrace() ;
+        }
+        try {
+            network_enabled = lm.isProviderEnabled(LocationManager. NETWORK_PROVIDER ) ;
+        } catch (Exception e) {
+            e.printStackTrace() ;
+        }
+        if (!gps_enabled && !network_enabled) {
+            new AlertDialog.Builder(MaplistviewActivity. this )
+                    .setMessage( "GPS Enable" )
+                    .setPositiveButton( "Settings" , new
+                            DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick (DialogInterface paramDialogInterface , int paramInt) {
+                                    startActivity( new Intent(Settings. ACTION_LOCATION_SOURCE_SETTINGS )) ;
+                                }
+                            })
+                    .setNegativeButton( "Cancel" , null )
+                    .show() ;
+        }else {
+            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+            intent.putExtra("mylist", (Serializable) ListElementsArrayList);
+            startActivity(intent);
+        }
     }
     public void BACK(View v){
         this.finish();
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == AppConstant.GPS_REQUEST) {
-                isGPS = true; // flag maintain before get location
-            }
-        }
-    }
+
 }

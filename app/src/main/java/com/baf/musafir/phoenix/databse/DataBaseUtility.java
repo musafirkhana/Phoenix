@@ -237,14 +237,16 @@ public class DataBaseUtility {
         db.close();
     }
 
-    public List<Question> getQuizData(Context context) {
+    public List<Question> getQuizData(Context context ,String quizType) {
         List<Question> questionList = new ArrayList<Question>();
         AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
         SQLiteDatabase db = databaseOpenHelper.openDatabase();
         Log.w(TAG, "getAirHqLodgerData: " + db.getVersion());
 
         Cursor cursor = db.rawQuery(
-                "SELECT * from quiz_table;",
+                "SELECT * from quiz_table WHERE question_type='" +
+                        quizType +
+                        "';",
                 null);
         // Log.i(TAG, "Database Query Are :" + cursor);
         if (cursor.moveToFirst()) {

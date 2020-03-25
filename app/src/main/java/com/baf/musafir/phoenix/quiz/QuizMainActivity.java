@@ -36,7 +36,8 @@ public class QuizMainActivity extends Activity {
     Typeface tf ;
     private Context mContext;
     private static CountDownTimer countDownTimer;
-    private long timerTime=60000;
+    private long timerTime=60000*5;
+    private String quizType;
 
     /**************
      * Init UI
@@ -55,12 +56,13 @@ public class QuizMainActivity extends Activity {
         setContentView(R.layout.activity_quiz_main);
         mContext=this;
         AppConstant.SCORE=0;
+        quizType=getIntent().getStringExtra("quizType");
         dataBaseUtility=new DataBaseUtility();
        // scoreno=(TextView)findViewById(R.id.score);
         tf = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/megatron.ttf");
         //get all question from db
-        questionList = dataBaseUtility.getQuizData(getApplicationContext());
+        questionList = dataBaseUtility.getQuizData(getApplicationContext(),quizType);
 
         //random question
         Collections.shuffle(questionList);

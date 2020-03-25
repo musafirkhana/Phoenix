@@ -43,7 +43,13 @@ public class WeatherActivity extends Activity {
         header = (TextView) findViewById(R.id.header);
         webView = (WebView) findViewById(R.id.webview);
         WebSettings settings = webView.getSettings();
-
+        settings.setJavaScriptEnabled(true);
+        settings.setLoadsImagesAutomatically(true);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setSupportZoom(true);
+        settings.setBuiltInZoomControls(true); // allow pinch to zooom
+        settings.setDisplayZoomControls(false);
         webView.setWebViewClient(new WebViewClient() {
 
             // This method will be triggered when the Page Started Loading
@@ -78,6 +84,8 @@ public class WeatherActivity extends Activity {
         settings.setDefaultTextEncodingName("utf-8");
 
 			webView.loadUrl("https://www.mtrwf.com/");
+//        webView.loadUrl("https://met.baf.mil.bd/");
+
         changeFont();
 
     }
@@ -86,8 +94,19 @@ public class WeatherActivity extends Activity {
     public void BACK(View v) {
         this.finish();
     }
-
-
+    public void RELOAD(View v) {
+        webView.reload();
+    }
+    public void mtrRadar(View v) {
+        Intent intent = new Intent(this, RadarViewActivity.class);
+        intent.putExtra("imgUrl","https://wx.baf.mil.bd/METBSR/images/omar/RadarSingle/mtr.jpg");
+        startActivity(intent);
+    }
+    public void zhrRadar(View v) {
+        Intent intent = new Intent(this, RadarViewActivity.class);
+        intent.putExtra("imgUrl","http://wx.baf.mil.bd/METBSR/images/omar/ZHR/zhrradar.jpg");
+        startActivity(intent);
+    }
 
     private void changeFont() {
 

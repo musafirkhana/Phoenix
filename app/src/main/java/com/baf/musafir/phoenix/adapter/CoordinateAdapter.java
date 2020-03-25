@@ -32,11 +32,9 @@ import timber.log.Timber;
 public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
     Context context;
 
-    private Filter planetFilter;
     private  List<CoordinateModel> origPlanetList;
     private  List<CoordinateModel> coordinateModels;
     DataBaseUtility dataBaseUtility;
-    Typeface tf;
 
     public CoordinateAdapter(Context context) {
         super(context, R.layout.row_coordinate, CoordinateVector.getAllCoordinatelist());
@@ -44,8 +42,7 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
         this.coordinateModels = CoordinateVector.getAllCoordinatelist();
         this.origPlanetList = CoordinateVector.getAllCoordinatelist();
         dataBaseUtility=new DataBaseUtility();
-        tf = Typeface.createFromAsset(context.getAssets(),
-                "fonts/megatron.ttf");
+
 
     }
 
@@ -89,9 +86,6 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
             holder.tv_long = (TextView) v.findViewById(R.id.tv_long);
             holder.tv_place = (TextView) v.findViewById(R.id.tv_place);
             holder.delete_item=(ImageView)v.findViewById(R.id.delete_item);
-            holder.tv_lat.setTypeface(tf);
-            holder.tv_long.setTypeface(tf);
-            holder.tv_place.setTypeface(tf);
 
 
             v.setTag(holder);
@@ -101,7 +95,7 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
         if (position < CoordinateVector.getAllCoordinatelist().size()) {
             CoordinateModel query = coordinateModels.get(position);
             holder.tv_lat.setText("Lat " +query.getLatitude());
-            holder.tv_long.setText("Long "+query.getLatitude());
+            holder.tv_long.setText("Long "+query.getLongitude());
             holder.tv_place.setText(""+query.getPlaces());
             Timber.i(""+query.getPlaces());
             holder.delete_item.setOnClickListener(new View.OnClickListener() {
@@ -142,62 +136,6 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
     public void resetData() {
         coordinateModels = origPlanetList;
     }
-    /*
-	 * We create our filter
-	 */
-    /*
-     * We create our filter
-     */
 
-//    @Override
-//    public Filter getFilter() {
-//        if (planetFilter == null)
-//            planetFilter = new PlanetFilter();
-//
-//        return planetFilter;
-//    }
-//
-//    public class PlanetFilter extends Filter {
-//
-//        @Override
-//        protected FilterResults performFiltering(CharSequence constraint) {
-//            FilterResults results = new FilterResults();
-//            // We implement here the filter logic
-//            if (constraint == null || constraint.length() == 0) {
-//                // No filter implemented we return all the list
-//                results.values = origPlanetList;
-//                results.count = origPlanetList.size();
-//            } else {
-//                // We perform filtering operation
-//                List<CoordinateModel> nPlanetList = new ArrayList<CoordinateModel>();
-//                for (CoordinateModel p : coordinateModels) {
-//
-//                    if (p.getPlaces().toUpperCase().contains(constraint.toString().toUpperCase())) {
-//                        nPlanetList.add(p);
-//                    }
-//
-//                }
-//
-//                results.values = nPlanetList;
-//                results.count = nPlanetList.size();
-//
-//            }
-//            return results;
-//        }
-//
-//        @Override
-//        protected void publishResults(CharSequence constraint, FilterResults results) {
-//
-//            // Now we have to inform the adapter about the new list filtered
-//            if (results.count == 0)
-//                notifyDataSetInvalidated();
-//            else {
-//                coordinateModels = (List<CoordinateModel>) results.values;
-//                notifyDataSetChanged();
-//            }
-//
-//        }
-//
-//    }
 
 }

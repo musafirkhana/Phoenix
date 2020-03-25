@@ -147,7 +147,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         //polygonOptions.add(new LatLng[]{23.8103,90.4125,adelaide,brisbane});
         polygonOptions.addAll(coordinates);
         polygonOptions.strokeColor(ContextCompat.getColor(this,android.R.color.holo_orange_dark));
-        polygonOptions.fillColor(ContextCompat.getColor(this,android.R.color.holo_orange_light));
+        polygonOptions.fillColor(ContextCompat.getColor(this,android.R.color.transparent));
         mMap.addPolygon(polygonOptions);
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         CameraPosition cameraPosition = new CameraPosition.Builder()

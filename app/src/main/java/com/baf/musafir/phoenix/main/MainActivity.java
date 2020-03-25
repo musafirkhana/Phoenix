@@ -17,25 +17,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
+import com.baf.musafir.phoenix.adapter.MainSliderAdapter;
 import com.baf.musafir.phoenix.databse.DataBaseUtility;
 import com.baf.musafir.phoenix.quiz.QuizMainActivity;
 import com.baf.musafir.phoenix.quiz.QuizlistActivity;
 import com.baf.musafir.phoenix.util.AppConstant;
+import com.baf.musafir.phoenix.util.PicassoImageLoadingService;
 import com.baf.musafir.phoenix.util.ToastUtil;
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.daimajia.slider.library.Tricks.ViewPagerEx;
+
 
 import java.util.Dictionary;
 import java.util.HashMap;
 
-public class MainActivity extends Activity implements BaseSliderView.OnSliderClickListener,
-        ViewPagerEx.OnPageChangeListener {
+import ss.com.bannerslider.Slider;
+import ss.com.bannerslider.event.OnSlideClickListener;
+
+public class MainActivity extends Activity {
     private Context mContext;
     private DataBaseUtility dataBaseUtility;
     HashMap<String, Integer> HashMapForLocalRes;
-    SliderLayout sliderLayout;
+    private Slider slider;
     private LinearLayout main_menu_li;
     private static final int GPS_ENABLE_REQUEST = 0x1001;
     private AlertDialog mGPSDialog;
@@ -67,6 +68,7 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
         toastUtil = new ToastUtil(this);
         dataBaseUtility = new DataBaseUtility();
         dataBaseUtility.getCoordinateData(mContext);
+        Slider.init(new PicassoImageLoadingService(this));
         initUI();
         changeFont();
     }
@@ -74,74 +76,40 @@ public class MainActivity extends Activity implements BaseSliderView.OnSliderCli
 
     private void initUI() {
         // main_menu_li = (LinearLayout) findViewById(R.id.main_menu_li);
-        sliderLayout = (SliderLayout) findViewById(R.id.slider);
-
+        slider = findViewById(R.id.slider);
 
         //Call this method to add images from local drawable folder .
-        AddImageUrlFormLocalRes();
+        //AddImageUrlFormLocalRes();
 
-        //Call this method to stop automatic sliding.
-        //sliderLayout.stopAutoCycle();
-
-        for (String name : HashMapForLocalRes.keySet()) {
-
-            TextSliderView textSliderView = new TextSliderView(MainActivity.this);
-
-            textSliderView
-                    .description(name)
-                    .image(HashMapForLocalRes.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this);
-
-            textSliderView.bundle(new Bundle());
-
-            textSliderView.getBundle()
-                    .putString("extra", name);
-
-            sliderLayout.addSlider(textSliderView);
-        }
-    }
-
-
-    @Override
-    protected void onStop() {
-
-        sliderLayout.stopAutoCycle();
-
-        super.onStop();
-    }
-
-    @Override
-    public void onSliderClick(BaseSliderView slider) {
-
-        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-        Log.d("Slider Demo", "Page Changed: " + position);
+        slider.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                slider.setAdapter(new MainSliderAdapter());
+                slider.setSelectedSlide(0);
+            }
+        }, 1500);
+        slider.setOnSlideClickListener(new OnSlideClickListener() {
+            @Override
+            public void onSlideClick(int position) {
+                //Do what you want
+                toastUtil.appSuccessMsg(mContext,"dsadsadasd");
+            }
+        });
 
     }
 
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-
-    public void AddImageUrlFormLocalRes() {
-
-        HashMapForLocalRes = new HashMap<String, Integer>();
-        HashMapForLocalRes.put("Banner 1", R.drawable.banner_image);
-        HashMapForLocalRes.put("Banner 2", R.drawable.banner_image2);
-        HashMapForLocalRes.put("Banner 3", R.drawable.banner_image3);
 
 
-    }
+
+//    public void AddImageUrlFormLocalRes() {
+//
+//        HashMapForLocalRes = new HashMap<String, Integer>();
+//        HashMapForLocalRes.put("Banner 1", R.drawable.banner_image);
+//        HashMapForLocalRes.put("Banner 2", R.drawable.banner_image2);
+//        HashMapForLocalRes.put("Banner 3", R.drawable.banner_image3);
+//
+//
+//    }
 
 
     /**********************Main Menu**********************/
