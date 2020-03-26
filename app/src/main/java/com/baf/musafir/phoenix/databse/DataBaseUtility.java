@@ -47,9 +47,9 @@ public class DataBaseUtility {
             do {
 
                 CoordinateModel coordinateModel = new CoordinateModel();
-                coordinateModel.setLatitude(cursor.getString(0));
-                coordinateModel.setLongitude(cursor.getString(1));
-                coordinateModel.setPlaces(cursor.getString(2));
+                coordinateModel.setLatitude(cursor.getString(1));
+                coordinateModel.setLongitude(cursor.getString(2));
+                coordinateModel.setPlaces(cursor.getString(0));
                 coordinateVector.setAllCoordinatelist(coordinateModel);
                 coordinateModel = null;
                 Log.w(TAG, "Contact Data : " + cursor.getString(0));

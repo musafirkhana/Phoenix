@@ -1,5 +1,6 @@
 package com.baf.musafir.phoenix.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -98,14 +100,38 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
             holder.tv_long.setText("Long "+query.getLongitude());
             holder.tv_place.setText(""+query.getPlaces());
             Timber.i(""+query.getPlaces());
+            final View finalV = v;
             holder.delete_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    CoordinateModel query1 = coordinateModels.get(position);
-                    deleteData(query1.getPlaces());
-                    Timber.i(query1.getPlaces());
-                    dataBaseUtility.getCoordinateData(context);
-                    notifyDataSetChanged();
+
+                    ViewGroup viewGroup = finalV.findViewById(android.R.id.content);
+                    final View dialogView = LayoutInflater.from(context).inflate(R.layout.exit_dialog, viewGroup, false);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setView(dialogView);
+                    final AlertDialog alertDialog = builder.create();
+                    Button dialogButton = (Button) dialogView.findViewById(R.id.ok);
+                    Button buttonCancel = (Button) dialogView.findViewById(R.id.cancel);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog.dismiss();
+
+                            CoordinateModel query1 = coordinateModels.get(position);
+                            deleteData(query1.getPlaces());
+                            Timber.i(query1.getPlaces());
+                            dataBaseUtility.getCoordinateData(context);
+                            notifyDataSetChanged();
+                        }
+                    });
+                    buttonCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.show();
+
                 }
             });
 
@@ -136,6 +162,8 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
     public void resetData() {
         coordinateModels = origPlanetList;
     }
+
+
 
 
 }
