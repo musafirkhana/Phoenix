@@ -165,8 +165,10 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    public void PDFVIEW(View v) {
-        toastUtil.appSuccessMsg(mContext,"Under Construction");
+    public void CONTACT(View v) {
+        dataBaseUtility.getProfileList(mContext);
+        Intent intent = new Intent(this, ProfileListActivity.class);
+        startActivity(intent);
     }
 
     public void WEATHER(View v) {

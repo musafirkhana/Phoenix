@@ -90,4 +90,12 @@
     <color name="scan_btbg">#9A5F30</color>
     <color name="circle_color">#112B38</color>
     <color name="fontcolor">#DD8C4E</color>
+
+    <color name="blackTextColor">#000</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+    <color name="colorRed_A400">#FF1744</color>
+    <color name="colorRed_900">#B71C1C</color>
+    <color name="page_header_color">#023B4C</color>
+    <color name="colorPurple_A400">#D500F9</color>
+    <color name="colorPurple_900">#4A148C</color>
 </resources>

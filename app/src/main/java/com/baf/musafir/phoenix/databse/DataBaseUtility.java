@@ -8,6 +8,7 @@ import android.util.Log;
 import com.baf.musafir.phoenix.holder.AllCourseVector;
 import com.baf.musafir.phoenix.holder.AllMsnProfileVector;
 import com.baf.musafir.phoenix.holder.AllPhaseVector;
+import com.baf.musafir.phoenix.holder.AllprofileListVector;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.holder.FlgHourVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
@@ -15,6 +16,7 @@ import com.baf.musafir.phoenix.model.CourseModel;
 import com.baf.musafir.phoenix.model.FlgHourModel;
 import com.baf.musafir.phoenix.model.MsnProfileModel;
 import com.baf.musafir.phoenix.model.PhaseModel;
+import com.baf.musafir.phoenix.model.ProfileModel;
 import com.baf.musafir.phoenix.quiz.Question;
 
 import java.util.ArrayList;
@@ -269,6 +271,45 @@ public class DataBaseUtility {
         }
         return questionList;
        // db.close();
+    }
+
+
+    /******************************
+     * Getting  Flg hhour from DB
+     *
+     ******************************/
+    public void getProfileList(Context context) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Cursor cursor = db.rawQuery(
+                "select * from officer_data;",
+                null);
+        AllprofileListVector allprofileListVector = new AllprofileListVector();
+        allprofileListVector.removeProfilelist();
+        if (cursor.moveToFirst()) {
+            do {
+
+                ProfileModel profileModel = new ProfileModel();
+                profileModel.setRank(cursor.getString(0));
+                profileModel.setName(cursor.getString(1));
+                profileModel.setBd_no(cursor.getString(2));
+                profileModel.setBranch(cursor.getString(3));
+                profileModel.setAppoinment(cursor.getString(4));
+                profileModel.setDob(cursor.getString(5));
+                profileModel.setEmail(cursor.getString(6));
+                profileModel.setPosting_date(cursor.getString(7));
+                profileModel.setBlood_group(cursor.getString(8));
+                profileModel.setMobile(cursor.getString(9));
+                profileModel.setProfile(cursor.getString(10));
+
+                allprofileListVector.setAllProfilelist(profileModel);
+                profileModel = null;
+                Log.w(TAG, "Contact Data : " + cursor.getString(0));
+                Timber.tag("Year").e(cursor.getString(0));
+
+            } while (cursor.moveToNext());
+        }
+        db.close();
     }
 
 }

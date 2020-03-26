@@ -232,6 +232,16 @@
                     android:layout_marginTop="2dp"
                     android:text="Flight Lieutenant Ali"
                     android:layout_marginLeft="10dp"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+                <TextView android:id="@+id/design_txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/designation"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Flight Lieutenant Rafid"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="15dp"
                     android:textColor="@color/gray"
                     android:textSize="12sp" />

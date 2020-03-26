@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_home">
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+           >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:onClick="BACK"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_selector">
+
+            </ImageView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="103 ATTU BAF"
+            android:fontFamily="@font/my_custom_font"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_linear"
+        android:background="@color/background_home">
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/header_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@drawable/drawable_red_gradient"
+            android:scaleType="centerCrop" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/header_cover_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-80dp"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:padding="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner_image"
+            app:civ_border_color="#FFFFFFFF"
+            app:civ_border_width="3dp" />
+
+        <RelativeLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_cover_image"
+            android:background="@drawable/drawable_red_gradient"
+            android:elevation="4dp"
+            android:paddingBottom="14dp">
+
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/my_custom_font"
+                android:text="Md Nawshad Fatemi, psc"
+                android:textColor="#fff"
+                android:layout_marginTop="55dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:orientation="vertical">
+
+                <TextView android:id="@+id/tv_appoinment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@+id/middle_div"
+                    android:fontFamily="@font/my_custom_font"
+                    android:text="UT PILOT"
+                    android:textColor="#fff"
+                    android:textSize="14sp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@+id/middle_div"
+                    android:fontFamily="@font/my_custom_font"
+                    android:text="103 ATTU"
+                    android:textColor="#fff"
+                    android:textSize="14sp"></TextView>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_below="@+id/profile_layout"
+    android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+
+            android:layout_marginTop="20dp"
+            android:background="@color/google_white"
+            android:gravity="center"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_rank"
+                    ></ImageView>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="6">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Rank"
+                    android:textColor="@color/gray_dark"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/my_custom_font"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <TextView android:id="@+id/tv_rank"
+                    android:layout_width="match_parent"
+                    android:text="Wing Commander"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/my_custom_font"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:visibility="invisible"
+                android:background="@drawable/ic_weather"
+                android:layout_weight="1"></ImageView>
+        </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        android:background="@color/google_white"
+        android:gravity="center"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/logo"
+                ></ImageView>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Branch"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView android:id="@+id/tv_branch"
+                android:layout_width="match_parent"
+                android:text="GDP"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:visibility="invisible"
+            android:background="@drawable/ic_weather"
+            android:layout_weight="1"></ImageView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        android:background="@color/google_white"
+        android:gravity="center"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_dob"
+                ></ImageView>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="DOB"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView android:id="@+id/tv_dob"
+                android:layout_width="match_parent"
+                android:text="05 AUG 1978"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:visibility="invisible"
+            android:background="@drawable/ic_weather"
+            android:layout_weight="1"></ImageView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        android:background="@color/google_white"
+        android:gravity="center"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_bloodgroup"
+                ></ImageView>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Blood Group"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView android:id="@+id/tv_blood"
+                android:layout_width="match_parent"
+                android:text="A+"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:visibility="invisible"
+            android:background="@drawable/ic_weather"
+            android:layout_weight="1"></ImageView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        android:background="@color/google_white"
+        android:gravity="center"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_contact"
+                ></ImageView>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Mobile No"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView android:id="@+id/tv_mobile"
+                android:layout_width="match_parent"
+                android:text="01612636519"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:onClick="Call"
+            android:layout_marginRight="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/call_gray"
+                ></ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        android:background="@color/google_white"
+        android:gravity="center"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_mail"
+                ></ImageView>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Email No"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:text="ali.mbstu.ict@gmail.com"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/my_custom_font"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="Email"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_email"
+                ></ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

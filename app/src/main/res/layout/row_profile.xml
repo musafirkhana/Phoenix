@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="68dp"
+        android:background="@drawable/drawable_red_gradient"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp">
+
+
+
+        <LinearLayout
+            android:id="@+id/linear_container"
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"
+            android:layout_marginLeft="5dip"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rank_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2.5dp"
+                android:clickable="true"
+                android:fontFamily="@font/my_custom_font"
+                android:text="Wing Commander"
+                android:textColor="@color/gray_dark"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Md Nawshad Fatemi, psc"
+                android:fontFamily="@font/my_custom_font"
+                android:textColor="@color/orange_light"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/call_image"
+            android:layout_width="40dp"
+            android:background="@drawable/arrow"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_height="40dp"
+             />
+
+    </RelativeLayout>
+
+</LinearLayout>
