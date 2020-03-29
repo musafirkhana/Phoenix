@@ -155,6 +155,7 @@ public class SyllabusActivity extends Activity  {
                 intent.putExtra("exercise_no",query.getExercise_no());
                 intent.putExtra("msn_profile",query.getMsn_profile());
                 intent.putExtra("id",query.getId());
+                intent.putExtra("msn_status",query.getMsn_status());
                 startActivity(intent);
 
             }
