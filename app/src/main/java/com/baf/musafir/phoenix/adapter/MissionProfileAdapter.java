@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class MissionProfileAdapter extends ArrayAdapter<MsnProfileModel> impleme
         private TextView txt_dual;
         private TextView txt_solo;
         private TextView txt_prog;
+        private LinearLayout header_linear;
 
 
     }
@@ -54,6 +56,7 @@ public class MissionProfileAdapter extends ArrayAdapter<MsnProfileModel> impleme
             holder.txt_dual = (TextView) v.findViewById(R.id.txt_dual);
             holder.txt_solo = (TextView) v.findViewById(R.id.txt_solo);
             holder.txt_prog = (TextView) v.findViewById(R.id.txt_prog);
+            holder.header_linear=(LinearLayout)v.findViewById(R.id.header_linear);
 
             v.setTag(holder);
         } else {
@@ -65,6 +68,9 @@ public class MissionProfileAdapter extends ArrayAdapter<MsnProfileModel> impleme
             holder.txt_dual.setText(query.getDuration_dual());
             holder.txt_solo.setText(query.getDuration_solo());
             holder.txt_prog.setText(query.getDuration_progressive());
+            if(query.getMsn_status().equalsIgnoreCase("1")){
+                holder.header_linear.setBackgroundColor(context.getResources().getColor(R.color.color_blog));
+            }
 
 
 

@@ -31,7 +31,16 @@ public class StringUtility {
         Double longitude=Double.parseDouble(arrSplit[1]);
         return longitude;
     }
+    public static final String getPlaces(String string) {
+        String[] arrSplit = null;
+        try {
+            arrSplit = string.split(",");
+        } catch (Exception e) {
 
+        }
+        String place=toCamelCase(arrSplit[2]);;
+        return place;
+    }
     public static final String getYear(String string) {
         String[] arrSplit = null;
         try {
@@ -59,5 +68,17 @@ public class StringUtility {
         }
         return arrSplit[0];
     }
+    static String toCamelCase(String s){
+        String[] parts = s.split("_");
+        String camelCaseString = "";
+        for (String part : parts){
+            camelCaseString = camelCaseString + toProperCase(part);
+        }
+        return camelCaseString;
+    }
 
+    static String toProperCase(String s) {
+        return s.substring(0, 1).toUpperCase() +
+                s.substring(1).toLowerCase();
+    }
 }

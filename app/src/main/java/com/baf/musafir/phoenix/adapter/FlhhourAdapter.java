@@ -86,13 +86,13 @@ public class FlhhourAdapter extends ArrayAdapter<FlgHourModel>  {
             holder.inst_simulator = (TextView) v.findViewById(R.id.inst_simulator);
             holder.row_linear=(LinearLayout) v.findViewById(R.id.row_linear);
 
-            holder.day_text.setTypeface(tf);
-            holder.actype_text.setTypeface(tf);
-            holder.ac_serno.setTypeface(tf);
-            holder.pilot_one.setTypeface(tf);
-            holder.pilot_two.setTypeface(tf);
-            holder.inst_actual.setTypeface(tf);
-            holder.inst_simulator.setTypeface(tf);
+//            holder.day_text.setTypeface(tf);
+//            holder.actype_text.setTypeface(tf);
+//            holder.ac_serno.setTypeface(tf);
+//            holder.pilot_one.setTypeface(tf);
+//            holder.pilot_two.setTypeface(tf);
+//            holder.inst_actual.setTypeface(tf);
+//            holder.inst_simulator.setTypeface(tf);
 
             v.setTag(holder);
         } else {

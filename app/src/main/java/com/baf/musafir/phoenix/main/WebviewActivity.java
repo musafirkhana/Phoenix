@@ -2,8 +2,11 @@ package com.baf.musafir.phoenix.main;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,17 +23,26 @@ import android.widget.Toast;
 
 import com.baf.musafir.phoenix.BuildConfig;
 import com.baf.musafir.phoenix.R;
+import com.baf.musafir.phoenix.databse.AssetDatabaseOpenHelper;
+import com.baf.musafir.phoenix.util.ToastUtil;
+
+import timber.log.Timber;
 
 
 public class WebviewActivity extends Activity {
 
     private Context mContex;
-    private String DETAIL = "";
-    private String HEADER = "";
+
+
+    String exercise_no="";
+    String msn_profile="";
+    String idUnique="";
+
     private TextView header;
     private WebView webView;
     ProgressDialog dialog;
     Typeface tf;
+    private ToastUtil toastUtil;
 
     /**
      * Called when the activity is first created.
@@ -43,13 +55,16 @@ public class WebviewActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.webview);
         mContex = this;
+        toastUtil=new ToastUtil(this);
         tf = Typeface.createFromAsset(mContex.getAssets(),
                 "fonts/megatron.ttf");
-        DETAIL = getIntent().getStringExtra("DETAIL");
-        HEADER = getIntent().getStringExtra("HEADER");
+
+        exercise_no=getIntent().getStringExtra("exercise_no");
+        msn_profile=getIntent().getStringExtra("msn_profile");
+        idUnique=getIntent().getStringExtra("id");
         header = (TextView) findViewById(R.id.header);
-        header.setText(HEADER);
-        Log.i("SSSSS    ", DETAIL);
+        header.setText(exercise_no);
+        Log.i("SSSSS    ", msn_profile);
         webView = (WebView) findViewById(R.id.webview);
         WebSettings settings = webView.getSettings();
 
@@ -85,7 +100,7 @@ public class WebviewActivity extends Activity {
             }
         });
         settings.setDefaultTextEncodingName("utf-8");
-        webView.loadDataWithBaseURL(null, DETAIL, "text/html", "UTF-8", null);
+        webView.loadDataWithBaseURL(null, msn_profile, "text/html", "UTF-8", null);
 
 //			webView.loadUrl("file:///android_asset/speach.htm");
 //			mPlayer.start();
@@ -99,13 +114,28 @@ public class WebviewActivity extends Activity {
     }
 
     public void SHARE(View v) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, DETAIL);
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+        updateData();
     }
 
+    private void updateData() {
+
+
+        Integer idInteger=Integer.parseInt(idUnique);
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(mContex);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        db.beginTransaction();
+
+        String strSQL = "UPDATE mission_profile SET msn_status = '1' WHERE id = " +
+                idInteger +
+                "; ";
+        db.execSQL(strSQL);
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        db.close();
+        Timber.i("Data Insert Duccessfully");
+        toastUtil.appSuccessMsg(mContex,"Update Sucessfull");
+
+    }
     private void changeFont() {
 
         header.setTypeface(tf);

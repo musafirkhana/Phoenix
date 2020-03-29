@@ -77,10 +77,10 @@ public class CklistMainActivity extends Activity {
         excercise_scroll=(TextView)findViewById(R.id.excercise_scroll);
 
         topbar.setTypeface(tf);
-        cktv_1.setTypeface(tf);
-        cktv_2.setTypeface(tf);
-        cktv_3.setTypeface(tf);
-        cktv_4.setTypeface(tf);
+//        cktv_1.setTypeface(tf);
+//        cktv_2.setTypeface(tf);
+//        cktv_3.setTypeface(tf);
+//        cktv_4.setTypeface(tf);
         excercise_scroll.setTypeface(tf);
 
 

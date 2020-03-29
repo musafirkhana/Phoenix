@@ -11,25 +11,31 @@ import android.graphics.Typeface;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
+import com.baf.musafir.phoenix.adapter.CoordinateAdapter;
 import com.baf.musafir.phoenix.databse.DataBaseUtility;
+import com.baf.musafir.phoenix.holder.AllprofileListVector;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
+import com.baf.musafir.phoenix.model.ProfileModel;
 import com.baf.musafir.phoenix.util.AppConstant;
-import com.baf.musafir.phoenix.util.GpsUtils;
 import com.baf.musafir.phoenix.util.StringUtility;
 import com.baf.musafir.phoenix.util.ToastUtil;
 
@@ -43,19 +49,19 @@ import timber.log.Timber;
 public class MaplistviewActivity extends Activity {
 
 
-
     private Context mContext;
     private ToastUtil toastUtil;
-    private String[] ListElements = new String[]{ };
+    private String[] ListElements = new String[]{};
 
     private String latitude = "";
     private String longitude = "";
+    private String places = "";
     List<String> ListElementsArrayList;
     private DataBaseUtility dataBaseUtility;
     private MapCoordinateAdapter mapCoordinateAdapter;
     private locationAdapter adapter;
-    AutoCompleteTextView actv;
-    Typeface tf ;
+    private AutoCompleteTextView actv;
+    Typeface tf;
 
     private ListView listView;
     private Button addButton;
@@ -80,75 +86,96 @@ public class MaplistviewActivity extends Activity {
 
 
     }
-private void initUI(){
-    listView = (ListView) findViewById(R.id.listView);
-    addButton = (Button) findViewById(R.id.button1);
-    top_syllabus=(TextView)findViewById(R.id.top_syllabus);
-    map_generation = (Button) findViewById(R.id.map_generation);
-    ListElementsArrayList = new ArrayList<String>(Arrays.asList(ListElements));
 
-    adapter = new locationAdapter(mContext, R.layout.row_location, ListElementsArrayList);
-    listView.setAdapter(adapter);
-    addButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (latitude.equalsIgnoreCase("") ||
-                    longitude.equalsIgnoreCase("")) {
-                toastUtil.appSuccessMsg(mContext, AppConstant.EMPTY_FIELD);
-            } else {
-                ListElementsArrayList.add(latitude + "," + longitude);
-                listView.setAdapter(adapter);
-                actv.setText("");
-                adapter.notifyDataSetChanged();
+    private void initUI() {
+        listView = (ListView) findViewById(R.id.listView);
+        addButton = (Button) findViewById(R.id.button1);
+        top_syllabus = (TextView) findViewById(R.id.top_syllabus);
+        map_generation = (Button) findViewById(R.id.map_generation);
+        ListElementsArrayList = new ArrayList<String>(Arrays.asList(ListElements));
+
+        adapter = new locationAdapter(mContext, R.layout.row_location, ListElementsArrayList);
+        listView.setAdapter(adapter);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (latitude.equalsIgnoreCase("") || longitude.equalsIgnoreCase(""))
+                {
+                    toastUtil.appSuccessMsg(mContext, AppConstant.EMPTY_FIELD);
+                } else {
+                    //take final place name from textview and add to new list
+                    places=actv.getText().toString();
+                    ListElementsArrayList.add(latitude + "," + longitude+","+places);
+                    listView.setAdapter(adapter);
+                    actv.setText("");
+                    adapter.notifyDataSetChanged();
+                }
+
             }
+        });
 
-        }
-    });
+        map_generation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    map_generation.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+                if (ListElementsArrayList.size() == 0) {
+                    toastUtil.appSuccessMsg(mContext, AppConstant.NO_LOC);
+                } else {
+                    locationEnabled();
+                }
 
-            if (ListElementsArrayList.size() == 0) {
-                toastUtil.appSuccessMsg(mContext, AppConstant.NO_LOC);
-            } else {
-                locationEnabled();
             }
+        });
+    }
 
-        }
-    });
-}
     /*******************
      * Autocomplete places
      * Behind mapping lat long
      */
 
     private void autocompletePlaces() {
-        //Creating the instance of ArrayAdapter containing list of fruit names
         mapCoordinateAdapter = new MapCoordinateAdapter(this);
-        //Getting the instance of AutoCompleteTextView
         actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
         actv.setAdapter(mapCoordinateAdapter);
         actv.setThreshold(1);//will start working from first character
-//        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-//                //this is the way to find selected object/item
-//               // CoordinateModel query = adapterView.getItemAtPosition(pos);
-//                if (pos < CoordinateVector.getAllCoordinatelist().size()) {
-//                    CoordinateModel query = coordinateModels.get(pos);
-//                    Timber.i(""+query.getPlaces());
-//
-//                    actv.setText(query.getPlaces());
-//                    Timber.i(""+pos);
-//                    Timber.i(""+query.getPlaces());
-//                    latitude = query.getLatitude();
-//                    longitude = query.getLongitude();
-//
-//                }
-//
-//            }
-//        });
+
+        actv.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (count < before) {
+                    listView.setVisibility(View.VISIBLE);
+                    // We're deleting char so we need to reset the adapter data
+                    mapCoordinateAdapter.resetData();
+                }
+                mapCoordinateAdapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CoordinateModel query= mapCoordinateAdapter.planetList.get(position);
+                actv.setText(query.getPlaces());
+                latitude = query.getLatitude();
+                longitude = query.getLongitude();
+
+                Timber.i("Autocomplete latitude    " + latitude);
+                Timber.i("Autocomplete latitude    " + longitude);
+                Timber.i("Autocomplete Place    " + query.getPlaces());
+
+            }
+        });
+
         actv.setTextColor(Color.BLACK);
         actv.setHintTextColor(Color.BLACK);
     }
@@ -216,12 +243,13 @@ private void initUI(){
                     public void onClick(View v) {
                     }
                 });
+
                 TextView location_textview = convertView.findViewById(R.id.location_textview);
                 TextView longitude_textview = convertView.findViewById(R.id.longitude_textview);
                 ImageView delete_item = convertView.findViewById(R.id.delete_item);
 
-                location_textview.setText("Latitude :" + StringUtility.getlatitude(subjectData));
-                longitude_textview.setText("Longitude :" + StringUtility.getlongitude(subjectData));
+                location_textview.setText("Coordinate :" + StringUtility.getlatitude(subjectData)+" , " + StringUtility.getlongitude(subjectData));
+                longitude_textview.setText("" + StringUtility.getPlaces(subjectData));
 
                 delete_item.setTag(position);
                 delete_item.setOnClickListener(myButtonClickListener);
@@ -267,7 +295,6 @@ private void initUI(){
 
     private void changeFont() {
 
-        actv.setTypeface(tf);
         map_generation.setTypeface(tf);
         addButton.setTypeface(tf);
         top_syllabus.setTypeface(tf);
@@ -276,60 +303,62 @@ private void initUI(){
     }
 
 
-    public class MapCoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
+    /************************
+     * This block of code is for autocomplete Search adapter
+     */
+    public static class MapCoordinateAdapter extends ArrayAdapter<CoordinateModel> {
         Context context;
 
         private Filter planetFilter;
         private List<CoordinateModel> origPlanetList;
-        private List<CoordinateModel> coordinateModels;
+        private List<CoordinateModel> planetList;
 
         public MapCoordinateAdapter(Context context) {
             super(context, R.layout.row_mapcoordinate, CoordinateVector.getAllCoordinatelist());
             this.context = context;
-            this.coordinateModels = CoordinateVector.getAllCoordinatelist();
+            this.planetList = CoordinateVector.getAllCoordinatelist();
             this.origPlanetList = CoordinateVector.getAllCoordinatelist();
 
         }
 
         public int getCount() {
-            return coordinateModels.size();
+            return planetList.size();
         }
 
         public CoordinateModel getItem(int position) {
-            return coordinateModels.get(position);
+            return planetList.get(position);
         }
 
         public long getItemId(int position) {
-            return coordinateModels.get(position).hashCode();
+            return planetList.get(position).hashCode();
+        }
+
+        class ViewHolder {
+
+            private TextView tv_coordinate;
         }
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
-            //final ViewHolder holder;
+            final ViewHolder holder;
             View v = convertView;
-
             if (v == null) {
                 final LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                v = vi.inflate(R.layout.row_mapcoordinate, parent,false);
-                TextView tv_coordinate = (TextView) v.findViewById(R.id.tv_coordinate);
-                if (position < CoordinateVector.getAllCoordinatelist().size()) {
-                    CoordinateModel query = coordinateModels.get(position);
-                    tv_coordinate.setText(query.getPlaces());
-                    Timber.i(""+query.getPlaces());
-                }
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        CoordinateModel query = coordinateModels.get(position);
-                        Timber.i(""+query.getPlaces());
-                        actv.setText(query.getPlaces());
-                        Timber.i(""+position);
-                        Timber.i(""+query.getPlaces());
-                        latitude = query.getLatitude();
-                        longitude = query.getLongitude();
-                    }
-                });
-                //v.setTag(holder);
+                v = vi.inflate(R.layout.row_mapcoordinate, null);
+                holder = new ViewHolder();
+
+                holder.tv_coordinate = (TextView) v.findViewById(R.id.tv_coordinate);
+
+                v.setTag(holder);
+            } else {
+                holder = (ViewHolder) v.getTag();
+            }
+            if (position < CoordinateVector.getAllCoordinatelist().size()) {
+                CoordinateModel query = planetList.get(position);
+                holder.tv_coordinate.setText(query.getPlaces());
+                Timber.i("" + query.getPlaces());
+
+
             }
 
 
@@ -337,9 +366,8 @@ private void initUI(){
         }
 
 
-
         public void resetData() {
-            coordinateModels = origPlanetList;
+            planetList = origPlanetList;
         }
 
         @Override
@@ -363,12 +391,12 @@ private void initUI(){
                 } else {
                     // We perform filtering operation
                     List<CoordinateModel> nPlanetList = new ArrayList<CoordinateModel>();
-                    for (CoordinateModel p : coordinateModels) {
-
-                        if (p.getPlaces().toUpperCase().startsWith(constraint.toString().toUpperCase())) {
+                    for (CoordinateModel p : planetList) {
+                        if (p.getPlaces().toLowerCase().startsWith(constraint.toString().toLowerCase())) {
                             nPlanetList.add(p);
                         }
-
+                        Timber.i("Filter Places    " + p.getPlaces().toLowerCase());
+                        Timber.d("Filter constraint  " + constraint.toString().toLowerCase());
                     }
 
                     results.values = nPlanetList;
@@ -385,7 +413,7 @@ private void initUI(){
                 if (results.count == 0)
                     notifyDataSetInvalidated();
                 else {
-                    coordinateModels = (List<CoordinateModel>) results.values;
+                    planetList = (List<CoordinateModel>) results.values;
                     notifyDataSetChanged();
                 }
 
@@ -395,40 +423,41 @@ private void initUI(){
 
     }
 
-    private void locationEnabled () {
+    private void locationEnabled() {
         LocationManager lm = (LocationManager)
-                getSystemService(Context. LOCATION_SERVICE ) ;
+                getSystemService(Context.LOCATION_SERVICE);
         boolean gps_enabled = false;
         boolean network_enabled = false;
         try {
-            gps_enabled = lm.isProviderEnabled(LocationManager. GPS_PROVIDER ) ;
+            gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
         } catch (Exception e) {
-            e.printStackTrace() ;
+            e.printStackTrace();
         }
         try {
-            network_enabled = lm.isProviderEnabled(LocationManager. NETWORK_PROVIDER ) ;
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         } catch (Exception e) {
-            e.printStackTrace() ;
+            e.printStackTrace();
         }
         if (!gps_enabled && !network_enabled) {
-            new AlertDialog.Builder(MaplistviewActivity. this )
-                    .setMessage( "GPS Enable" )
-                    .setPositiveButton( "Settings" , new
+            new AlertDialog.Builder(MaplistviewActivity.this)
+                    .setMessage("GPS Enable")
+                    .setPositiveButton("Settings", new
                             DialogInterface.OnClickListener() {
                                 @Override
-                                public void onClick (DialogInterface paramDialogInterface , int paramInt) {
-                                    startActivity( new Intent(Settings. ACTION_LOCATION_SOURCE_SETTINGS )) ;
+                                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                                    startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                                 }
                             })
-                    .setNegativeButton( "Cancel" , null )
-                    .show() ;
-        }else {
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        } else {
             Intent intent = new Intent(getApplicationContext(), MapActivity.class);
             intent.putExtra("mylist", (Serializable) ListElementsArrayList);
             startActivity(intent);
         }
     }
-    public void BACK(View v){
+
+    public void BACK(View v) {
         this.finish();
 
     }

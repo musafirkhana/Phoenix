@@ -62,6 +62,7 @@ public class ToastUtil {
 		TextView toast_text = (TextView) layout.findViewById(R.id.txtvw);
 		toast_text.setText(message);
 		toast.setView(layout);
+		toast.setGravity(Gravity.CENTER, 0, 0);
 		toast.setDuration(Toast.LENGTH_LONG);
 		toast.show();
 

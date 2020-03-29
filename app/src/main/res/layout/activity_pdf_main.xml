@@ -35,9 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Bangladesh Airforce"
+            android:text="103 ATTU"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:textStyle="bold|normal" />
 
     </RelativeLayout>

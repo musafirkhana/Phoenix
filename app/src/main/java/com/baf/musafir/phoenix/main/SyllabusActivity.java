@@ -45,6 +45,8 @@ import java.util.Locale;
 
 import timber.log.Timber;
 
+import static com.baf.musafir.phoenix.quiz.QuizMainActivity.result;
+
 /***************************
  * copyright@ Musafir Ali
  * Bangladesh Airforce (103 ATTU)
@@ -57,6 +59,7 @@ public class SyllabusActivity extends Activity  {
     private CourseAdapter courseAdapter;
     private PhaseAdapter phaseAdapter;
     private MissionProfileAdapter missionProfileAdapter;
+    private static final int REQUEST_CODE = 103;
 
     Typeface tf ;
 
@@ -149,8 +152,9 @@ public class SyllabusActivity extends Activity  {
                 MsnProfileModel query = AllMsnProfileVector.getAllMsnProfilelist().elementAt(position);
                 Log.w(TAG, "Mission Profile: " + query.getMsn_profile());
                 Intent intent = new Intent(mContext, WebviewActivity.class);
-                intent.putExtra("DETAIL",query.getMsn_profile());
-                intent.putExtra("HEADER",query.getExercise_no());
+                intent.putExtra("exercise_no",query.getExercise_no());
+                intent.putExtra("msn_profile",query.getMsn_profile());
+                intent.putExtra("id",query.getId());
                 startActivity(intent);
 
             }
@@ -169,4 +173,13 @@ public class SyllabusActivity extends Activity  {
         this.finish();
 
     }
+
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
 }

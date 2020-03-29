@@ -47,15 +47,15 @@ public class MainActivity extends Activity {
      * For Font Change
      * @param savedInstanceState
      */
-    private TextView tvm_1;
-    private TextView tvm_2;
-    private TextView tvm_3;
-    private TextView tvm_4;
-    private TextView tvm_5;
-    private TextView tvm_6;
-    private TextView tvm_7;
-    private TextView tvm_8;
-    private TextView tvm_9;
+//    private TextView tvm_1;
+//    private TextView tvm_2;
+//    private TextView tvm_3;
+//    private TextView tvm_4;
+//    private TextView tvm_5;
+//    private TextView tvm_6;
+//    private TextView tvm_7;
+//    private TextView tvm_8;
+//    private TextView tvm_9;
     private TextView tv_topbar;
     Typeface tf ;
 
@@ -100,16 +100,6 @@ public class MainActivity extends Activity {
 
 
 
-
-//    public void AddImageUrlFormLocalRes() {
-//
-//        HashMapForLocalRes = new HashMap<String, Integer>();
-//        HashMapForLocalRes.put("Banner 1", R.drawable.banner_image);
-//        HashMapForLocalRes.put("Banner 2", R.drawable.banner_image2);
-//        HashMapForLocalRes.put("Banner 3", R.drawable.banner_image3);
-//
-//
-//    }
 
 
     /**********************Main Menu**********************/
@@ -195,25 +185,25 @@ public class MainActivity extends Activity {
     private void changeFont(){
         tf = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/megatron.ttf");
-        tvm_1=(TextView)findViewById(R.id.tvm_1);
-        tvm_2=(TextView)findViewById(R.id.tvm_2);
-        tvm_3=(TextView)findViewById(R.id.tvm_3);
-        tvm_4=(TextView)findViewById(R.id.tvm_4);
-        tvm_5=(TextView)findViewById(R.id.tvm_5);
-        tvm_6=(TextView)findViewById(R.id.tvm_6);
-        tvm_7=(TextView)findViewById(R.id.tvm_7);
-        tvm_8=(TextView)findViewById(R.id.tvm_8);
-        tvm_9=(TextView)findViewById(R.id.tvm_9);
+//        tvm_1=(TextView)findViewById(R.id.tvm_1);
+//        tvm_2=(TextView)findViewById(R.id.tvm_2);
+//        tvm_3=(TextView)findViewById(R.id.tvm_3);
+//        tvm_4=(TextView)findViewById(R.id.tvm_4);
+//        tvm_5=(TextView)findViewById(R.id.tvm_5);
+//        tvm_6=(TextView)findViewById(R.id.tvm_6);
+//        tvm_7=(TextView)findViewById(R.id.tvm_7);
+//        tvm_8=(TextView)findViewById(R.id.tvm_8);
+//        tvm_9=(TextView)findViewById(R.id.tvm_9);
         tv_topbar=(TextView)findViewById(R.id.tv_topbar);
-        tvm_1.setTypeface(tf);
-        tvm_2.setTypeface(tf);
-        tvm_3.setTypeface(tf);
-        tvm_4.setTypeface(tf);
-        tvm_5.setTypeface(tf);
-        tvm_6.setTypeface(tf);
-        tvm_7.setTypeface(tf);
-        tvm_8.setTypeface(tf);
-        tvm_9.setTypeface(tf);
+//        tvm_1.setTypeface(tf);
+//        tvm_2.setTypeface(tf);
+//        tvm_3.setTypeface(tf);
+//        tvm_4.setTypeface(tf);
+//        tvm_5.setTypeface(tf);
+//        tvm_6.setTypeface(tf);
+//        tvm_7.setTypeface(tf);
+//        tvm_8.setTypeface(tf);
+//        tvm_9.setTypeface(tf);
         tv_topbar.setTypeface(tf);
     }
 }

@@ -115,16 +115,16 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
         tv_8 = (TextView) findViewById(R.id.tv_8);
         tv_9 = (TextView) findViewById(R.id.tv_9);
         tv_10 = (TextView) findViewById(R.id.tv_10);
-        tv_1.setTypeface(tf);
-        tv_2.setTypeface(tf);
-        tv_3.setTypeface(tf);
-        tv_4.setTypeface(tf);
-        tv_5.setTypeface(tf);
-        tv_6.setTypeface(tf);
-        tv_7.setTypeface(tf);
-        tv_8.setTypeface(tf);
-        tv_9.setTypeface(tf);
-        tv_10.setTypeface(tf);
+//        tv_1.setTypeface(tf);
+//        tv_2.setTypeface(tf);
+//        tv_3.setTypeface(tf);
+//        tv_4.setTypeface(tf);
+//        tv_5.setTypeface(tf);
+//        tv_6.setTypeface(tf);
+//        tv_7.setTypeface(tf);
+//        tv_8.setTypeface(tf);
+//        tv_9.setTypeface(tf);
+//        tv_10.setTypeface(tf);
         btn_save.setTypeface(tf);
 
 

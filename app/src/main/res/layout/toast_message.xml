@@ -2,30 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/custom_toast_layout"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:paddingRight="20dp"
     android:background="@drawable/rounded_corner_layout">
 
     <ImageView  android:id="@+id/image_bell"
         android:src="@drawable/ic_bell"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:paddingTop="10dp"
         android:layout_marginRight="5dp" />
 
     <TextView android:id="@+id/txtvw"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_centerVertical="true"
-        android:text="dasdsdsadsad"
+        android:gravity="center|left"
+        android:text="Toast Message"
+        android:paddingRight="10dp"
         android:layout_toRightOf="@+id/image_bell"
-        android:textColor="@color/black"
+        android:textColor="@color/orange_light"
         android:textStyle="bold"
         android:textSize="15dp" />
 </RelativeLayout>

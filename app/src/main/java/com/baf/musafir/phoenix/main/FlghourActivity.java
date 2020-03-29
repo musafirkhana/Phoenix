@@ -197,20 +197,20 @@ public class FlghourActivity extends Activity {
         txt_6 = (TextView) findViewById(R.id.txt_6);
         txt_7 = (TextView) findViewById(R.id.txt_7);
         fhtv_1.setTypeface(tf);
-        txt_1.setTypeface(tf);
-        txt_2.setTypeface(tf);
-        txt_4.setTypeface(tf);
-        txt_3.setTypeface(tf);
-        txt_5.setTypeface(tf);
-        txt_6.setTypeface(tf);
+//        txt_1.setTypeface(tf);
+//        txt_2.setTypeface(tf);
+//        txt_4.setTypeface(tf);
+//        txt_3.setTypeface(tf);
+//        txt_5.setTypeface(tf);
+//        txt_6.setTypeface(tf);
         btn_all_data.setTypeface(tf);
-        txt_7.setTypeface(tf);
-        fp_total.setTypeface(tf);
-        total_tv.setTypeface(tf);
-        inst_total.setTypeface(tf);
-        inst_sim_total.setTypeface(tf);
+//        txt_7.setTypeface(tf);
+//        fp_total.setTypeface(tf);
+//        total_tv.setTypeface(tf);
+//        inst_total.setTypeface(tf);
+//        inst_sim_total.setTypeface(tf);
         btn_filter.setTypeface(tf);
-        sp_total.setTypeface(tf);
+//        sp_total.setTypeface(tf);
 
     }
 

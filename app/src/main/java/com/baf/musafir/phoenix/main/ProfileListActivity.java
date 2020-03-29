@@ -27,6 +27,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import timber.log.Timber;
+
 /*****************************
  * Search All Mobile No
  *****************************/
@@ -220,9 +222,11 @@ private void initUI(){
                     for (ProfileModel p : planetList) {
 
                         if (p.getAppoinment().toUpperCase().startsWith(constraint.toString().toUpperCase())||
-                                p.getName().toUpperCase().contains(constraint.toString().toUpperCase())) {
+                                p.getName().toUpperCase().startsWith(constraint.toString().toUpperCase())) {
                             nPlanetList.add(p);
                         }
+                        Timber.i("Filter Places    " + p.getName().toLowerCase());
+                        Timber.d("Filter constraint  " + constraint.toString().toLowerCase());
 
                     }
 

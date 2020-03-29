@@ -144,7 +144,8 @@ public class DataBaseUtility {
                 msnProfileModel.setDuration_dual(cursor.getString(5));
                 msnProfileModel.setDuration_solo(cursor.getString(6));
                 msnProfileModel.setDuration_progressive(cursor.getString(7));
-
+                msnProfileModel.setMsn_status(cursor.getString(8));
+                msnProfileModel.setId(cursor.getString(9));
                 allMsnProfileVector.setAllMsnProfilelist(msnProfileModel);
                 allMsnProfileVector = null;
                 Log.w(TAG, "getMissionProfile: " + cursor.getString(0));

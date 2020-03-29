@@ -10,6 +10,8 @@ public class MsnProfileModel {
 	private String duration_dual = "";
 	private String duration_solo = "";
 	private String duration_progressive = "";
+	private String msn_status = "";
+	private String id = "";
 
 	public String getCourse_id() {
 		return course_id;
@@ -75,6 +77,22 @@ public class MsnProfileModel {
 		this.duration_progressive = duration_progressive;
 	}
 
+	public String getMsn_status() {
+		return msn_status;
+	}
+
+	public void setMsn_status(String msn_status) {
+		this.msn_status = msn_status;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "MsnProfileModel{" +
@@ -86,6 +104,8 @@ public class MsnProfileModel {
 				", duration_dual='" + duration_dual + '\'' +
 				", duration_solo='" + duration_solo + '\'' +
 				", duration_progressive='" + duration_progressive + '\'' +
+				", msn_status='" + msn_status + '\'' +
+				", id='" + id + '\'' +
 				'}';
 	}
 }

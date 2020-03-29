@@ -46,15 +46,16 @@
             android:layout_weight="3"
             android:layout_height="40dp"
             android:paddingLeft="10dp"
+            android:completionThreshold="1"
             android:hint="Search places"
+            android:inputType="textAutoComplete|textAutoCorrect"
             android:layout_alignParentLeft="true"
             android:gravity="center|left"
             android:background="@drawable/rounded_corner"
             android:layout_below="@+id/main_heaad"
             android:ems="10"
             android:text="">
-
-            <requestFocus />
+        <requestFocus/>
         </AutoCompleteTextView>
 
         <Button
