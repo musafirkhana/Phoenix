@@ -421,7 +421,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_centerInParent="true"
-                android:background="@drawable/ic_contact"
+                android:background="@drawable/ic_route"
                 ></ImageView>
         </RelativeLayout>
 

@@ -156,8 +156,10 @@ public class MainActivity extends Activity {
     }
 
     public void CONTACT(View v) {
-        dataBaseUtility.getProfileList(mContext);
-        Intent intent = new Intent(this, ProfileListActivity.class);
+        //dataBaseUtility.getProfileList(mContext);
+        Intent intent = new Intent(this, PdfActivity.class);
+        intent.putExtra("pdfName","");
+        intent.putExtra("head","Routes Of Bangladesh");
         startActivity(intent);
     }
 
