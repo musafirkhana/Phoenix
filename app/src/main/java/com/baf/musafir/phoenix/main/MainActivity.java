@@ -124,7 +124,7 @@ public class MainActivity extends Activity {
     }
 
     public void COCKPIT(View v) {
-        Intent intent = new Intent(this, CockpitActivity.class);
+        Intent intent = new Intent(this, PilotActivity.class);
         startActivity(intent);
 //        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
@@ -158,7 +158,7 @@ public class MainActivity extends Activity {
     public void CONTACT(View v) {
         //dataBaseUtility.getProfileList(mContext);
         Intent intent = new Intent(this, PdfActivity.class);
-        intent.putExtra("pdfName","");
+        intent.putExtra("pdfName","ROUTES.pdf");
         intent.putExtra("head","Routes Of Bangladesh");
         startActivity(intent);
     }

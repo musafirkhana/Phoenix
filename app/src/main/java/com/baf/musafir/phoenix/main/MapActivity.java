@@ -9,32 +9,42 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.SQLException;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseHelper;
+import com.baf.musafir.phoenix.holder.CoordinateVector;
+import com.baf.musafir.phoenix.model.CoordinateModel;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.StringUtility;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -62,14 +72,20 @@ import static android.Manifest.permission_group.CAMERA;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
         private GoogleMap mMap;
+        private Context mContext;
     ArrayList<String> myList;
     List<String> mapTypeList = new ArrayList<String>();
     private Spinner type_spinner;
+    static LatLng LAT_LONG = null;
+    private Button btn_live;
+    private Button btn_all;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_map);
+        mContext=this;
+        initUI();
         mapTypeList.add("HYBRID");
         mapTypeList.add("NONE");
         mapTypeList.add("NORMAL");
@@ -122,13 +138,29 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
         });
 
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         drawPolygon();
 
+
+    }
+
+    private void initUI(){
+        btn_live=(Button)findViewById(R.id.btn_live);
+        btn_all=(Button)findViewById(R.id.btn_all);
+        btn_live.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                drawliveMarker();
+                drawPolygon();
+            }
+        });
+        btn_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawAllMarker();
+                drawPolygon();
+            }
+        });
 
     }
     public void BACK(View v){
@@ -144,7 +176,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         }
 
         PolygonOptions polygonOptions=new PolygonOptions();
-        //polygonOptions.add(new LatLng[]{23.8103,90.4125,adelaide,brisbane});
         polygonOptions.addAll(coordinates);
         polygonOptions.strokeColor(ContextCompat.getColor(this,android.R.color.holo_orange_dark));
         polygonOptions.fillColor(ContextCompat.getColor(this,android.R.color.transparent));
@@ -157,15 +188,59 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .bearing(0) // Sets the orientation of the camera to east
                 .build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-//        mMap.addMarker(new MarkerOptions().position(new LatLng(StringUtility.getlatitude(myList.get(0)),StringUtility.getlongitude(myList.get(0)))).title("Dhaka").icon(BitmapDescriptorFactory
-//                .fromResource(R.drawable.location))).showInfoWindow();
-//        mMap.addMarker(new MarkerOptions().position(new LatLng(24.7471,90.4203)).title("Mymensingh").icon(BitmapDescriptorFactory
-//                .fromResource(R.drawable.location)));
-//        mMap.addMarker(new MarkerOptions().position(new LatLng(24.8949,91.8687)).title("Syhlet").icon(BitmapDescriptorFactory
-//                .fromResource(R.drawable.location)));
+
+    }
+
+
+    private void drawAllMarker() {
+        mMap.clear();
+        // Creating an instance of MarkerOptions
+        for (int i = 0; i < CoordinateVector.getAllCoordinatelist().size(); i++) {
+            CoordinateModel query = CoordinateVector.getAllCoordinatelist().elementAt(i);
+
+        MarkerOptions markerOptions=null;
+        markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                .fromResource(R.drawable.location));
+
+        // Setting latitude and longitude for the marker
+        markerOptions.position(new LatLng(Double.parseDouble(query.getLatitude()),Double.parseDouble(query.getLongitude())));
+        mMap.addMarker(markerOptions.title(query.getPlaces()));
+
+        }
+        for(int i =0; i<myList.size(); i++)  {
+
+            MarkerOptions markerOptions=null;
+            markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                    .fromResource(R.drawable.location_live));
+
+            // Setting latitude and longitude for the marker
+            markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
+            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i))));
+        }
 
 
     }
+    private void drawliveMarker() {
+
+        mMap.clear();
+        // Adding marker on the Google Map
+        for(int i =0; i<myList.size(); i++)  {
+
+            MarkerOptions markerOptions=null;
+            markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                    .fromResource(R.drawable.location_live));
+
+            // Setting latitude and longitude for the marker
+            markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
+            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i))));
+
+        }
+
+
+
+    }
+
+
 
 
 }

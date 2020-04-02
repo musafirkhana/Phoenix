@@ -150,6 +150,7 @@
     <orderEntry type="library" name="Gradle: com.google.maps.android:android-maps-utils:0.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton.timber:timber:4.7.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:2.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.vr:sdk-panowidget:1.80.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.vr:sdk-commonwidget:1.101.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.vr:sdk-common:1.101.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.skyfishjy.ripplebackground:library:1.0.1@aar" level="project" />

@@ -86,6 +86,8 @@ public class WeatherActivity extends Activity {
 			webView.loadUrl("https://www.mtrwf.com/");
 //        webView.loadUrl("https://met.baf.mil.bd/");
 
+//        webView.loadUrl("https://ccntservice.airbus.com/apps/cockpits/a380/?_ga=2.242988802.1499998843.1585851919-533739161.1585851919");
+
         changeFont();
 
     }

@@ -1,15 +1,11 @@
 package com.baf.musafir.phoenix.main;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -99,7 +95,7 @@ public class CockpitActivity extends Activity {
 
             VrVideoView.Options options = new VrVideoView.Options();
             options.inputType = VrVideoView.Options.TYPE_STEREO_OVER_UNDER;
-            videoWidgetView.loadVideoFromAsset("congo.mp4", options);
+            videoWidgetView.loadVideoFromAsset("test.jpg", options);
 
         } catch (IOException e) {
             // An error here is normally due to being unable to locate the file.

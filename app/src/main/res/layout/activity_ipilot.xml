@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:background="#FAFAFA"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
-    <ImageView android:id="@+id/chk_img"
+    <com.google.vr.sdk.widgets.pano.VrPanoramaView
+        android:id="@+id/vrPanoramaView"
         android:layout_width="match_parent"
-        android:background="@drawable/cockpit"
-        android:layout_height="300dp">
+        android:layout_height="wrap_content">
 
-    </ImageView>
-
-    <ImageView android:id="@+id/imag_circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        android:clickable="true"
-        android:visibility="invisible"
-        android:layout_marginLeft="250dp"
-        android:background="@drawable/cockpit_selection">
-
-    </ImageView>
-
-
+    </com.google.vr.sdk.widgets.pano.VrPanoramaView>
 </RelativeLayout>
