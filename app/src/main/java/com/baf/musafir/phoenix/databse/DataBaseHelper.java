@@ -76,10 +76,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	// Check that the database exists here: /data/data/your package/databases/Da
 	// Name
-	private boolean checkDataBase() {
+	public boolean checkDataBase() {
 		File dbFile = new File(DB_SD_CARD_PATH + DB_NAME);
 		// Log.v("dbFile", dbFile + "   "+ dbFile.exists());
 		return dbFile.exists();
+	}
+
+	public String getDbPath() {
+		File dbFile = new File(DB_SD_CARD_PATH + DB_NAME);
+		String outFileName = DB_SD_CARD_PATH + DB_NAME;
+		return outFileName;
 	}
 
 	// Copy the database from assets

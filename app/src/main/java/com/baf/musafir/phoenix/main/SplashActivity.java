@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseHelper;
 import com.baf.musafir.phoenix.util.AppConstant;
+import com.baf.musafir.phoenix.util.ToastUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,6 +33,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import timber.log.Timber;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CALL_PHONE;
@@ -49,12 +52,24 @@ public class SplashActivity extends Activity {
     boolean flag = true;
     private File sdCard = Environment.getExternalStorageDirectory();
     private File edenRef_AppoinmentDir = new File(sdCard.getAbsolutePath() + AppConstant.DB_BASE_URL);
+    private boolean mDataBaseExist ;
+    private DataBaseHelper myDbHelper;
+    private ToastUtil toastUtil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
         context = this;
+        toastUtil=new ToastUtil(this);
+        myDbHelper = new DataBaseHelper(context);
+        mDataBaseExist = myDbHelper.checkDataBase();
+
+        if(mDataBaseExist){
+//            toastUtil.appSuccessMsg(context,"DB Available");
+            Timber.i("Database path    " + myDbHelper.getDbPath());
+
+        }
 
         startTimer();
 
@@ -219,8 +234,8 @@ public class SplashActivity extends Activity {
     }
 
     public void loadDataBase() {
-        DataBaseHelper myDbHelper = new DataBaseHelper(context);
-        myDbHelper = new DataBaseHelper(this);
+//        DataBaseHelper myDbHelper = new DataBaseHelper(context);
+//        myDbHelper = new DataBaseHelper(this);
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {

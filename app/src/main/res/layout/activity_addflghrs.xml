@@ -45,405 +45,204 @@
     </RelativeLayout>
 
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20sp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:orientation="vertical">
 
-            <android.support.v4.widget.NestedScrollView
-                android:id="@+id/scrollView"
-                android:layout_width="match_parent"
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Year/Month/Date "
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
+            </TextView>
+
+            <EditText
+                android:id="@+id/year_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:paddingLeft="10dp"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/normal_text_size">
+
+
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Aircraft Type"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText android:id="@+id/actype_edittext"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:inputType="textPersonName"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:layout_height="@dimen/edittext_height">
+
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Aircraft Serial No"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner_inputwhitet">
+
+
+                <Spinner
+                    android:id="@+id/acnumber_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical">
-
-
-
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:textColor="@color/black"
-                            android:text="Year/Month/Date "
-                            android:textSize="@dimen/main_text_size" />
-
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-                            <EditText
-                                android:id="@+id/year_edittext"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text=""
-                                android:clickable="true"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="none"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_2"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:textColor="@color/black"
-                            android:gravity="center|start"
-                            android:text="Aircraft Type"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-                            <EditText
-                                android:id="@+id/actype_edittext"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text="L 410"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="none"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_3"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:textColor="@color/black"
-                            android:text="Aircraft Serial No"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-
-                            <Spinner
-                                android:id="@+id/acnumber_spinner"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                            </Spinner>
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_4"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:textColor="@color/black"
-                            android:gravity="center|start"
-                            android:text="First Pilot"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-
-                            <EditText
-                                android:id="@+id/firstpilot_edittext"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text="1.00"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:textColor="@color/black"
-                            android:text="Second Pilot"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-                            <EditText
-                                android:id="@+id/secondpilot_edittext"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text="1.00"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-
-                        </RelativeLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_6"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:textColor="@color/black"
-                            android:text="Flying Type"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-
-                            <Spinner
-                                android:id="@+id/daynight_spinner"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                            </Spinner>
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_7"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:textColor="@color/black"
-                            android:text="Flying Hour"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-                            <EditText
-                                android:id="@+id/flghour_edittext"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text="2.20"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_8"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:textColor="@color/black"
-                            android:text="Instruement hrs Actual"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-
-                            <EditText
-                                android:id="@+id/inst_ac_edittext"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text="2.20"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/main_view_height"
-                        android:layout_marginLeft="@dimen/main_margin_left"
-                        android:layout_marginTop="@dimen/main_margin_top"
-                        android:layout_marginRight="@dimen/main_margin_right"
-                        android:gravity="center">
-
-                        <TextView android:id="@+id/tv_9"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:gravity="center|start"
-                            android:text="Instruement hrs Simulation"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/main_text_size" />
-
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:background="@drawable/rounded_corner">
-
-
-                            <EditText
-                                android:id="@+id/instsimulation_edittext"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_alignParentLeft="true"
-                                android:paddingLeft="5dp"
-                                android:text="2.20"
-                                android:layout_marginLeft="@dimen/edittext_padding_left"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/edittext_text_size" />
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-
-
-
-
-
-
-
-                </LinearLayout>
-            </android.support.v4.widget.NestedScrollView>
-
+                    android:layout_height="@dimen/edittext_height"
+                    android:hint="Location #1"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/normal_text_size">
+
+                </Spinner>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="First Pilot"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText android:id="@+id/firstpilot_edittext"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:inputType="number"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:layout_height="@dimen/edittext_height">
+
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Second Pilot"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText android:id="@+id/secondpilot_edittext"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:inputType="number"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:layout_height="@dimen/edittext_height">
+
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Flying Type"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_corner_inputwhitet">
+
+
+                <Spinner
+                    android:id="@+id/daynight_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:hint="Location #1"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/normal_text_size">
+
+                </Spinner>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Flying Hour"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText android:id="@+id/flghour_edittext"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:inputType="number"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:layout_height="@dimen/edittext_height">
+
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Instruement hrs Actual"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText android:id="@+id/inst_ac_edittext"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="5dp"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:layout_height="@dimen/edittext_height">
+
+            </EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Instruement hrs Simulation"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText android:id="@+id/instsimulation_edittext"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="10dp"
+                android:inputType="number"
+                android:background="@drawable/rounded_corner_inputwhitet"
+                android:layout_height="@dimen/edittext_height">
+
+            </EditText>
 
             <Button
                 android:id="@+id/btn_save"
@@ -461,6 +260,6 @@
                 android:textColor="@color/white" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
 
 </LinearLayout>

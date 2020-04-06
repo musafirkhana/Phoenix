@@ -18,8 +18,6 @@ import java.io.InputStream;
 
 public class PilotActivity extends Activity {
     private Context mContext;
-    private ImageView chk_img;
-    private ImageView imag_circle;
     private ToastUtil toastUtil;
     private VrPanoramaView mVRPanoramaView;
     @Override
@@ -55,7 +53,7 @@ public class PilotActivity extends Activity {
 
         AssetManager assetManager = getAssets();
         try {
-            inputStream = assetManager.open("test.jpg");
+            inputStream = assetManager.open("test.jpeg");
             options.inputType = VrPanoramaView.Options.TYPE_MONO;
             mVRPanoramaView.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options);
             inputStream.close();

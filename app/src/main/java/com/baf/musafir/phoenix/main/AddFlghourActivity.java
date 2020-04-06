@@ -65,16 +65,16 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
     private EditText instsimulation_edittext;
 
 
-    private TextView tv_1;
-    private TextView tv_2;
-    private TextView tv_3;
-    private TextView tv_4;
-    private TextView tv_5;
-    private TextView tv_6;
-    private TextView tv_7;
-    private TextView tv_8;
-    private TextView tv_9;
-    private TextView tv_10;
+//    private TextView tv_1;
+//    private TextView tv_2;
+//    private TextView tv_3;
+//    private TextView tv_4;
+//    private TextView tv_5;
+//    private TextView tv_6;
+//    private TextView tv_7;
+//    private TextView tv_8;
+//    private TextView tv_9;
+//    private TextView tv_10;
 
 
     private String ac_serno = "";
@@ -105,16 +105,16 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
     }
 
     private void changeFont() {
-        tv_1 = (TextView) findViewById(R.id.tv_1);
-        tv_2 = (TextView) findViewById(R.id.tv_2);
-        tv_3 = (TextView) findViewById(R.id.tv_3);
-        tv_4 = (TextView) findViewById(R.id.tv_4);
-        tv_5 = (TextView) findViewById(R.id.tv_5);
-        tv_6 = (TextView) findViewById(R.id.tv_6);
-        tv_7 = (TextView) findViewById(R.id.tv_7);
-        tv_8 = (TextView) findViewById(R.id.tv_8);
-        tv_9 = (TextView) findViewById(R.id.tv_9);
-        tv_10 = (TextView) findViewById(R.id.tv_10);
+//        tv_1 = (TextView) findViewById(R.id.tv_1);
+//        tv_2 = (TextView) findViewById(R.id.tv_2);
+//        tv_3 = (TextView) findViewById(R.id.tv_3);
+//        tv_4 = (TextView) findViewById(R.id.tv_4);
+//        tv_5 = (TextView) findViewById(R.id.tv_5);
+//        tv_6 = (TextView) findViewById(R.id.tv_6);
+//        tv_7 = (TextView) findViewById(R.id.tv_7);
+//        tv_8 = (TextView) findViewById(R.id.tv_8);
+//        tv_9 = (TextView) findViewById(R.id.tv_9);
+//        tv_10 = (TextView) findViewById(R.id.tv_10);
 //        tv_1.setTypeface(tf);
 //        tv_2.setTypeface(tf);
 //        tv_3.setTypeface(tf);
@@ -125,7 +125,7 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
 //        tv_8.setTypeface(tf);
 //        tv_9.setTypeface(tf);
 //        tv_10.setTypeface(tf);
-        btn_save.setTypeface(tf);
+//        btn_save.setTypeface(tf);
 
 
     }
@@ -152,7 +152,6 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
         datePick();
 
 
-        list.add("* SELECT AC");
         list.add("3011");
         list.add("3014");
         list.add("3015");
@@ -229,11 +228,11 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
             case R.id.acnumber_spinner:
                 acnumber_spinner.clearFocus();
                 ac_serno = acnumber_spinner.getSelectedItem().toString();
-                toastUtil.appSuccessMsg(mContext, acnumber_spinner.getSelectedItem().toString());
+//                toastUtil.appSuccessMsg(mContext, acnumber_spinner.getSelectedItem().toString());
                 break;
             case R.id.daynight_spinner:
 
-                toastUtil.appSuccessMsg(mContext, daynight_spinner.getSelectedItem().toString());
+//                toastUtil.appSuccessMsg(mContext, daynight_spinner.getSelectedItem().toString());
                 getdayNighthour(daynight_spinner.getSelectedItem().toString());
                 break;
 
@@ -258,7 +257,7 @@ public class AddFlghourActivity extends Activity implements View.OnClickListener
             case R.id.btn_save:
 
                 if (acnumber_spinner.getSelectedItem().toString().equalsIgnoreCase("* SELECT AC")) {
-                    toastUtil.appSuccessMsg(mContext, "Please Select a base");
+//                    toastUtil.appSuccessMsg(mContext, "Please Select a base");
                 } else if (year_edittext.getText().toString().equalsIgnoreCase("")) {
                     year_edittext.requestFocus();
                     year_edittext.setError(" * Required ");
