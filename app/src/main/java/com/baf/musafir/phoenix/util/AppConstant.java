@@ -33,6 +33,7 @@ public class AppConstant extends Application {
     public static final int GPS_REQUEST = 1001;
     public static final String EMPTY_FIELD = "Please set location first !";
     public static final String NO_LOC = "No Location Available !";
+    public static final String APP_PASSWORD = "1234";
 
 
 

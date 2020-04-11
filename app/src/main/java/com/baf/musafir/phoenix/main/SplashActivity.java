@@ -16,12 +16,21 @@ import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.baf.musafir.phoenix.R;
+import com.baf.musafir.phoenix.adapter.FlhhourAdapter;
 import com.baf.musafir.phoenix.databse.DataBaseHelper;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.ToastUtil;
@@ -43,10 +52,6 @@ import static android.Manifest.permission_group.CAMERA;
 
 public class SplashActivity extends Activity {
     private String TAG = SplashActivity.class.getSimpleName();
-    private TimerTask sostt;
-    private final long period = 5000;
-    private final int delay = 1000;
-    private Timer sostimer;
     private Context context;
     private static final int PERMISSION_REQUEST_CODE = 200;
     boolean flag = true;
@@ -70,64 +75,10 @@ public class SplashActivity extends Activity {
             Timber.i("Database path    " + myDbHelper.getDbPath());
 
         }
+        showCustomDialog();
 
-        startTimer();
 
     }
-
-
-    /*****************
-     * Requesting Required Permission
-     */
-    private void GO() {
-        requestPermission();
-    }
-
-    /***********************************************
-     * This block is use for initial delay at splash screen
-     */
-    void stopTimer() {
-        try {
-            if (sostimer != null) {
-                sostimer.cancel();
-                sostimer = null;
-            }
-            if (sostt != null) {
-                sostt.cancel();
-                sostt = null;
-            }
-        } catch (final Exception e) {
-        }
-    }
-
-    void startTimer() {
-        try {
-            sostimer = new Timer();
-            sostt = new TimerTask() {
-
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            stopTimer();
-                            GO();
-
-                        }
-                    });
-
-                }
-            };
-            sostimer.schedule(sostt, delay, period);
-
-        } catch (final Exception e) {
-        }
-
-    }
-/**
- * This block is use for initial delay at splash screen
- *****************************************************/
-
 
 
 
@@ -161,7 +112,7 @@ public class SplashActivity extends Activity {
                         flag = SharedPreferencesHelper.getFirstTime(context);
                         //will open after final run
                         if (flag) {
-                           Toast.makeText(context, "Export Database Starting....", Toast.LENGTH_LONG).show();
+                           Toast.makeText(context, "Export Database Please wait....", Toast.LENGTH_LONG).show();
                             //exportDatabse();
                             SharedPreferencesHelper.setFirstTime(context, false);
                         }
@@ -308,5 +259,45 @@ public class SplashActivity extends Activity {
                 .setNegativeButton("Cancel", null)
                 .create()
                 .show();
+    }
+
+
+    private void showCustomDialog() {
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        final View dialogView = LayoutInflater.from(this).inflate(R.layout.password_dialog, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        final AlertDialog alertDialog = builder.create();
+        Button btn_cancel = (Button) dialogView.findViewById(R.id.btn_cancel);
+        Button btn_apply = (Button) dialogView.findViewById(R.id.btn_apply);
+        final EditText filter_head=(EditText)dialogView.findViewById(R.id.et_password);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                alertDialog.dismiss();
+            }
+        });
+        btn_apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(filter_head.getText().toString().equalsIgnoreCase(AppConstant.APP_PASSWORD)){
+                    alertDialog.dismiss();
+                    requestPermission();
+
+                }else if(filter_head.getText().toString().equalsIgnoreCase("")){
+                    toastUtil.appSuccessMsg(context,"Please Enter Password");
+                } else {
+                    toastUtil.appSuccessMsg(context,"Sory Password Does not match Try Again");
+                }
+
+
+
+            }
+        });
+        alertDialog.show();
     }
 }

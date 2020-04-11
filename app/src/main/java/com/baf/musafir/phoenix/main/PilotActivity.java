@@ -53,7 +53,7 @@ public class PilotActivity extends Activity {
 
         AssetManager assetManager = getAssets();
         try {
-            inputStream = assetManager.open("test.jpeg");
+            inputStream = assetManager.open("test.jpg");
             options.inputType = VrPanoramaView.Options.TYPE_MONO;
             mVRPanoramaView.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options);
             inputStream.close();
