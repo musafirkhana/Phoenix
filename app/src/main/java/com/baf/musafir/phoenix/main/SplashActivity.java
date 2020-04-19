@@ -69,13 +69,19 @@ public class SplashActivity extends Activity {
         toastUtil=new ToastUtil(this);
         myDbHelper = new DataBaseHelper(context);
         mDataBaseExist = myDbHelper.checkDataBase();
+        flag = SharedPreferencesHelper.getFirstTime(context);
 
         if(mDataBaseExist){
 //            toastUtil.appSuccessMsg(context,"DB Available");
             Timber.i("Database path    " + myDbHelper.getDbPath());
 
         }
-        showCustomDialog();
+        if (flag) {
+            showCustomDialog();
+        }else {
+            requestPermission();
+        }
+
 
 
     }
@@ -109,7 +115,6 @@ public class SplashActivity extends Activity {
 
                     if (locationAccepted && internet && callphone){
 
-                        flag = SharedPreferencesHelper.getFirstTime(context);
                         //will open after final run
                         if (flag) {
                            Toast.makeText(context, "Export Database Please wait....", Toast.LENGTH_LONG).show();

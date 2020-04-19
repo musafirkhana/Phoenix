@@ -13,7 +13,7 @@ import android.util.TypedValue;
 import android.view.WindowManager;
 
 //hardware related functions
-public class DeviceUtil {
+public class  DeviceUtil {
 	public static final String TAG = "DeviceUtil";
 
 	public static String getInfo() {

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,6 +37,7 @@ import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
 import com.baf.musafir.phoenix.model.ProfileModel;
 import com.baf.musafir.phoenix.util.AppConstant;
+import com.baf.musafir.phoenix.util.CoordinateConvert;
 import com.baf.musafir.phoenix.util.StringUtility;
 import com.baf.musafir.phoenix.util.ToastUtil;
 
@@ -105,6 +107,7 @@ public class MaplistviewActivity extends Activity {
                 } else {
                     //take final place name from textview and add to new list
                     places=actv.getText().toString();
+
                     ListElementsArrayList.add(latitude + "," + longitude+","+places);
                     listView.setAdapter(adapter);
                     actv.setText("");
@@ -166,12 +169,17 @@ public class MaplistviewActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CoordinateModel query= mapCoordinateAdapter.planetList.get(position);
                 actv.setText(query.getPlaces());
-                latitude = query.getLatitude();
-                longitude = query.getLongitude();
+
+                //converting DMS to latlong
+                latitude = CoordinateConvert.dmdtoLatlong(query.getLatitude());
+                longitude = CoordinateConvert.dmdtoLatlong(query.getLongitude());
+
+
 
                 Timber.i("Autocomplete latitude    " + latitude);
                 Timber.i("Autocomplete latitude    " + longitude);
                 Timber.i("Autocomplete Place    " + query.getPlaces());
+                Timber.i("Autocomplete Original    " + query.getLatitude());
 
             }
         });
@@ -248,7 +256,11 @@ public class MaplistviewActivity extends Activity {
                 TextView longitude_textview = convertView.findViewById(R.id.longitude_textview);
                 ImageView delete_item = convertView.findViewById(R.id.delete_item);
 
-                location_textview.setText("Coordinate :" + StringUtility.getlatitude(subjectData)+" , " + StringUtility.getlongitude(subjectData));
+                // Convert lat long to N E
+                location_textview.setText("" + CoordinateConvert.convertDmsToLatLong(
+                                 ""+StringUtility.getlatitude(subjectData),
+                                ""+StringUtility.getlongitude(subjectData)));
+
                 longitude_textview.setText("" + StringUtility.getPlaces(subjectData));
 
                 delete_item.setTag(position);

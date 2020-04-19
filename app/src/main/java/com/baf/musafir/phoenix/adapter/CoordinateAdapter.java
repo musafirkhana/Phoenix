@@ -24,6 +24,7 @@ import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.holder.FlgHourVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
 import com.baf.musafir.phoenix.model.FlgHourModel;
+import com.baf.musafir.phoenix.util.StringUtility;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -96,9 +97,9 @@ public class CoordinateAdapter extends ArrayAdapter<CoordinateModel>  {
         }
         if (position < CoordinateVector.getAllCoordinatelist().size()) {
             CoordinateModel query = coordinateModels.get(position);
-            holder.tv_lat.setText("Lat " +query.getLatitude());
-            holder.tv_long.setText("Long "+query.getLongitude());
-            holder.tv_place.setText(""+query.getPlaces());
+            holder.tv_lat.setText("N " +query.getLatitude());
+            holder.tv_long.setText("E "+query.getLongitude());
+            holder.tv_place.setText(""+ StringUtility.toCamelCase(query.getPlaces()));
             Timber.i(""+query.getPlaces());
             final View finalV = v;
             holder.delete_item.setOnClickListener(new View.OnClickListener() {

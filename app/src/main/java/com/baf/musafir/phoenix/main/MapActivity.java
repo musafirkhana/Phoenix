@@ -39,6 +39,7 @@ import com.baf.musafir.phoenix.databse.DataBaseHelper;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
 import com.baf.musafir.phoenix.util.AppConstant;
+import com.baf.musafir.phoenix.util.CoordinateConvert;
 import com.baf.musafir.phoenix.util.StringUtility;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -63,6 +64,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import timber.log.Timber;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CALL_PHONE;
@@ -194,19 +197,30 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     private void drawAllMarker() {
         mMap.clear();
-        // Creating an instance of MarkerOptions
+        // Creating all marker beacon
         for (int i = 0; i < CoordinateVector.getAllCoordinatelist().size(); i++) {
             CoordinateModel query = CoordinateVector.getAllCoordinatelist().elementAt(i);
+             double latAll = 0;
+            double longAll = 0;
+            //converting DMS to latlong
 
-        MarkerOptions markerOptions=null;
-        markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+            latAll=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            longAll=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Timber.i("lat Original     " + query.getLatitude());
+            Timber.i("lat Original     " + query.getLongitude());
+            Timber.i("lat map     " + latAll);
+            Timber.i("lat map     " + longAll);
+          MarkerOptions markerOptions=null;
+         markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
                 .fromResource(R.drawable.location));
 
         // Setting latitude and longitude for the marker
-        markerOptions.position(new LatLng(Double.parseDouble(query.getLatitude()),Double.parseDouble(query.getLongitude())));
+        markerOptions.position(new LatLng((latAll),longAll));
         mMap.addMarker(markerOptions.title(query.getPlaces()));
 
         }
+
+        // Creating selected marker beacon
         for(int i =0; i<myList.size(); i++)  {
 
             MarkerOptions markerOptions=null;

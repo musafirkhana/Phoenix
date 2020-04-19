@@ -150,8 +150,8 @@ public class MainActivity extends Activity {
     }
 
     /********************************More Menu****************/
-    public void INFO(View v) {
-        Intent intent = new Intent(this, InfoActivity.class);
+    public void MENU(View v) {
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 

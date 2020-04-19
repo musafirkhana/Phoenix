@@ -472,14 +472,14 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:background="@drawable/bottom_selector"
-                android:onClick="INFO"
+                android:onClick="MENU"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/ic_info" />
+                    android:background="@drawable/menu_normal" />
 
 
             </LinearLayout>

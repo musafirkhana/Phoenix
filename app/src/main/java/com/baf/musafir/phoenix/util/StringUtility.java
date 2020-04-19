@@ -68,7 +68,7 @@ public class StringUtility {
         }
         return arrSplit[0];
     }
-    static String toCamelCase(String s){
+    public static String toCamelCase(String s){
         String[] parts = s.split("_");
         String camelCaseString = "";
         for (String part : parts){

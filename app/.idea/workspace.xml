@@ -13,20 +13,20 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="tag    " />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88a94259-0c8e-4b69-ab85-3a05a0502161" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_cardview_cardview_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_recyclerview_recyclerview_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/password_dialog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_multidex_1_0_2_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_multidex_instrumentation_1_0_2_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/assets/flightmannual.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/GenerelWEbActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MenuActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/CoordinateConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/gen_webview.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -38,10 +38,19 @@
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/test.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PilotActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PilotActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/phoenix.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/phoenix.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/test.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/test.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/adapter/CoordinateAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/adapter/CoordinateAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MapActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MapActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MaplistviewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MaplistviewActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/SplashActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/AppConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/DeviceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/DeviceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/StringUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/StringUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_coordinate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_coordinate.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_home_support.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_home_support.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/xml/provider_paths.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/xml/provider_paths.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,10 +85,14 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MenuActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+            <state relative-caret-position="342">
+              <caret line="67" column="28" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="28" />
+              <folding>
+                <element signature="e#5681#6451#0" expanded="true" />
+                <element signature="e#6450#6451#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,49 +100,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/SplashActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="114" column="79" selection-start-line="114" selection-start-column="79" selection-end-line="114" selection-end-column="79" />
+            <state relative-caret-position="76">
+              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
               <folding>
-                <element signature="e#3931#3932#0" expanded="true" />
-                <element signature="e#3964#3965#0" expanded="true" />
-                <element signature="e#4010#4011#0" expanded="true" />
-                <element signature="e#4041#4042#0" expanded="true" />
-                <element signature="e#9755#9937#0" expanded="true" />
-                <element signature="e#9936#9937#0" expanded="true" />
-                <element signature="e#9977#10600#0" expanded="true" />
-                <element signature="e#10599#10600#0" expanded="true" />
+                <element signature="e#3042#3043#0" expanded="true" />
+                <element signature="e#3119#3120#0" expanded="true" />
+                <element signature="e#9758#9940#0" expanded="true" />
+                <element signature="e#9939#9940#0" expanded="true" />
+                <element signature="e#9980#10579#0" expanded="true" />
+                <element signature="e#10578#10579#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/password_dialog.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/FlghourActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="292" column="5" selection-start-line="216" selection-start-column="4" selection-end-line="292" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_splash.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -146,11 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>slider</find>
-      <find>btn_save</find>
-      <find>LoaddbAsyncTask</find>
-      <find>asset</find>
-      <find>copyDataBase</find>
       <find>gps</find>
       <find>mGPSDialog</find>
       <find>showGPSDiabledDialog</find>
@@ -171,11 +148,16 @@
       <find>actv</find>
       <find>getFilter</find>
       <find>coordinateModels</find>
-      <find>latitude</find>
       <find>onMapReady</find>
       <find>Projection</find>
       <find>checkDataBase</find>
       <find>edenRef_AppoinmentDir</find>
+      <find>export</find>
+      <find>asset</find>
+      <find>ListElementsArrayList</find>
+      <find>toCamelCase</find>
+      <find>latitude</find>
+      <find>copyTestDocToSdCard</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,15 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/res/layout/row_mapcoordinate.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/Autocomplete/CustomAutoCompleteView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/Autocomplete/MyObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/Autocomplete/AutocompleteCustomArrayAdapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/Autocomplete/CustomAutoCompleteTextChangedListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/ProfileListActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_maplist.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/StringUtility.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PdfMainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_pdf_main.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/CklistMainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/FlghourActivity.java" />
@@ -200,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/ToastUtil.java" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/rounded_corner_layout.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/toast_message.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MaplistviewActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/row_location.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/model/MsnProfileModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/databse/DataBaseUtility.java" />
@@ -212,28 +184,38 @@
         <option value="$PROJECT_DIR$/src/main/res/drawable/bottom_selector.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/CockpitActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MapActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/rounded_button_focused.xml" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/rounded_button_pressed.xml" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/rounded_button_selector.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_map.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_syllabus.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/webview.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_home_support.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/databse/DataBaseHelper.java" />
         <option value="$PROJECT_DIR$/src/main/assets/test/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/WeatherActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_ipilot.xml" />
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_addflghrs.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/AddFlghourActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PilotActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/intro/LoginFragment.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/AppConstant.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/password_dialog.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_home_support.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/DeviceUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MapActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_coordinate.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/adapter/CoordinateAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MaplistviewActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/CoordinateConvert.java" />
+        <option value="$PROJECT_DIR$/src/main/res/xml/provider_paths.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/gen_webview.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MenuActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/GenerelWEbActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_menu.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/SplashActivity.java" />
       </list>
     </option>
@@ -251,6 +233,8 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,14 +302,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="drawable" type="462c0819:PsiDirectoryNode" />
+              <item name="raw" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Phoenix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Phoenix" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="xml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,11 +325,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ScreenshotViewer.SavePath" value="$USER_HOME$/Desktop/ScreenShot" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/assets" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Android Logcat" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="PsdUISettings">
     <option name="RESOLVED_DEPENDENCIES_MINIMIZE" value="false" />
@@ -353,11 +344,11 @@
       <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\res\drawable-hdpi" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\res\layout" />
-      <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\java\com\baf\musafir\phoenix\intro" />
       <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\assets" />
+      <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\res\layout" />
+      <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\res\raw" />
+      <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\java\com\baf\musafir\phoenix\intro" />
       <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\res\drawable" />
-      <recent name="D:\Local Disk\AndroidDev\Phoenix\app\src\main\res" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.baf.musafir.phoenix.main" />
@@ -595,7 +586,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586195610746</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add Password">
+      <created>1586627912959</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1586627912959</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add Password">
+      <created>1586628010173</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1586628010173</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -620,11 +625,11 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Designer" order="7" />
       <window_info id="Resources Explorer" order="8" />
-      <window_info anchor="bottom" id="Logcat" order="0" weight="0.5274262" />
+      <window_info anchor="bottom" id="Logcat" order="0" weight="0.33755276" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.32630098" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32770744" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32630098" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32843137" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32770744" />
       <window_info anchor="bottom" id="Build" order="5" weight="0.32489452" />
       <window_info anchor="bottom" id="Android Profiler" order="6" weight="0.32843137" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.32630098" />
@@ -684,279 +689,403 @@
     <MESSAGE value="Work on Bug Fix" />
     <MESSAGE value="Work on Route" />
     <MESSAGE value="VR 360 panaroma Image &#10;Google map marker" />
-    <option name="LAST_COMMIT_MESSAGE" value="VR 360 panaroma Image &#10;Google map marker" />
+    <MESSAGE value="Add Password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Password" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-212929.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-212908.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-212952.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213004.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213018.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213033.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213050.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213104.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213303.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-02-213327.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/FlghourActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2788">
-          <caret line="196" column="38" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ScreenShot/device-2020-04-03-205807.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_menu.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MenuActivity.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_home_support.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="439" column="38" lean-forward="true" selection-start-line="439" selection-start-column="38" selection-end-line="439" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/databse/DataBaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="87" column="27" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MaplistviewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="171" column="65" lean-forward="true" selection-start-line="171" selection-start-column="15" selection-end-line="171" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/assets/test.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/main/assets/test.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/assets/test/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/WeatherActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_ipilot.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="131" column="82" selection-start-line="131" selection-start-column="82" selection-end-line="131" selection-end-column="82" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/xml/provider_paths.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/rounded_corner_inputwhitet.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_quiz_list.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_quiz_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="52" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/assets/test.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PilotActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_addflghrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4080">
-          <caret line="240" column="41" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/AddFlghourActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/intro/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+        <state relative-caret-position="4114">
+          <caret line="272" column="41" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_splash.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/FlghourActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PilotActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="292" column="5" selection-start-line="216" selection-start-column="4" selection-end-line="292" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/password.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/radious_button.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/rounded_select_layout.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/progress_animation.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/home_selector.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/gray_rounded_corner.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/backgroundbutton.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile_searchlist.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/ProfileListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="44" column="55" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="60" column="63" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="63" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
+        <state relative-caret-position="325">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/password_dialog.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        <state relative-caret-position="179">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="43" column="48" lean-forward="true" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_home_support.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="474" column="37" selection-start-line="474" selection-start-column="33" selection-end-line="474" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/toast_message.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_radar_view.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_pdfview.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/CockpitActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/CklistMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_addflghrs.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-159">
+          <caret line="223" column="31" lean-forward="true" selection-start-line="223" selection-start-column="31" selection-end-line="223" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/AddFlghourActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="97" column="47" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/ApproachlistMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/GenerelAbbribiationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-513">
+          <caret line="91" column="34" lean-forward="true" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/databse/AssetDatabaseOpenHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="41" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/AppConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        <state relative-caret-position="380">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/PdfActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/DeviceUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2679">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/GpsUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/LogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1634">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/NetworkStateReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/NetworkUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/SystemUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6251">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_coordinate.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="135" column="44" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
+          <folding>
+            <element signature="e#3143#3173#0" expanded="true" />
+            <element signature="e#3330#3357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/adapter/CoordinateAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/StringUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/CoordinateActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="113" column="35" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MapActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="209" column="25" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/CoordinateConvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MaplistviewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="178" column="65" lean-forward="true" selection-start-line="178" selection-start-column="16" selection-end-line="178" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/AndroidSDK/sources/android-28/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="547" column="18" selection-start-line="547" selection-start-column="18" selection-end-line="547" selection-end-column="18" />
+          <folding>
+            <element signature="e#23721#23722#0" expanded="true" />
+            <element signature="e#23760#23761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/androidTest/java/com/baf/musafir/bafphonebook/ExampleInstrumentedTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/databse/DataBaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2261">
+          <caret line="133" column="13" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/util/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4902">
+          <caret line="270" column="38" selection-start-line="270" selection-start-column="32" selection-end-line="270" selection-end-column="38" />
+          <folding>
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/AndroidSDK/platforms/android-28/android.jar!/android/Manifest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="132" column="45" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/assets/Phoenix.zip">
+      <provider selected="true" editor-type-id="apk-viewer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/xml/provider_paths.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/WeatherActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/webview.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/WebviewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="46" column="16" lean-forward="true" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="214" column="50" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="166" column="56" selection-start-line="166" selection-start-column="41" selection-end-line="166" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_menu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="135" column="56" lean-forward="true" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/GenerelWEbActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="76" column="71" selection-start-line="76" selection-start-column="71" selection-end-line="76" selection-end-column="71" />
+          <folding>
+            <element signature="e#3395#3396#0" expanded="true" />
+            <element signature="e#3424#3425#0" expanded="true" />
+            <element signature="e#3457#3458#0" expanded="true" />
+            <element signature="e#3489#3490#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/gen_webview.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="57" column="46" lean-forward="true" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/MenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="28" />
+          <folding>
+            <element signature="e#5681#6451#0" expanded="true" />
+            <element signature="e#6450#6451#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/baf/musafir/phoenix/main/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="114" column="79" selection-start-line="114" selection-start-column="79" selection-end-line="114" selection-end-column="79" />
+        <state relative-caret-position="76">
+          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
           <folding>
-            <element signature="e#3931#3932#0" expanded="true" />
-            <element signature="e#3964#3965#0" expanded="true" />
-            <element signature="e#4010#4011#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#9755#9937#0" expanded="true" />
-            <element signature="e#9936#9937#0" expanded="true" />
-            <element signature="e#9977#10600#0" expanded="true" />
-            <element signature="e#10599#10600#0" expanded="true" />
+            <element signature="e#3042#3043#0" expanded="true" />
+            <element signature="e#3119#3120#0" expanded="true" />
+            <element signature="e#9758#9940#0" expanded="true" />
+            <element signature="e#9939#9940#0" expanded="true" />
+            <element signature="e#9980#10579#0" expanded="true" />
+            <element signature="e#10578#10579#0" expanded="true" />
           </folding>
         </state>
       </provider>
