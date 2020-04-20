@@ -47,7 +47,6 @@ public class MenuActivity extends Activity {
         tf = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/megatron.ttf");
         changeFont();
-
         toastUtil = new ToastUtil(this);
     }
 

@@ -1,13 +1,16 @@
 package com.baf.musafir.phoenix.main;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,8 +29,10 @@ import com.baf.musafir.phoenix.util.PicassoImageLoadingService;
 import com.baf.musafir.phoenix.util.ToastUtil;
 
 
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.List;
 
 import ss.com.bannerslider.Slider;
 import ss.com.bannerslider.event.OnSlideClickListener;
@@ -40,7 +45,8 @@ public class MainActivity extends Activity {
     private LinearLayout main_menu_li;
     private static final int GPS_ENABLE_REQUEST = 0x1001;
     private AlertDialog mGPSDialog;
-
+    final private int REQUEST_CODE_ASK_PERMISSIONS_STORGE = 2000;
+    private List<String> permissions = new ArrayList<String>();
     private ToastUtil toastUtil;
 
     /*******************
@@ -151,8 +157,7 @@ public class MainActivity extends Activity {
 
     /********************************More Menu****************/
     public void MENU(View v) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
+        getPermission();
     }
 
     public void CONTACT(View v) {
@@ -181,7 +186,43 @@ public class MainActivity extends Activity {
     }
 
 
+    private void getPermission(){
+        if (Build.VERSION.SDK_INT > 22) {
+            String storagePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+            String storageReadPermission = Manifest.permission.READ_EXTERNAL_STORAGE;
+            int hasstoragePermission = checkSelfPermission(storagePermission);
+            if (hasstoragePermission != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(storagePermission);
+                permissions.add(storageReadPermission);
+            }
+            if (!permissions.isEmpty()) {
+                String[] params = permissions.toArray(new String[permissions.size()]);
+                requestPermissions(params, REQUEST_CODE_ASK_PERMISSIONS_STORGE);
+            } else {
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+            }
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_ASK_PERMISSIONS_STORGE:
+                if (grantResults.length > 0) {
+                    boolean writePermission = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean readPermission = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                    if (writePermission && readPermission) {
+                        Intent intent = new Intent(this, MenuActivity.class);
+                        startActivity(intent);
+                    } else {
+                    }
+                }
+                break;
 
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 
 
     private void changeFont(){

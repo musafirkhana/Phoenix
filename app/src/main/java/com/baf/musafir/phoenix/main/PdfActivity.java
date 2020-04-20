@@ -75,7 +75,7 @@ public class PdfActivity extends Activity implements OnPageChangeListener, OnLoa
                 // spacing between pages in dp. To define spacing color, set view background
                 .spacing(0)
                 .load();
-        ;
+
     }
 
     @Override
