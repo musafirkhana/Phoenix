@@ -16,6 +16,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.baf.musafir.phoenix.R;
+import com.baf.musafir.phoenix.quiz.QuizlistActivity;
 import com.baf.musafir.phoenix.util.ToastUtil;
 
 import java.io.File;
@@ -49,7 +50,11 @@ public class MenuActivity extends Activity {
         changeFont();
         toastUtil = new ToastUtil(this);
     }
+    public void CK0(View v) {
 
+        Intent intent = new Intent(this, QuizlistActivity.class);
+        startActivity(intent);
+    }
     public void CK1(View v) {
 
         getPermission();

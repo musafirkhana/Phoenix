@@ -121,7 +121,10 @@ public class MainActivity extends Activity {
     }
 
     public void FOB(View v) {
-        toastUtil.appSuccessMsg(mContext,"Under Construction");
+        Intent intent = new Intent(this, PdfActivity.class);
+        intent.putExtra("pdfName","FOB.pdf");
+        intent.putExtra("head","FOB");
+        startActivity(intent);
     }
 
     public void CKLIST(View v) {
@@ -130,9 +133,8 @@ public class MainActivity extends Activity {
     }
 
     public void COCKPIT(View v) {
-        Intent intent = new Intent(this, PilotActivity.class);
+        Intent intent = new Intent(this, CockpitMenuActivity.class);
         startActivity(intent);
-//        toastUtil.appSuccessMsg(mContext,"Under Construction");
     }
 
     public void MAP(View v) {
@@ -151,7 +153,7 @@ public class MainActivity extends Activity {
     }
 
     public void OTHERS(View v) {
-        Intent intent = new Intent(this, QuizlistActivity.class);
+        Intent intent = new Intent(this, CWDMenuActivity.class);
         startActivity(intent);
     }
 

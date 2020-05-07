@@ -98,4 +98,6 @@
     <color name="page_header_color">#023B4C</color>
     <color name="colorPurple_A400">#D500F9</color>
     <color name="colorPurple_900">#4A148C</color>
+    <color name="amber">#FFC200</color>
+    <color name="cwd_green">#a9ba9d</color>
 </resources>

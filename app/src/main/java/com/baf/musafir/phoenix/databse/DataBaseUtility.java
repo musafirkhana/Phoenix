@@ -18,6 +18,7 @@ import com.baf.musafir.phoenix.model.MsnProfileModel;
 import com.baf.musafir.phoenix.model.PhaseModel;
 import com.baf.musafir.phoenix.model.ProfileModel;
 import com.baf.musafir.phoenix.quiz.Question;
+import com.baf.musafir.phoenix.util.AppConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -308,6 +309,29 @@ public class DataBaseUtility {
                 Log.w(TAG, "Contact Data : " + cursor.getString(0));
                 Timber.tag("Year").e(cursor.getString(0));
 
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+
+    /***********************************
+     * Getting List of CWD Data from DB
+     * Only use for spinner
+     ***********************************/
+    public void getCWDPanelData(Context context,String id) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Cursor cursor = db.rawQuery(
+                "select * from cwd_pannel where id='" +
+                        id +
+                        "'",
+                null);
+        if (cursor.moveToFirst()) {
+            do {
+                AppConstant.CWD_STATE=cursor.getString(1);
+                AppConstant.CWD_PROCEDURE=cursor.getString(2);
+
+                Log.w(TAG, "getMissionProfile: " + cursor.getString(0));
             } while (cursor.moveToNext());
         }
         db.close();

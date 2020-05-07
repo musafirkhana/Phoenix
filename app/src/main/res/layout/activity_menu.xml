@@ -77,7 +77,47 @@
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#c2c2c2" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:clickable="true"
+                        android:onClick="CK0"
+                        android:orientation="horizontal"
+                        android:padding="10dp"
+                        android:weightSum="1.5">
 
+                        <ImageView
+                            android:id="@+id/imageview_0"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/pdf_normal" />
+
+                        <TextView
+                            android:id="@+id/cktv_0"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/megatron"
+                            android:layout_toRightOf="@+id/imageview_0"
+                            android:gravity="center_vertical"
+                            android:text="Quiz Test"
+                            android:textColor="@color/fontBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/forword" />
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="#c2c2c2" />
                     <RelativeLayout
                         android:id="@+id/mll_home"
                         android:layout_width="match_parent"

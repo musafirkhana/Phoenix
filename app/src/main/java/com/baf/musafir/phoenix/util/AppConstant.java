@@ -36,5 +36,8 @@ public class AppConstant extends Application {
     public static final String APP_PASSWORD = "1234";
 
 
+    public static String CWD_STATE = "";
+    public static String CWD_PROCEDURE = "";
+
 
     }
