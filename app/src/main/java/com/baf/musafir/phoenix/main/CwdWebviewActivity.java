@@ -124,9 +124,11 @@ public class CwdWebviewActivity extends Activity implements View.OnClickListener
             }
         });
         settings.setDefaultTextEncodingName("utf-8");
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+
         webView.loadDataWithBaseURL(null, procedure, "text/html", "UTF-8", null);
 
-//			webView.loadUrl("file:///android_asset/speach.htm");
+//			webView.loadUrl("file:///android_asset/test.html");
 //			mPlayer.start();
 
 

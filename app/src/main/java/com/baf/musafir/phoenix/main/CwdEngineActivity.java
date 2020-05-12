@@ -43,7 +43,23 @@ public class CwdEngineActivity extends Activity {
 
     }
     public void ENG1(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"eng001");
+        dataBaseUtility.getCWDPanelData(mContext,"001");
+
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG2(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"002");
+
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG3(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"003");
 
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
