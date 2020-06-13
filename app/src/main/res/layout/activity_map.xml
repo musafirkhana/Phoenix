@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#FAFAFA"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
     <RelativeLayout
         android:id="@+id/top_linear"
         android:layout_width="match_parent"
@@ -25,27 +26,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="103 ATTU"
             android:fontFamily="@font/my_custom_font"
+            android:text="103 ATTU"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold|normal" />
 
     </RelativeLayout>
-    <LinearLayout android:id="@+id/middle_li"
+
+    <LinearLayout
+        android:id="@+id/middle_li"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="@android:color/holo_orange_light"
+        android:layout_height="50dp"
         android:layout_below="@+id/top_linear"
-        android:layout_height="50dp">
+        android:background="@android:color/holo_orange_light"
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/tv_month"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:paddingLeft="10dp"
             android:fontFamily="@font/my_custom_font"
             android:gravity="center|start"
+            android:paddingLeft="10dp"
             android:text="Select Type"
             android:textColor="@color/black"
             android:textSize="@dimen/main_text_size" />
@@ -54,8 +58,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:paddingLeft="10dp"
-            android:background="@drawable/rounded_corner">
+            android:background="@drawable/rounded_corner"
+            android:paddingLeft="10dp">
 
 
             <Spinner
@@ -67,54 +71,79 @@
         </RelativeLayout>
 
     </LinearLayout>
-    <fragment
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
-        android:layout_below="@+id/middle_li"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@+id/bottom_li"
-        android:layout_height="match_parent" />
+        android:layout_below="@+id/middle_li" />
 
-    <LinearLayout android:id="@+id/bottom_li"
+    <LinearLayout
+        android:id="@+id/bottom_li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
-        <Button android:id="@+id/btn_live"
+        <LinearLayout android:id="@+id/li_live_data"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="2"
-            android:fontFamily="@font/megatron"
-            android:gravity="center"
-            android:text="Live Marker"
-            android:background="@drawable/rounded_button_selector"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:clickable="true"
+            android:gravity="center">
 
-        <View
-            android:layout_width="2dp"
-            android:layout_height="50dp"></View>
 
-        <Button android:id="@+id/btn_all"
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/location_live" />
+
+
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/li_all_data"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="@drawable/rounded_button_selector"
-            android:fontFamily="@font/megatron"
-            android:gravity="center"
-            android:text="All Marker"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:clickable="true"
+            android:gravity="center">
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/location" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout android:id="@+id/li_nav_aid"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:clickable="true"
+            android:gravity="center">
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/nav_aid" />
+
+
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

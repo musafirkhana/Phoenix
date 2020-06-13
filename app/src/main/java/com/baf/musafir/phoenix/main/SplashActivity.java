@@ -76,6 +76,7 @@ public class SplashActivity extends Activity {
             Timber.i("Database path    " + myDbHelper.getDbPath());
 
         }
+        Timber.i("Database path    " + flag);
         if (flag) {
             showCustomDialog();
         }else {

@@ -31,13 +31,17 @@ import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseHelper;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
+import com.baf.musafir.phoenix.holder.NavaidVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
+import com.baf.musafir.phoenix.model.FlgHourModel;
+import com.baf.musafir.phoenix.model.NavAidModel;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.CoordinateConvert;
 import com.baf.musafir.phoenix.util.StringUtility;
@@ -72,7 +76,7 @@ import static android.Manifest.permission.CALL_PHONE;
 import static android.Manifest.permission.INTERNET;
 import static android.Manifest.permission_group.CAMERA;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback , View.OnClickListener {
 
         private GoogleMap mMap;
         private Context mContext;
@@ -80,8 +84,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     List<String> mapTypeList = new ArrayList<String>();
     private Spinner type_spinner;
     static LatLng LAT_LONG = null;
-    private Button btn_live;
-    private Button btn_all;
+    private LinearLayout li_live_data;
+    private LinearLayout li_all_data;
+    private LinearLayout li_nav_aid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,14 +123,15 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         ArrayAdapter monthSpinner = new ArrayAdapter(this, R.layout.map_style, mapTypeList);
         monthSpinner.setDropDownViewResource(R.layout.map_style);
         type_spinner.setAdapter(monthSpinner);
+        type_spinner.setSelection(2);
 
         type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("HYBRID")){
-                    mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("NORMAL")){
+                if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("NORMAL")){
                     mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("HYBRID")){
+                    mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("NONE")){
                     mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
                 }else if(type_spinner.getSelectedItem().toString().equalsIgnoreCase("SATELLITE")){
@@ -147,23 +153,31 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
     private void initUI(){
-        btn_live=(Button)findViewById(R.id.btn_live);
-        btn_all=(Button)findViewById(R.id.btn_all);
-        btn_live.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        li_live_data=(LinearLayout) findViewById(R.id.li_live_data);
+        li_all_data=(LinearLayout) findViewById(R.id.li_all_data);
+        li_nav_aid=(LinearLayout) findViewById(R.id.li_nav_aid);
+        li_live_data.setOnClickListener(this);
+        li_all_data.setOnClickListener(this);
+        li_nav_aid.setOnClickListener(this);
 
+
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.li_live_data:
                 drawliveMarker();
                 drawPolygon();
-            }
-        });
-        btn_all.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.li_all_data:
                 drawAllMarker();
                 drawPolygon();
-            }
-        });
+                break;
+            case R.id.li_nav_aid:
+                drawNavaidMarker();
+                drawPolygon();
+                break;
+        }
 
     }
     public void BACK(View v){
@@ -235,7 +249,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     }
     private void drawliveMarker() {
-
         mMap.clear();
         // Adding marker on the Google Map
         for(int i =0; i<myList.size(); i++)  {
@@ -246,14 +259,83 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
             // Setting latitude and longitude for the marker
             markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
-            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i))));
+            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i)))).showInfoWindow();
 
         }
-
-
-
     }
 
+
+    private void drawNavaidMarker() {
+        mMap.clear();
+        // Adding marker on the Google Map
+        for(int i =0; i<myList.size(); i++)  {
+
+            MarkerOptions markerOptions=null;
+            markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                    .fromResource(R.drawable.location_live));
+
+            // Setting latitude and longitude for the marker
+            markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
+            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i)))).showInfoWindow();
+
+        }
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+
+            double lat_nav = 0;
+            double long_nav = 0;
+            //converting DMS to latlong
+
+            lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+
+            Timber.i("lat Navaid     " + lat_nav);
+            Timber.i("lat getType     " + query.getType());
+            Timber.i("long Navaid     " + long_nav);
+            MarkerOptions markerOptions=null;
+            if(query.getType_code().equalsIgnoreCase("1")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.dvor));
+            }else if(query.getType_code().equalsIgnoreCase("2")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.dme));
+            }else if(query.getType_code().equalsIgnoreCase("3")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.ndb));
+            }else if(query.getType_code().equalsIgnoreCase("4")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.ils_llz));
+            }else if(query.getType_code().equalsIgnoreCase("5")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.ils_gp));
+            }else if(query.getType_code().equalsIgnoreCase("6")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.mm));
+            }else if(query.getType_code().equalsIgnoreCase("7")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.om));
+            }else if(query.getType_code().equalsIgnoreCase("8")){
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.ol));
+            }else {
+                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.location_live));
+            }
+
+            markerOptions.position(new LatLng(long_nav,lat_nav));
+            mMap.addMarker(markerOptions.title(query.getType())).showInfoWindow();
+
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(long_nav,lat_nav)) // Sets the center of the map
+                    .tilt(20) // Sets the tilt of the camera to 20 degrees
+                    .zoom(24) // Sets the zoom
+                    .bearing(0) // Sets the orientation of the camera to east
+                    .build();
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        }
+    }
 
 
 
