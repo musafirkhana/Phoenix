@@ -31,12 +31,16 @@ import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.DataBaseHelper;
+import com.baf.musafir.phoenix.databse.DataBaseUtility;
 import com.baf.musafir.phoenix.holder.CoordinateVector;
 import com.baf.musafir.phoenix.holder.NavaidVector;
 import com.baf.musafir.phoenix.model.CoordinateModel;
@@ -45,6 +49,7 @@ import com.baf.musafir.phoenix.model.NavAidModel;
 import com.baf.musafir.phoenix.util.AppConstant;
 import com.baf.musafir.phoenix.util.CoordinateConvert;
 import com.baf.musafir.phoenix.util.StringUtility;
+import com.baf.musafir.phoenix.util.ToastUtil;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -78,21 +83,40 @@ import static android.Manifest.permission_group.CAMERA;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback , View.OnClickListener {
 
-        private GoogleMap mMap;
-        private Context mContext;
+    private GoogleMap mMap;
+    private Context mContext;
     ArrayList<String> myList;
+    private double cameraZoomLat=23.8434;
+    private double cameraZoomLong=90.4029;
     List<String> mapTypeList = new ArrayList<String>();
     private Spinner type_spinner;
+    private DataBaseUtility dataBaseUtility;
+    List<Marker> allMarkerOptions = new ArrayList<>();
+    List<Marker> liveMarker = new ArrayList<>();
+    List<Marker> dvorMarker = new ArrayList<>();
+    List<Marker> dmeMarker = new ArrayList<>();
+    List<Marker> ndbMarker = new ArrayList<>();
+
+
+    private ToastUtil toastUtil;
     static LatLng LAT_LONG = null;
-    private LinearLayout li_live_data;
-    private LinearLayout li_all_data;
-    private LinearLayout li_nav_aid;
+
+    private CheckBox chk_dvor;
+    private CheckBox chk_all;
+    private CheckBox chk_live;
+    private CheckBox chk_dme;
+    private CheckBox chk_ndb;
+
+    private ImageView navaid_menu;
+    private LinearLayout li_nav_bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_map);
         mContext=this;
+        toastUtil=new ToastUtil(this);
+        dataBaseUtility = new DataBaseUtility();
         initUI();
         mapTypeList.add("HYBRID");
         mapTypeList.add("NONE");
@@ -111,10 +135,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
       Log.i("getlatitude",""+ StringUtility.getlatitude(myList.get(0)));
       Log.i("getlongitude",""+ StringUtility.getlongitude(myList.get(0)));
 
+
     }
     /**
      Manipulates the map once available.
-     This callback is triggered when the map is ready to be used.This is where we can add markers or lines, add listeners or move the camera.In this case, we just add a marker near Sydney, Australia.If Google Play services is not installed on the device, the user will be prompted to install it inside the SupportMapFragment. This method will only be triggered once the user has installed Google Play services and returned to the app.
+     This callback is triggered when the map is ready to be used.This is where we can add markers or lines, add listeners or move the camera.
+     If Google Play services is not installed on the device,
+     the user will be prompted to install it inside the SupportMapFragment.
+     This method will only be triggered once the user has installed Google Play services and returned to the app.
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -153,30 +181,84 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
     private void initUI(){
-        li_live_data=(LinearLayout) findViewById(R.id.li_live_data);
-        li_all_data=(LinearLayout) findViewById(R.id.li_all_data);
-        li_nav_aid=(LinearLayout) findViewById(R.id.li_nav_aid);
-        li_live_data.setOnClickListener(this);
-        li_all_data.setOnClickListener(this);
-        li_nav_aid.setOnClickListener(this);
+
+        navaid_menu=(ImageView)findViewById(R.id.navaid_menu);
+        li_nav_bar=(LinearLayout)findViewById(R.id.li_nav_bar);
+
+        chk_all=(CheckBox)findViewById(R.id.chk_all);
+        chk_live=(CheckBox) findViewById(R.id.chk_live);
+        chk_dvor=(CheckBox)findViewById(R.id.chk_dvor);
+        chk_dme=(CheckBox)findViewById(R.id.chk_dme);
+        chk_ndb=(CheckBox)findViewById(R.id.chk_ndb);
+
+        chk_live.setOnClickListener(this);
+        navaid_menu.setOnClickListener(this);
+        chk_dvor.setOnClickListener(this);
+        chk_dme.setOnClickListener(this);
+
+        chk_dvor.setOnClickListener(this);
+        chk_all.setOnClickListener(this);
+        chk_ndb.setOnClickListener(this);
 
 
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.li_live_data:
-                drawliveMarker();
-                drawPolygon();
+            case R.id.chk_live:
+                if (chk_live.isChecked()) {
+                    drawliveMarker();
+                    drawPolygon();
+                } else {
+                    hideLiveMarker();
+                }
                 break;
-            case R.id.li_all_data:
-                drawAllMarker();
-                drawPolygon();
+            case R.id.chk_all:
+                if (chk_all.isChecked()) {
+                    drawAllMarker();
+                    drawPolygon();
+
+                } else {
+                    hideAllMarker();
+                }
                 break;
-            case R.id.li_nav_aid:
-                drawNavaidMarker();
-                drawPolygon();
+            case R.id.chk_dvor:
+                dataBaseUtility.getNevAidDataByType(this,"1");
+                if (chk_dvor.isChecked()) {
+                    drawDvorMarker();
+                } else {
+                    hideDvorMarker();
+                }
                 break;
+            case R.id.chk_dme:
+                dataBaseUtility.getNevAidDataByType(this,"2");
+                if (chk_dme.isChecked()) {
+                    drawDmeMarker();
+                } else {
+                    hideDmeMarker();
+                }
+                break;
+            case R.id.chk_ndb:
+                dataBaseUtility.getNevAidDataByType(this,"3");
+                if (chk_ndb.isChecked()) {
+                    drawNdbMarker();
+                } else {
+                    hidendbMarker();
+                }
+                break;
+
+
+            case R.id.navaid_menu:
+                if (li_nav_bar.getVisibility() == View.VISIBLE)
+                {
+                    li_nav_bar.setVisibility(View.GONE);
+                }
+                else
+                {
+                    li_nav_bar.setVisibility(View.VISIBLE);
+                }
+                break;
+
         }
 
     }
@@ -199,7 +281,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mMap.addPolygon(polygonOptions);
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(23.8103,90.4125)) // Sets the center of the map
+                .target(new LatLng(cameraZoomLat,cameraZoomLong)) // Sets the center of the map
                 .tilt(20) // Sets the tilt of the camera to 20 degrees
                 .zoom(7) // Sets the zoom
                 .bearing(0) // Sets the orientation of the camera to east
@@ -210,132 +292,130 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
     private void drawAllMarker() {
-        mMap.clear();
+        allMarkerOptions.clear();
         // Creating all marker beacon
         for (int i = 0; i < CoordinateVector.getAllCoordinatelist().size(); i++) {
             CoordinateModel query = CoordinateVector.getAllCoordinatelist().elementAt(i);
              double latAll = 0;
             double longAll = 0;
+
             //converting DMS to latlong
 
             latAll=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
             longAll=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
-            Timber.i("lat Original     " + query.getLatitude());
-            Timber.i("lat Original     " + query.getLongitude());
-            Timber.i("lat map     " + latAll);
-            Timber.i("lat map     " + longAll);
-          MarkerOptions markerOptions=null;
-         markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                .fromResource(R.drawable.location));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng((latAll),longAll))
+                    .title(query.getPlaces()).icon(BitmapDescriptorFactory
+                    .fromResource(R.drawable.location)));
 
-        // Setting latitude and longitude for the marker
-        markerOptions.position(new LatLng((latAll),longAll));
-        mMap.addMarker(markerOptions.title(query.getPlaces()));
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng((latAll),longAll)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+            allMarkerOptions.add(marker);
 
         }
-
-        // Creating selected marker beacon
-        for(int i =0; i<myList.size(); i++)  {
-
-            MarkerOptions markerOptions=null;
-            markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                    .fromResource(R.drawable.location_live));
-
-            // Setting latitude and longitude for the marker
-            markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
-            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i))));
-        }
-
 
     }
     private void drawliveMarker() {
-        mMap.clear();
+        liveMarker.clear();
         // Adding marker on the Google Map
         for(int i =0; i<myList.size(); i++)  {
 
-            MarkerOptions markerOptions=null;
-            markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                    .fromResource(R.drawable.location_live));
-
-            // Setting latitude and longitude for the marker
-            markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
-            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i)))).showInfoWindow();
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))))
+                    .title(StringUtility.getPlaces(myList.get(i))).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.location_live)));
+            liveMarker.add(marker);
 
         }
     }
 
-
-    private void drawNavaidMarker() {
-        mMap.clear();
-        // Adding marker on the Google Map
-        for(int i =0; i<myList.size(); i++)  {
-
-            MarkerOptions markerOptions=null;
-            markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                    .fromResource(R.drawable.location_live));
-
-            // Setting latitude and longitude for the marker
-            markerOptions.position(new LatLng(StringUtility.getlatitude(myList.get(i)),StringUtility.getlongitude(myList.get(i))));
-            mMap.addMarker(markerOptions.title(StringUtility.getPlaces(myList.get(i)))).showInfoWindow();
-
-        }
+    private void drawDvorMarker() {
+        dvorMarker.clear();
         // Adding marker on the Google Map
         for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
             NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
-
-            double lat_nav = 0;
-            double long_nav = 0;
-            //converting DMS to latlong
-
-            lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
-            long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
-
-            Timber.i("lat Navaid     " + lat_nav);
-            Timber.i("lat getType     " + query.getType());
-            Timber.i("long Navaid     " + long_nav);
-            MarkerOptions markerOptions=null;
-            if(query.getType_code().equalsIgnoreCase("1")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.dvor));
-            }else if(query.getType_code().equalsIgnoreCase("2")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.dme));
-            }else if(query.getType_code().equalsIgnoreCase("3")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ndb));
-            }else if(query.getType_code().equalsIgnoreCase("4")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ils_llz));
-            }else if(query.getType_code().equalsIgnoreCase("5")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ils_gp));
-            }else if(query.getType_code().equalsIgnoreCase("6")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.mm));
-            }else if(query.getType_code().equalsIgnoreCase("7")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.om));
-            }else if(query.getType_code().equalsIgnoreCase("8")){
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ol));
-            }else {
-                markerOptions = new MarkerOptions().icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.location_live));
-            }
-
-            markerOptions.position(new LatLng(long_nav,lat_nav));
-            mMap.addMarker(markerOptions.title(query.getType())).showInfoWindow();
-
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.dvor)));
             CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(new LatLng(long_nav,lat_nav)) // Sets the center of the map
-                    .tilt(20) // Sets the tilt of the camera to 20 degrees
-                    .zoom(24) // Sets the zoom
-                    .bearing(0) // Sets the orientation of the camera to east
-                    .build();
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+            dvorMarker.add(marker);
 
         }
     }
+    private void drawDmeMarker() {
+        dmeMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.dme)));
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+            dmeMarker.add(marker);
+
+        }
+    }
+    private void drawNdbMarker() {
+        ndbMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.ndb)));
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));
+            ndbMarker.add(marker);
+
+        }
+    }
+
+    public void hideAllMarker(){
+        for (Marker marker : allMarkerOptions){
+            marker.remove();
+        }
+    }
+
+    public void hideLiveMarker(){
+        for (Marker marker : liveMarker){
+            marker.remove();
+        }
+    }
+    public void hideDvorMarker(){
+        for (Marker marker : dvorMarker){
+            marker.remove();
+        }
+    }
+    public void hideDmeMarker(){
+        for (Marker marker : dmeMarker){
+            marker.remove();
+        }
+    }
+    public void hidendbMarker(){
+        for (Marker marker : ndbMarker){
+            marker.remove();
+        }
+    }
+
 
 
 

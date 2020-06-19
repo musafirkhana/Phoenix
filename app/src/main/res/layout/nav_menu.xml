@@ -1,0 +1,306 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@color/black_translucent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout
+                android:id="@+id/li_live_data"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ALL"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:button="@null"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout android:id="@+id/li_all_data"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="NWD"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+
+                <CheckBox android:id="@+id/chk_live"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="LIVE"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:button="@null"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout android:id="@+id/re_dme"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+                <CheckBox android:id="@+id/chk_dvor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="DVOR"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:button="@null"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout android:id="@+id/re_dvor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="HIS"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_dme"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="DME"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:button="@null"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+
+            </RelativeLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+            <RelativeLayout android:id="@+id/re_dmedssd"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="HIS"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_ndb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="NDB"
+                    android:textSize="16sp"
+                    android:button="@null"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="LOC"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_fdg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ILS"
+                    android:textSize="16sp"
+                    android:button="@null"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="ANTHEM"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_dds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="MM"
+                    android:textSize="16sp"
+                    android:button="@null"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="CMDCON"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_fh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="OM"
+                    android:textSize="16sp"
+                    android:button="@null"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </RelativeLayout>
+
+           <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#c2c2c2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:onClick="CMDCON"
+                android:orientation="horizontal"
+                android:weightSum="1.5">
+
+                <CheckBox android:id="@+id/chk_kk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="OL"
+                    android:textSize="16sp"
+                    android:button="@null"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/blue"
+                    android:background="@drawable/toggle_widget_background"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="BLANKLI"></LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -101,6 +101,46 @@ public class DataBaseUtility {
         }
         db.close();
     }
+    /******************************
+     * Getting  Contact from DB
+     * Getting All Mobile no where baseID=1 that means Air HQ
+     ******************************/
+    public void getNevAidDataByType(Context context,String typeID) {
+        AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
+        SQLiteDatabase db = databaseOpenHelper.openDatabase();
+        Log.w(TAG, "get Nav Aid Data: " + db.getVersion());
+
+        Cursor cursor = db.rawQuery(
+                "SELECT * from nav_aid where type_code='" +
+                        typeID +
+                        "';",
+                null);
+        // Log.i(TAG, "Database Query Are :" + cursor);
+        NavaidVector navaidVector = new NavaidVector();
+        navaidVector.removeAllNavaidlist();
+        if (cursor.moveToFirst()) {
+            do {
+
+                NavAidModel navAidModel = new NavAidModel();
+                navAidModel.setType(cursor.getString(0));
+                navAidModel.setIdent(cursor.getString(1));
+                navAidModel.setFreq(cursor.getString(2));
+                navAidModel.setOp_hrs(cursor.getString(3));
+                navAidModel.setLongitude(cursor.getString(4));
+                navAidModel.setLatitude(cursor.getString(5));
+                navAidModel.setRemarks(cursor.getString(6));
+                navAidModel.setAirport(cursor.getString(7));
+                navAidModel.setType_code(cursor.getString(8));
+
+                navaidVector.setAllNavaidlist(navAidModel);
+                navAidModel = null;
+                Log.w(TAG, "Nav Aid Data : " + cursor.getString(0));
+                Timber.tag("asdsadsad").e(cursor.getString(2));
+
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
 
     /***********************************
      * Getting List of course from DB

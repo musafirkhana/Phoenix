@@ -82,7 +82,7 @@ public class MaplistviewActivity extends Activity {
         tf = Typeface.createFromAsset(mContext.getAssets(),
                 "fonts/megatron.ttf");
         dataBaseUtility.getCoordinateData(this);
-        dataBaseUtility.getNevAidData(this);
+
         initUI();
         autocompletePlaces();
         changeFont();
