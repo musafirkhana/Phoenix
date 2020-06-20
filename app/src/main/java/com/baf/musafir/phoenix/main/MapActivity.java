@@ -96,6 +96,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     List<Marker> dvorMarker = new ArrayList<>();
     List<Marker> dmeMarker = new ArrayList<>();
     List<Marker> ndbMarker = new ArrayList<>();
+    List<Marker> ilsMarker = new ArrayList<>();
+    List<Marker> mmMarker = new ArrayList<>();
+    List<Marker> vorMarker = new ArrayList<>();
+    List<Marker> olMarker = new ArrayList<>();
+    List<Marker> omMarker = new ArrayList<>();
 
 
     private ToastUtil toastUtil;
@@ -106,6 +111,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private CheckBox chk_live;
     private CheckBox chk_dme;
     private CheckBox chk_ndb;
+    private CheckBox chk_ilss;
+    private CheckBox chk_mm;
+    private CheckBox chk_vor;
+    private CheckBox chk_ol;
+    private CheckBox chk_om;
 
     private ImageView navaid_menu;
     private LinearLayout li_nav_bar;
@@ -190,15 +200,24 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         chk_dvor=(CheckBox)findViewById(R.id.chk_dvor);
         chk_dme=(CheckBox)findViewById(R.id.chk_dme);
         chk_ndb=(CheckBox)findViewById(R.id.chk_ndb);
+        chk_ilss=(CheckBox)findViewById(R.id.chk_ilss);
+        chk_mm=(CheckBox)findViewById(R.id.chk_mm);
+        chk_vor=(CheckBox) findViewById(R.id.chk_vor);
+        chk_ol=(CheckBox)findViewById(R.id.chk_ol);
+        chk_om=(CheckBox)findViewById(R.id.chk_om);
 
         chk_live.setOnClickListener(this);
         navaid_menu.setOnClickListener(this);
         chk_dvor.setOnClickListener(this);
         chk_dme.setOnClickListener(this);
-
+        chk_mm.setOnClickListener(this);
         chk_dvor.setOnClickListener(this);
         chk_all.setOnClickListener(this);
         chk_ndb.setOnClickListener(this);
+        chk_ilss.setOnClickListener(this);
+        chk_vor.setOnClickListener(this);
+        chk_ol.setOnClickListener(this);
+        chk_om.setOnClickListener(this);
 
 
     }
@@ -247,6 +266,46 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 }
                 break;
 
+            case R.id.chk_ilss:
+                dataBaseUtility.getNevAidDataByType(this,"4");
+                if (chk_ilss.isChecked()) {
+                    drawilsMarker();
+                } else {
+                    hideilsMarker();
+                }
+                break;
+            case R.id.chk_mm:
+                dataBaseUtility.getNevAidDataByType(this,"6");
+                if (chk_mm.isChecked()) {
+                    drawmmMarker();
+                } else {
+                    hidemmMarker();
+                }
+                break;
+            case R.id.chk_vor:
+                dataBaseUtility.getNevAidDataByType(this,"9");
+                if (chk_vor.isChecked()) {
+                    draVorMarker();
+                } else {
+                    hideVorMarker();
+                }
+                break;
+            case R.id.chk_ol:
+                dataBaseUtility.getNevAidDataByType(this,"8");
+                if (chk_ol.isChecked()) {
+                    drawOlMarker();
+                } else {
+                    hideOlMarker();
+                }
+                break;
+            case R.id.chk_om:
+                dataBaseUtility.getNevAidDataByType(this,"7");
+                if (chk_om.isChecked()) {
+                    drawOmMarker();
+                } else {
+                    hideOMMarker();
+                }
+                break;
 
             case R.id.navaid_menu:
                 if (li_nav_bar.getVisibility() == View.VISIBLE)
@@ -340,13 +399,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
-                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                    .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
                             .fromResource(R.drawable.dvor)));
-            CameraPosition cameraPosition = new CameraPosition.Builder()
+            /*CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
-                    .newCameraPosition(cameraPosition));
+                    .newCameraPosition(cameraPosition));*/
             dvorMarker.add(marker);
+            marker.showInfoWindow();
 
         }
     }
@@ -359,12 +419,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
-                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                    .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
                             .fromResource(R.drawable.dme)));
-            CameraPosition cameraPosition = new CameraPosition.Builder()
+        /*    CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
-                    .newCameraPosition(cameraPosition));
+                    .newCameraPosition(cameraPosition));*/
             dmeMarker.add(marker);
 
         }
@@ -378,17 +438,117 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
-                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                    .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
                             .fromResource(R.drawable.ndb)));
-            CameraPosition cameraPosition = new CameraPosition.Builder()
+            /*CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
-                    .newCameraPosition(cameraPosition));
+                    .newCameraPosition(cameraPosition));*/
             ndbMarker.add(marker);
 
         }
     }
+    private void drawilsMarker() {
+        ilsMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.ils_llz)));
 
+//            CameraPosition cameraPosition = new CameraPosition.Builder()
+//                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+//            mMap.animateCamera(CameraUpdateFactory
+//                    .newCameraPosition(cameraPosition));
+            ilsMarker.add(marker);
+
+            marker.showInfoWindow();
+
+        }/**/
+    }
+    private void drawmmMarker() {
+        mmMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.mm)));
+          /*  CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));*/
+            mmMarker.add(marker);
+            marker.showInfoWindow();
+
+        }
+    }
+    private void draVorMarker() {
+        vorMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.ils_gp)));
+          /*  CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));*/
+            vorMarker.add(marker);
+            marker.showInfoWindow();
+
+        }
+    }
+    private void drawOlMarker() {
+        olMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.ol)));
+            /*CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));*/
+            olMarker.add(marker);
+            marker.showInfoWindow();
+
+        }
+    }
+    private void drawOmMarker() {
+        omMarker.clear();
+        // Adding marker on the Google Map
+        for(int i = 0; i< NavaidVector.getAllNavaidlist().size(); i++)  {
+            NavAidModel query = NavaidVector.getAllNavaidlist().elementAt(i);
+            double lat_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLatitude()));
+            double long_nav=Double.parseDouble(CoordinateConvert.dmdtoLatlong(query.getLongitude()));
+            Marker marker = mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(long_nav,lat_nav))
+                    .title(query.getFreq()).icon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.om)));
+           /* CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
+            mMap.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(cameraPosition));*/
+            omMarker.add(marker);
+
+        }
+    }
     public void hideAllMarker(){
         for (Marker marker : allMarkerOptions){
             marker.remove();
@@ -415,7 +575,31 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             marker.remove();
         }
     }
-
+    public void hideilsMarker(){
+        for (Marker marker : ilsMarker){
+            marker.remove();
+        }
+    }
+    public void hidemmMarker(){
+        for (Marker marker : mmMarker){
+            marker.remove();
+        }
+    }
+    public void hideVorMarker(){
+        for (Marker marker : vorMarker){
+            marker.remove();
+        }
+    }
+    public void hideOlMarker(){
+        for (Marker marker : olMarker){
+            marker.remove();
+        }
+    }
+    public void hideOMMarker(){
+        for (Marker marker : omMarker){
+            marker.remove();
+        }
+    }
 
 
 
