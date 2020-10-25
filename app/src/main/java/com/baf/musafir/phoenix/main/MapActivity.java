@@ -400,7 +400,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.dvor)));
+                            .fromResource(R.drawable.location)));
             /*CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
@@ -420,7 +420,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.dme)));
+                            .fromResource(R.drawable.location)));
         /*    CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
@@ -439,7 +439,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ndb)));
+                            .fromResource(R.drawable.location)));
             /*CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
@@ -458,7 +458,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ils_llz)));
+                            .fromResource(R.drawable.location)));
 
 //            CameraPosition cameraPosition = new CameraPosition.Builder()
 //                    .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
@@ -480,7 +480,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.mm)));
+                            .fromResource(R.drawable.location)));
           /*  CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
@@ -500,7 +500,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).snippet(query.getAirport()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ils_gp)));
+                            .fromResource(R.drawable.location)));
           /*  CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
@@ -520,7 +520,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ol)));
+                            .fromResource(R.drawable.location)));
             /*CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
@@ -540,7 +540,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(long_nav,lat_nav))
                     .title(query.getFreq()).icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.om)));
+                            .fromResource(R.drawable.location)));
            /* CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(cameraZoomLat,cameraZoomLong)).zoom(12).build();
             mMap.animateCamera(CameraUpdateFactory
