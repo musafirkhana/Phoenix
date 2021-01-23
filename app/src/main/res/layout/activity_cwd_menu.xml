@@ -20,10 +20,10 @@
             android:layout_alignParentLeft="true">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/back_selector">
+                android:src="@drawable/ic_arrow_left">
 
             </ImageView>
 
@@ -91,7 +91,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_alignParentLeft="true"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/logo" />
 
                         <TextView
                             android:id="@+id/cktv_0"
@@ -133,7 +133,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_alignParentLeft="true"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/logo" />
 
                         <TextView
                             android:id="@+id/cktv_1"
@@ -176,7 +176,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_alignParentLeft="true"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/logo" />
 
                         <TextView android:id="@+id/cktv_2"
                             android:layout_width="fill_parent"

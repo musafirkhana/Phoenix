@@ -12,12 +12,12 @@
         android:background="@color/black">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/back_selector"
+            android:background="@drawable/ic_arrow_left"
             android:clickable="true"
             android:onClick="BACK" />
 

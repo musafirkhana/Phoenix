@@ -1,9 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: com.ss.bannerslider:bannerslider:2.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3869b1183f2d08ad524ad31a0338e14c/bannerslider-2.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3869b1183f2d08ad524ad31a0338e14c/bannerslider-2.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3869b1183f2d08ad524ad31a0338e14c/bannerslider-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0f0ff18978ba599b476130c286e320b8/jetified-bannerslider-2.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0f0ff18978ba599b476130c286e320b8/jetified-bannerslider-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0f0ff18978ba599b476130c286e320b8/jetified-bannerslider-2.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/085d6d8ca00e9b026239dbcc11602bc2/jetified-bannerslider-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/085d6d8ca00e9b026239dbcc11602bc2/jetified-bannerslider-2.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/085d6d8ca00e9b026239dbcc11602bc2/jetified-bannerslider-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fdd777aa3ded066e20461d53ff2224f0/jetified-bannerslider-2.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fdd777aa3ded066e20461d53ff2224f0/jetified-bannerslider-2.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fdd777aa3ded066e20461d53ff2224f0/jetified-bannerslider-2.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ss.bannerslider/bannerslider/2.0.0/244d083033b0ba4674ef6b1c982d4b918dc4c034/bannerslider-2.0.0-javadoc.jar!/" />

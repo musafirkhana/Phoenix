@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.baf.musafir.phoenix.R;
 import com.baf.musafir.phoenix.databse.AssetDatabaseOpenHelper;
 import com.baf.musafir.phoenix.util.AppConstant;
+import com.baf.musafir.phoenix.util.JustifiedTextView;
 import com.baf.musafir.phoenix.util.ToastUtil;
 
 import org.w3c.dom.Text;
@@ -38,7 +40,7 @@ public class CwdWebviewActivity extends Activity implements View.OnClickListener
     String indicate_state = "";
 
     private TextView header;
-    private TextView txt_indicatestate;
+    private JustifiedTextView txt_indicatestate;
     private WebView webView;
     private Button btn_procedure;
     ProgressDialog dialog;
@@ -63,12 +65,15 @@ public class CwdWebviewActivity extends Activity implements View.OnClickListener
         procedure = getIntent().getStringExtra("procedure");
         indicate_state= getIntent().getStringExtra("indicate_state");
         header = (TextView) findViewById(R.id.header);
-        txt_indicatestate=(TextView)findViewById(R.id.txt_indicatestate);
+        txt_indicatestate=(JustifiedTextView)findViewById(R.id.txt_indicatestate);
+        txt_indicatestate.setAlignment(Paint.Align.LEFT);
+        txt_indicatestate.setTextSize(0,45);
         txt_indicatestate.setText(indicate_state);
         btn_procedure = (Button) findViewById(R.id.btn_procedure);
+        if(procedure.equalsIgnoreCase("")){
+            btn_procedure.setVisibility(View.GONE);
+        }
         btn_procedure.setOnClickListener(this);
-
-
         webView = (WebView) findViewById(R.id.cwd_webview);
 
 

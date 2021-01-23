@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_home">
+    <RelativeLayout
+        android:id="@+id/top_linear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+           >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:clickable="true"
+                android:onClick="BACK"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_arrow_left">
+
+            </ImageView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="CWD PANEL"
+            android:fontFamily="@font/my_custom_font"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_linear"
+        android:background="@color/background_home">
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10sp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_height="60dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC1"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="INVERTER I \n36 V AC "
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC2"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="INVERTER II\n 36 V AC "
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:onClick="ELEC3"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="LH DC \nGENERATOR"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_height="60dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC4"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="RH DC \nGENERATOR"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:onClick="ELEC5"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="LH AC \nGENERATOR"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC6"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="RH AC \nGENERATOR"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_height="60dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC7"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="MANUAL\n STEERING"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:onClick="ELEC8"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="FLAPS 18°"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC9"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="ICING"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_height="60dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC10"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="EXT. POWER\n SUPPLY"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/red"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:onClick="ELEC11"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="PEDAL \nSTEERING"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/cwd_green"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:onClick="ELEC12"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="LH BRAKE\n RELEASED"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/cwd_green"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_height="60dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:onClick="ELEC13"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="RH BRAKE\n RELEASED"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/cwd_green"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+                android:onClick="ELEC14"
+                android:background="@drawable/rectangle_cwd_layout"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="BATTERY"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/amber"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -399,12 +399,14 @@ public class DataBaseUtility {
      * Getting List of CWD Data from DB
      * Only use for spinner
      ***********************************/
-    public void getCWDPanelData(Context context,String id) {
+    public void getCWDPanelData(Context context,String id,String tradeName) {
         AssetDatabaseOpenHelper databaseOpenHelper = new AssetDatabaseOpenHelper(context);
         SQLiteDatabase db = databaseOpenHelper.openDatabase();
         Cursor cursor = db.rawQuery(
                 "select * from cwd_pannel where id='" +
                         id +
+                        "' and panel_name='" +
+                        tradeName +
                         "'",
                 null);
         if (cursor.moveToFirst()) {
@@ -412,7 +414,7 @@ public class DataBaseUtility {
                 AppConstant.CWD_STATE=cursor.getString(1);
                 AppConstant.CWD_PROCEDURE=cursor.getString(2);
 
-                Log.w(TAG, "getMissionProfile: " + cursor.getString(0));
+                Log.w(TAG, "getMissionProfile: " + cursor.getString(1));
             } while (cursor.moveToNext());
         }
         db.close();

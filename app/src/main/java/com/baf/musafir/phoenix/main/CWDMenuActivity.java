@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.content.FileProvider;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -47,13 +46,13 @@ public class CWDMenuActivity extends Activity {
         startActivity(intent);
     }
     public void CK1(View v) {
-        Intent intent = new Intent(this, CwdEngineActivity.class);
+        Intent intent = new Intent(this, CwdAirframeActivity.class);
         startActivity(intent);
     }
 
     public void CK2(View v) {
 
-        Intent intent = new Intent(this, CwdEngineActivity.class);
+        Intent intent = new Intent(this, CwdElectroActivity.class);
         startActivity(intent);
     }
 

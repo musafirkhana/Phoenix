@@ -43,7 +43,7 @@ public class CwdEngineActivity extends Activity {
 
     }
     public void ENG1(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"001");
+        dataBaseUtility.getCWDPanelData(mContext,"001","eng");
 
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
@@ -51,7 +51,7 @@ public class CwdEngineActivity extends Activity {
         startActivity(intent);
     }
     public void ENG2(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"002");
+        dataBaseUtility.getCWDPanelData(mContext,"002","eng");
 
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
@@ -59,7 +59,7 @@ public class CwdEngineActivity extends Activity {
         startActivity(intent);
     }
     public void ENG3(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"003");
+        dataBaseUtility.getCWDPanelData(mContext,"003","eng");
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
         intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
@@ -67,7 +67,7 @@ public class CwdEngineActivity extends Activity {
     }
 
     public void ENG4(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"004");
+        dataBaseUtility.getCWDPanelData(mContext,"004","eng");
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
         intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
@@ -75,7 +75,7 @@ public class CwdEngineActivity extends Activity {
     }
 
     public void ENG5(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"005");
+        dataBaseUtility.getCWDPanelData(mContext,"005","eng");
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
         intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
@@ -83,7 +83,77 @@ public class CwdEngineActivity extends Activity {
     }
 
     public void ENG6(View v) {
-        dataBaseUtility.getCWDPanelData(mContext,"006");
+        dataBaseUtility.getCWDPanelData(mContext,"006","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG7(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"007","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG8(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"008","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG9(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"009","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG10(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"010","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG11(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"011","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG12(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"012","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG13(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"013","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG14(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"014","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG15(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"015","eng");
+        Intent intent = new Intent(this, CwdWebviewActivity.class);
+        intent.putExtra("indicate_state", AppConstant.CWD_STATE);
+        intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);
+        startActivity(intent);
+    }
+    public void ENG16(View v) {
+        dataBaseUtility.getCWDPanelData(mContext,"016","eng");
         Intent intent = new Intent(this, CwdWebviewActivity.class);
         intent.putExtra("indicate_state", AppConstant.CWD_STATE);
         intent.putExtra("procedure",AppConstant.CWD_PROCEDURE);

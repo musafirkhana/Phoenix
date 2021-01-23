@@ -17,10 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,6 +50,7 @@ import com.baf.musafir.phoenix.util.ToastUtil;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -81,7 +79,7 @@ import static android.Manifest.permission.CALL_PHONE;
 import static android.Manifest.permission.INTERNET;
 import static android.Manifest.permission_group.CAMERA;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback , View.OnClickListener {
+public class MapActivity extends Activity implements OnMapReadyCallback , View.OnClickListener {
 
     private GoogleMap mMap;
     private Context mContext;
@@ -137,8 +135,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.map);
+       MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         mapFragment.getMapAsync(this);
       myList = (ArrayList<String>) getIntent().getSerializableExtra("mylist");
       Log.i("List Value",""+myList.get(0));
@@ -335,8 +336,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         PolygonOptions polygonOptions=new PolygonOptions();
         polygonOptions.addAll(coordinates);
-        polygonOptions.strokeColor(ContextCompat.getColor(this,android.R.color.holo_orange_dark));
-        polygonOptions.fillColor(ContextCompat.getColor(this,android.R.color.transparent));
+//        polygonOptions.strokeColor(ContextCompat.getColor(this,android.R.color.holo_orange_dark));
+//        polygonOptions.fillColor(ContextCompat.getColor(this,android.R.color.transparent));
         mMap.addPolygon(polygonOptions);
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         CameraPosition cameraPosition = new CameraPosition.Builder()

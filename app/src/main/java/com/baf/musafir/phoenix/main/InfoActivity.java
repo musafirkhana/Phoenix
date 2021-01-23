@@ -24,7 +24,6 @@ public class InfoActivity extends Activity {
     private TextView concept_txt;
     private TextView design_head;
     private TextView design_txt;
-    private TextView design_txt2;
     private TextView terms_txt;
     private TextView terms_head;
     private TextView about_head;
@@ -63,7 +62,6 @@ public class InfoActivity extends Activity {
         concept_txt = (TextView) findViewById(R.id.concept_txt);
         design_head = (TextView) findViewById(R.id.design_head);
         design_txt = (TextView) findViewById(R.id.design_txt);
-        design_txt2=(TextView)findViewById(R.id.design_txt2);
         terms_txt = (TextView) findViewById(R.id.terms_txt);
         terms_head = (TextView) findViewById(R.id.terms_head);
         about_head = (TextView) findViewById(R.id.about_head);
@@ -84,7 +82,6 @@ public class InfoActivity extends Activity {
         terms_head.setTypeface(tf);
         about_head.setTypeface(tf);
         about_txt.setTypeface(tf);
-        design_txt2.setTypeface(tf);
 
 
     }

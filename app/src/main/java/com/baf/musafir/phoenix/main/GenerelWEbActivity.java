@@ -17,7 +17,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -443,7 +442,7 @@ public class GenerelWEbActivity extends Activity {
             String pdfFilename = filePDD.getAbsolutePath();
             Intent intentShareFile = new Intent(Intent.ACTION_VIEW);
             File fileWithinMyDir = new File(pdfFilename);
-            if (fileWithinMyDir.exists()) {
+            /*if (fileWithinMyDir.exists()) {
                 Uri imageUri = FileProvider.getUriForFile(
                         mContex,
                         "com.baf.musafir.phoenix.provider", new File(pdfFilename));
@@ -453,7 +452,7 @@ public class GenerelWEbActivity extends Activity {
                 intentShareFile.setDataAndType(imageUri, "application/pdf");
                 startActivity(intentShareFile);
 
-            }
+            }*/
 
         } catch (Exception ex) {
             ex.toString();
